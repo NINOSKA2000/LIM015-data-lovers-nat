@@ -2,20 +2,60 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+html {
+    width: 100%;
+    min-height: 100vh;
+}
+body {
     font-family: arial, helvetica;
 }
-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 10px 0px;
+.nav {
     background-color: #00283A;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
+.logo img {
+    height: 15vh;
+    width: 20vw;
+    padding: 4px;
+}
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin-right: 30px;
+}
+.nav-menu li {
+    margin: 0 5px;
+}
+.nav-menu li a {
+    padding: 7px 13px;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    color: white;
+}
+.nav-menu li:hover {
+    background-color: rgba(0, 0, 0, .3);
+    transition: .4s;
+}
+.btn-menu {
+    margin-right: 30px;
+    font-size: 75px;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+ul.show {
+    top: 65px;
+}
 input[type=search] {
-    position: relative;
     border: 1px solid gray;
-    border-radius: 12px;
-    width: 30%;
+    border-radius: 8px;
+    width: 37%;
     padding: 10px;
     font-size: 1rem;
     cursor: pointer;
@@ -23,21 +63,7 @@ input[type=search] {
 .search  {
     display: flex;
     justify-content: center;
-    padding-top: 20px;
-}
-header ol {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-ol {
-    list-style: none;
-}
-header a {
-    font-size: 23px;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    padding: 0 10px;
+    padding-top: 3%;
 }
 
 .detallePelicula{
@@ -189,24 +215,7 @@ section button i {
     padding: 12px;
     margin-top: 12px;
 }
-/*.home-main {
-    background-image: url(./img/studio_ghibli.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-.home-main::before {
-    content: "";
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-    position: absolute;
-    opacity: 0.5;
-}*/
 .list-title p {
-    position: relative;
     color: black;
     text-align: center;
     font-size: 2rem;
@@ -214,12 +223,13 @@ section button i {
     padding: 10px 0px;
 }
 .filter form {
-    position: relative;
     display: flex;
     justify-content: center;
 }
-#list20, #list-order {
-    width: 16%;
+#best-films-list, #list-order {
+    width: 17%;
+    border: 1px solid gray;
+    border-radius: 8px;
     padding: 10px;
     margin: 8px 15px;
     cursor: pointer;
@@ -231,6 +241,7 @@ option {
 #container-animes {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 20px;
 }
 #image-poster {
     width: 15vw;
@@ -266,3 +277,21 @@ footer {
     font-weight: bold;
 }
 
+@media (max-width: 767px) {
+    .logo img {
+        width: 160px;
+        height: 60px;
+    }
+    .nav {
+        height: 90px;
+    }
+    .btn-menu {
+        display: inline-flex;
+    }
+    .nav-menu {
+        position: fixed;
+        width: 100vw;
+        text-align: center;
+        flex-direction: column;
+    }
+}

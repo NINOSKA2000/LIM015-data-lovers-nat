@@ -3,59 +3,49 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Lovers</title>
+    <title>Data Lovers HOLA GINA SOY NATALIA</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/2d09545b84.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header class="header">
-      <figure>
-        <img src="./img/studio_ghibli_logo.png" height="100" alt="">
-      </figure>
-      <nav class="menu">
-        <ol>
-          <li>
-            <a class="pelis" href="#">Collection</a>
+      <nav class="nav">
+        <figure class="logo">
+            <img src="./img/studio_ghibli_logo.png" alt="">
+        </figure>
+        <ul class="nav-menu">
+          <li class="active">
+            <a href="#list">Collection </a>
           </li>
           <li>
-            <a  href="#">Characters</a>
+            <a href="#">Characters</a>
           </li>
           <li>
             <a href="#">Locations</a>
           </li>
-        </ol>
+        </ul>
+        <span class="btn-menu">
+          <i class="fas fa-bars"></i>
+        </span>
       </nav>
     </header>
     <main class="home-main">
       <div class="search">
         <input type="search" name="search" placeholder="Search movie titles">
       </div>
-      <div class="list-title">
+      <div class="list-title" id="list">
         <p>List studio Ghibli</p>
       </div>
       <div class="filter">
         <form action="">
-          <select name="" id="list20" class="list20">
-            <option value="0">--Filter by title--</option>
-            <option value="1">Castle in the sky</option>
-            <option value="2">My neighbor totoro</option>
-            <option value="3">Kiki´s delivery service</option>
-            <option value="4">Grave of the fireflies</option>
-            <option value="5">Only yesterday</option>
-            <option value="6">Porco rosso</option>
-            <option value="7">Pom poko</option>
-            <option value="8">Whisper of the heart</option>
-            <option value="9">Princess Mononoke</option>
-            <option value="10">My neighbors the yamadas</option>
-            <option value="11">Spirited away</option>
-            <option value="12">The cat returns</option>
-            <option value="13">Howl´s moving castle</option>
-            <option value="14">Ovarlden</option>
-            <option value="15">Ponyo on the cliff by the sea</option>
-            <option value="16">The borrower arriatty</option>
-            <option value="17">From up on pop py hill</option>
-            <option value="18">The wind rises</option>
-            <option value="19">The tale of the princess kaguya</option>
-            <option value="20">When marnie was there</option>
+          <select name="" id="best-films-list" class="best-films-list">
+            <option value="Filter by director">--Filter by director--</option>
+            <option value="Hayao Miyazaki" id="direct1">Hayao Miyazaki</option>
+            <option value="Isao Takahata">Isao Takahata </option>
+            <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
+            <option value="Hiroyuki Morita">Hiroyuki Morita </option>
+            <option value="Gorō Miyazaki">Gorō Miyazaki </option>
+            <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
           </select>
           <select name="" id="list-order" class="list-order">
             <option value="0">--Order by years--</option>
