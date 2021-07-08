@@ -27,13 +27,13 @@ function datos(dato) {
 let valorSeleccionado = document.getElementById("best-films-list");
 valorSeleccionado.addEventListener("change", seleccionado);
 function seleccionado() {
+    containerAnimes.style.display="none";
     let valor = valorSeleccionado.value;
     //console.log (valor);
     const dire = data.films.filter((item) => item.director.includes(valor));
     //console.log(dire);
     let contenedorFiltrado = document.getElementById("root");
     dire.forEach(gina);
-
     function gina(dato) {
         const cardAnime = document.createElement("div");
         cardAnime.className = "animeFiltrado";
