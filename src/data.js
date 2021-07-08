@@ -3,6 +3,7 @@ import data from './data/ghibli/ghibli.js';
 
 const containerAnimes = document.getElementById('container-animes');
 
+
 export const mostrarPelicula= data.films.forEach(datos);
 
 
@@ -26,30 +27,18 @@ const cardAnime = document.createElement('div')
 
 //tomamos valor del id de directores
 
-let valorSeleccionado = document.getElementById("best-films-list");
 
+let valorSeleccionado = document.getElementById("best-films-list");
 valorSeleccionado.addEventListener("change", seleccionado);
 
-
 function seleccionado() {
-
- let valor=document.getElementById("best-films-list");
-  let lenguaje= valor.value;
-  return lenguaje;
-
   
-
-}
-console.log(valorSeleccionado);
-
-
-
-let  directores = document.getElementById("direct1");
-//filtrado de peliculas 
-const dire= data.films.filter(item =>item.director.includes(directores.value));
-console.log(dire);
-
+   let valor=valorSeleccionado.value;
+   //console.log (valor);
+   const dire= data.films.filter(item =>item.director.includes(valor));
+//console.log(dire);
 let  contenedorFiltrado = document.getElementById("root");
+
 dire.forEach(gina);
 
 function gina(dato) {
@@ -66,7 +55,17 @@ function gina(dato) {
  </div>`
  contenedorFiltrado.appendChild(cardAnime);
     
-}
+}}
+
+
+//let  directores = document.getElementById("direct1");
+
+
+
+//filtrado de peliculas 
+
+
+
 
   
 
