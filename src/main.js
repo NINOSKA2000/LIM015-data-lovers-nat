@@ -22,7 +22,6 @@ function datos(dato) {
     <br>
     </div>`
     containerAnimes.appendChild(cardAnime);
-    
 }
 
 
