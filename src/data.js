@@ -27,10 +27,10 @@ function datos(dato) {
 let valorSeleccionado = document.getElementById("best-films-list");
 valorSeleccionado.addEventListener("change", seleccionado);
 function seleccionado() {
-    containerAnimes.style.display="none";
+    containerAnimes.style.display="none";  //oculta el cuadro de animes totales
     let valor = valorSeleccionado.value;
     //console.log (valor);
-    const dire = data.films.filter((item) => item.director.includes(valor));
+    const dire = data.films.filter((item) => item.director.includes(valor)); //filtra las peliculas que incluyes el director seleccioando
     //console.log(dire);
     let contenedorFiltrado = document.getElementById("root");
     dire.forEach(gina);
