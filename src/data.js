@@ -6,7 +6,6 @@ import data from "./data/ghibli/ghibli.js";
 const containerAnimes = document.getElementById("container-animes");
 export const mostrarPelicula = data.films.forEach(datos);
 
-
 function datos(dato) {
     const cardAnime = document.createElement("div");
     cardAnime.className = "container-card-anime";
@@ -27,7 +26,6 @@ function datos(dato) {
 
 let valorSeleccionado = document.getElementById("best-films-list");
 valorSeleccionado.addEventListener("change", seleccionado);
-
 function seleccionado() {
     let valor = valorSeleccionado.value;
     //console.log (valor);
@@ -51,4 +49,3 @@ function seleccionado() {
         contenedorFiltrado.appendChild(cardAnime);
     }
 }
-
