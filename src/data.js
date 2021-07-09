@@ -51,7 +51,6 @@ function seleccionado() {
     }
 }
 
-<<<<<<< HEAD
 //buscador de peliculas 
 let buscar = document.querySelector("search");
 console.log(buscar);
@@ -61,7 +60,6 @@ buscar.addEventListener("click", buscador);
 function buscador (){
     console.log(buscar.value);
 };
-=======
 // Filtrado por año ascendente
 let botonSeleccionado = document.getElementById("list-order");
 botonSeleccionado.addEventListener("change", orden);
@@ -87,4 +85,3 @@ function orden() {
         contenedorFiltradoAño.appendChild(cardAnime);
     }
 }
->>>>>>> 5c188dbc1995c73705c9287027b708cb1c24d023
