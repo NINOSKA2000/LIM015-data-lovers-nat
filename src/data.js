@@ -57,7 +57,7 @@ function orden() {
     //let opcion = botonSeleccionado.value;
     //console.log(opcion);
     const yearsPeli = data.films.sort((unNumero, otroNumero) => otroNumero.release_date - unNumero.release_date);
-    console.log(yearsPeli);
+    //console.log(yearsPeli);
     let contenedorFiltradoAño = document.getElementById("orden");
     yearsPeli.forEach(filtradoAño);
     function filtradoAño(dato) {
