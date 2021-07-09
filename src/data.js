@@ -32,9 +32,10 @@ function seleccionado() {
     //console.log (valor);
     const dire = data.films.filter((item) => item.director.includes(valor)); //filtra las peliculas que incluyes el director seleccioando
     //console.log(dire);
+
     let contenedorFiltrado = document.getElementById("root");
     dire.forEach(gina);
-    function gina(dato) {
+     function gina(dato) {
         const cardAnime = document.createElement("div");
         cardAnime.className = "animeFiltrado";
         cardAnime.innerHTML = `
@@ -49,3 +50,13 @@ function seleccionado() {
         contenedorFiltrado.appendChild(cardAnime);
     }
 }
+
+//buscador de peliculas 
+let buscar = document.querySelector("search");
+console.log(buscar);
+
+buscar.addEventListener("click", buscador); 
+
+function buscador (){
+    console.log(buscar.value);
+};
