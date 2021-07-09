@@ -1,7 +1,7 @@
 import data from "./data/ghibli/ghibli.js";
 
 
-//mostrar la lista de peliculas en la pantalla principal 
+//mostrar la lista de peliculas en la pantalla principal
 
 const containerAnimes = document.getElementById("container-animes");
 export const mostrarPelicula = data.films.forEach(datos);
@@ -47,5 +47,31 @@ function seleccionado() {
         <br>
         </div>`;
         contenedorFiltrado.appendChild(cardAnime);
+    }
+}
+
+// Filtrado por año ascendente
+let botonSeleccionado = document.getElementById("list-order");
+botonSeleccionado.addEventListener("change", orden);
+function orden() {
+    //let opcion = botonSeleccionado.value;
+    //console.log(opcion);
+    const yearsPeli = data.films.sort((unNumero, otroNumero) => otroNumero.release_date - unNumero.release_date);
+    console.log(yearsPeli);
+    let contenedorFiltradoAño = document.getElementById("orden");
+    yearsPeli.forEach(filtradoAño);
+    function filtradoAño(dato) {
+        const cardAnime = document.createElement("div");
+        cardAnime.className = "animeFiltrado";
+        cardAnime.innerHTML = `
+        <div>
+        <img src= '${dato.poster}' id="image-poster"></img>
+        <p id="title"> ${dato.title}
+        <a href="title.html"> ${dato.title}</a>
+        </p>
+        <p id="release"> ${"(" + dato.release_date + ")"} </p>
+        <br>
+        </div>`;
+        contenedorFiltradoAño.appendChild(cardAnime);
     }
 }
