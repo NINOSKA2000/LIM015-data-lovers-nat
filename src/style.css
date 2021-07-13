@@ -74,12 +74,19 @@ input[type="text"]:focus {
     font-weight: bold;
     font-size: 1rem;
     color: white;
+    cursor: pointer;
 
 }
 .search  {
     display: flex;
     justify-content: center;
     padding-top: 3%;
+}
+.mensaje-error {
+    display: none;
+}
+.mensaje-correcto {
+    display: block;
 }
 
 .detallePelicula{

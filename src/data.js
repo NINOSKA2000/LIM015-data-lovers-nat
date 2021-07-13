@@ -24,7 +24,6 @@ function mostrarFilms(dato) {
     containerAnimes.appendChild(cardAnime);
 }
 
-
 //limpieza de pantallas
 function limpieza () {
     containerAnimes.innerHTML="";
@@ -64,18 +63,25 @@ function orden() {
 
 const input = document.querySelector("#search");
 const boton = document.querySelector("#btn");
+const mensaje = document.querySelector("#mensaje-error");
+
+input.addEventListener("keyup", () => {
+    mensaje.classList.remove("mensaje-correcto");
+    mensaje.classList.add("mensaje-error");
+})
 
 const buscador = () => {
     const texto = input.value.toLowerCase();
-    console.log(texto);
+    if(texto === "") {
+        mensaje.classList.add("mensaje-correcto");
+        //alert("completa el buscador");
+        //console.log(texto);
+    }
     let nombreTitle = data.films.filter((nombre) => nombre.title.toLowerCase().indexOf(texto) !== -1);
     if(nombreTitle.length > 0) {
         limpieza();
         nombreTitle.forEach(mostrarFilms);
         //console.log(nombreTitle);
-    }
-    else if(texto === "") {
-        console.log("completa el buscador");
     }
     else {
         limpieza();
