@@ -16,7 +16,7 @@ function mostrarFilms(dato) {
     <div>
     <img src= '${dato.poster}' id="image-poster"></img>
     <p id="title"> ${dato.title}
-    <a href="title.html"> ${dato.title}</a>
+    <a href="title.html" class="title"> ${dato.title}</a>
     </p>
     <p id="release"> ${"(" + dato.release_date + ")"} </p>
     <br>
@@ -33,9 +33,12 @@ function limpieza () {
 
 //filtrado de peliculas por directores
 valorSeleccionado.addEventListener("change", seleccionado);
+
 function seleccionado() {
-    limpieza ();
+
+        limpieza ();
      //containerAnimes.style.display="none";  //oculta el cuadro de animes totales
+
     let valor = valorSeleccionado.value;
      //console.log (valor);
     const dire = data.films.filter((item) => item.director==valor); //filtra las peliculas que incluyes el director seleccioando
@@ -93,3 +96,4 @@ const buscador = () => {
     }
 }
 boton.addEventListener('click', buscador);
+

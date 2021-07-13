@@ -307,3 +307,37 @@ footer {
     font-size: 16px;
     font-weight: bold;
 }
+<<<<<<< HEAD
+
+.filter {
+    display:none;
+    /*visibility:hidden;
+    opacity:0;
+    order:1; */
+    }
+
+
+
+
+
+
+@media (max-width: 767px) {
+    .logo img {
+        width: 160px;
+        height: 60px;
+    }
+    .nav {
+        height: 90px;
+    }
+    .btn-menu {
+        display: inline-flex;
+    }
+    .nav-menu {
+        position: fixed;
+        width: 100vw;
+        text-align: center;
+        flex-direction: column;
+    }
+}
+=======
+>>>>>>> 112acf8db73b798648733a496f865f3476a7ab93
