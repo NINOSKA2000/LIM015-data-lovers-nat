@@ -279,6 +279,18 @@ footer {
     font-weight: bold;
 }
 
+.filter {
+    display:none;
+    /*visibility:hidden;
+    opacity:0;
+    order:1; */
+    }
+
+
+
+
+
+
 @media (max-width: 767px) {
     .logo img {
         width: 160px;

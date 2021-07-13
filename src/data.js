@@ -16,7 +16,7 @@ function mostrarFilms(dato) {
     <div>
     <img src= '${dato.poster}' id="image-poster"></img>
     <p id="title"> ${dato.title}
-    <a href="title.html"> ${dato.title}</a>
+    <a href="title.html" class="title"> ${dato.title}</a>
     </p>
     <p id="release"> ${"(" + dato.release_date + ")"} </p>
     <br>
@@ -27,16 +27,15 @@ function mostrarFilms(dato) {
 
 //limpieza de pantallas 
 function limpieza () { 
-   containerAnimes.innerHTML="";
-   contenedorFiltrado.innerHTML=""
+    containerAnimes.innerHTML="";
+    contenedorFiltrado.innerHTML=""
 } 
-
 
 //filtrado de peliculas por directores 
 valorSeleccionado.addEventListener("change", seleccionado);
+
 function seleccionado() {
-     limpieza ();
-     //containerAnimes.style.display="none";  //oculta el cuadro de animes totales
+    limpieza (); 
     let valor = valorSeleccionado.value;
     //console.log (valor);
     const dire = data.films.filter((item) => item.director==valor); //filtra las peliculas que incluyes el director seleccioando
@@ -57,16 +56,10 @@ function orden() {
     else if (opcion=="upward") { 
     const yearsPeli = data.films.sort((unNumero, otroNumero) => unNumero.release_date - otroNumero.release_date);
     yearsPeli.forEach(mostrarFilms);
+    
     }
 }
 
-//buscador de peliculas 
-//let buscar = document.querySelector("search");
-//console.log(buscar);
 
-//buscar.addEventListener("click", buscador); 
 
-//function buscador (){
-    //console.log(buscar.value);
-//};
-
+// buscador de titulos de peliculas.
