@@ -25,15 +25,6 @@ function mostrarFilms(dato) {
 }
 
 
-<<<<<<< HEAD
-//limpieza de pantallas 
-function limpieza () { 
-    containerAnimes.innerHTML="";
-    contenedorFiltrado.innerHTML=""
-} 
-
-//filtrado de peliculas por directores 
-=======
 //limpieza de pantallas
 function limpieza () {
     containerAnimes.innerHTML="";
@@ -42,16 +33,11 @@ function limpieza () {
 
 
 //filtrado de peliculas por directores
->>>>>>> 112acf8db73b798648733a496f865f3476a7ab93
 valorSeleccionado.addEventListener("change", seleccionado);
 
 function seleccionado() {
-<<<<<<< HEAD
-    limpieza (); 
-=======
     limpieza ();
      //containerAnimes.style.display="none";  //oculta el cuadro de animes totales
->>>>>>> 112acf8db73b798648733a496f865f3476a7ab93
     let valor = valorSeleccionado.value;
      //console.log (valor);
     const dire = data.films.filter((item) => item.director==valor); //filtra las peliculas que incluyes el director seleccioando
@@ -72,15 +58,6 @@ function orden() {
     else if (opcion=="upward") {
         const yearsPeli = data.films.sort((unNumero, otroNumero) => unNumero.release_date - otroNumero.release_date);
     yearsPeli.forEach(mostrarFilms);
-<<<<<<< HEAD
-    
-    }
-}
-
-
-
-// buscador de titulos de peliculas.
-=======
 }
 }
 
@@ -111,4 +88,3 @@ const buscador = () => {
     }
 }
 boton.addEventListener('click', buscador);
->>>>>>> 112acf8db73b798648733a496f865f3476a7ab93
