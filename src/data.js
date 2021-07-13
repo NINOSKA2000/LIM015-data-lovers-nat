@@ -13,15 +13,19 @@ function mostrarFilms(dato) {
     const cardAnime = document.createElement("div");
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
-    <div>
+    <div >
     <img src= '${dato.poster}' id="image-poster"></img>
     <p id="title"> ${dato.title}
-    <a href="title.html"> ${dato.title}</a>
+    <a href="title.html" class="title"> ${dato.title}</a>
     </p>
     <p id="release"> ${"(" + dato.release_date + ")"} </p>
     <br>
     </div>`;
     containerAnimes.appendChild(cardAnime);
+    
+    
+
+    
 }
 
 //limpieza de pantallas
@@ -33,6 +37,7 @@ function limpieza () {
 
 //filtrado de peliculas por directores
 valorSeleccionado.addEventListener("change", seleccionado);
+
 function seleccionado() {
     limpieza ();
      //containerAnimes.style.display="none";  //oculta el cuadro de animes totales
