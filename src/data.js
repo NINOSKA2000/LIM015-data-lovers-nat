@@ -60,7 +60,6 @@ function orden() {
 }
 
 //Buscador de peliculas
-
 const input = document.querySelector("#search");
 const boton = document.querySelector("#btn");
 const mensaje = document.querySelector("#mensaje-error");
