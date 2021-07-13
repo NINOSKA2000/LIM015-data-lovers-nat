@@ -36,6 +36,7 @@
       <div class="search">
         <input type="text" name="search" id="search" placeholder="Search movie titles">
         <button class="button"id="btn">Buscar</button>
+        <div id="mensaje-error" class="mensaje-error">Enter text in the movie search engine.</div>
       </div>
       <div class="list-title" id="list">
         <p>List studio Ghibli</p>
@@ -43,7 +44,7 @@
       <div class="filter">
         <form action="">
           <select name="" id="best-films-list" class="best-films-list" >
-            <option value="Filter by director">--Filter by director--</option>
+            <option disabled selected>--Filter by director--</option>
             <option value="Hayao Miyazaki" id="direct1">Hayao Miyazaki</option>
             <option value="Isao Takahata" id="direct2">Isao Takahata </option>
             <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
@@ -52,7 +53,7 @@
             <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
           </select>
           <select name="" id="list-order" class="list-order">
-            <option value="0">--Order by years--</option>
+            <option disabled selected>--Order by years--</option>
             <option value="upward" id="upward">Upward</option>
             <option value="falling" id="falling">Falling</option>
           </select>
@@ -66,7 +67,7 @@
   </body>
   <footer>
     <div class="footer-text">
-        <p>© 2021 Todos los derechos reservados</p>
+        <p>© 2021 Made by Gina & Nina</p>
     </div>
 </footer>
 </html>
