@@ -13,7 +13,7 @@ function mostrarFilms(dato) {
     const cardAnime = document.createElement("div");
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
-    <div>
+    <div >
     <img src= '${dato.poster}' id="image-poster"></img>
     <p id="title"> ${dato.title}
     <a href="title.html" class="title"> ${dato.title}</a>
@@ -22,7 +22,25 @@ function mostrarFilms(dato) {
     <br>
     </div>`;
     containerAnimes.appendChild(cardAnime);
+    
+    
+
+    
 }
+
+//carAnime.addEventListener("click",funcion );
+//function funcion() {
+//}
+
+//id =" ${dato.id}"
+
+
+
+
+
+
+
+
 
 
 //limpieza de pantallas
