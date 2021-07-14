@@ -35,6 +35,7 @@ body {
     padding: 7px 13px;
     text-decoration: none;
     font-size: 18px;
+    font-weight: bold;
     display: block;
     color: white;
 }
@@ -44,12 +45,12 @@ body {
 }
 .btn-menu {
     margin-right: 30px;
-    font-size: 75px;
+    font-size: 30px;
     color: white;
     cursor: pointer;
     display: none;
 }
-ul.show {
+ul .show {
     top: 65px;
 }
 input[type=text] {

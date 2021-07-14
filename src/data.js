@@ -5,6 +5,16 @@ const containerAnimes = document.getElementById("container-animes");
 const valorSeleccionado = document.getElementById("best-films-list");
 const botonSeleccionado = document.getElementById("list-order");
 
+//dinamico boton desplegado
+addEventListener('DOMContentLoaded', () => {
+    const botonMenu = document.querySelector(".btn-menu");
+    if(botonMenu) {
+        botonMenu.addEventListener("click", () => {
+            const navMenu = document.querySelector('.nav-menu')
+            navMenu.classList.toggle('show')
+        })
+    }
+})
 
 //mostrar la lista de peliculas en la pantalla principal
 export const mostrarPelicula = data.films.forEach(mostrarFilms);
