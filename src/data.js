@@ -5,9 +5,6 @@ const containerAnimes = document.getElementById("container-animes");
 const valorSeleccionado = document.getElementById("best-films-list");
 const botonSeleccionado = document.getElementById("list-order");
 
-
-
-
 //mostrar la lista de peliculas en la pantalla principal
 export const mostrarPelicula = data.films.forEach(mostrarFilms);
 
@@ -103,10 +100,8 @@ function detalles (detalles){
     detallesPeliculas.className = "detallePelicula";
     detallesPeliculas.innerHTML = `
     <div >
-        <div id="tituloPelicula ${'"'+detalles.title+'"'}"</div>
-        <div class="imagenPelicula" 
-            <img src= '${detalles.poster}' id="image-poster"></img>
-        </div>
+        <img src= '${detalles.poster}' id="image-poster"></img>
+        <div class="tituloPelicula"> titulo:${detalles.title} </div>
             <div class="cuadrogeneral">
                 <div class="cuadros">
                     <div class= "director">                
@@ -118,7 +113,7 @@ function detalles (detalles){
         <div class="producer">Producer:${detalles.producer}</div>
         <div class="rtScore">Rt_Score:${detalles.rt_score}</div>
         </div>
-        <div class="description">description:${detalles.rt_score}</div>
+        <div class="description">Description:${detalles.description}</div>
         </div>
     </div >`;
     containerAnimes.appendChild(detallesPeliculas);
