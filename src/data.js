@@ -26,7 +26,6 @@ function mostrarFilms(dato) {
 
 }
 
-
 //limpieza de pantallas
 function limpieza () {
     containerAnimes.innerHTML="";
@@ -104,7 +103,7 @@ function detalles (detalles){
     detallesPeliculas.className = "detallePelicula";
     detallesPeliculas.innerHTML = `
     <div >
-        <div id="tituloPelicula ${detalles.title}"</div>
+        <div id="tituloPelicula ${'"'+detalles.title+'"'}"</div>
         <div class="imagenPelicula" 
             <img src= '${detalles.poster}' id="image-poster"></img>
         </div>
@@ -115,7 +114,7 @@ function detalles (detalles){
                     </div>
                 </div>
             </div>
-        <div class="fecha">Realse Date: ${"(" + detalles.release_date + ")"}</div>
+        <div class="fecha">Realse Date: ${"(" + detalles.release_date+")"}</div>
         <div class="producer">Producer:${detalles.producer}</div>
         <div class="rtScore">Rt_Score:${detalles.rt_score}</div>
         </div>
