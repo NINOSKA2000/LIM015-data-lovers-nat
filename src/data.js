@@ -28,11 +28,11 @@ function mostrarFilms(dato) {
     <img src= '${dato.poster}' id="image-poster"></img>
     <p id="title"> ${dato.title}
     </p>
-    <p id="release"> ${"(" + dato.release_date + ")"} </p>
+    <p id="release"> ${"(" + dato.release_date + ")"}
+    <a  Href="#!"  onclick="detallesPeliculas();"; id='${detalles.id}'> Ver mas detalles </a>
+    </p>
     <br>
-    <a class=" referncia" id='${detalles.id}'> click para ver mas detalles </a>
     </div>`;
-
     containerAnimes.appendChild(cardAnime);
 
 }
@@ -143,10 +143,11 @@ function detalles (detalles){
 
 //acceso a peliculas , personajes y detalles de cada pelicula de acuerdo al link+
 
-let referencia= document.getElementById("${dato.id}");
+//let idPeliculas= document.getElementById('${detalles.id}');
 
-referencia.addEventListener("click",detallesPeliculas);
-function detallesPeliculas(e){
+function detallesPeliculas(){
+       alert("hola");
+    }
     //let capturaClick= e.target.textContent.toString();
     //let capturando=('"'+capturaClick+'"');
 
@@ -157,6 +158,4 @@ function detallesPeliculas(e){
     //limpieza();
     //detallesFiltrado.forEach(detalles);
 
-    
-    };
 
