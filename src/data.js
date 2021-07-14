@@ -26,7 +26,6 @@ function mostrarFilms(dato) {
     <div >
     <img src= '${dato.poster}' id="image-poster"></img>
     <p id="title"> ${dato.title}
-    <a href="title.html" class="title"> ${dato.title}</a>
     </p>
     <p id="release"> ${"(" + dato.release_date + ")"} </p>
     <br>
@@ -103,4 +102,50 @@ const buscador = () => {
         containerAnimes.appendChild(noBuscador);
     }
 }
+
+
+
+
+function detalles (detalles){ 
+    const detallesPeliculas = document.createElement("div");
+    detallesPeliculas.className = "detallePelicula";
+    detallesPeliculas.innerHTML = `
+    <div >
+        <img src= '${detalles.poster}' id="image-poster"></img>
+        <div class="tituloPelicula"> titulo:${detalles.title} </div>
+            <div class="cuadrogeneral">
+                <div class="cuadros">
+                    <div class= "director">                
+                        <div id="d1">Director:${detalles.director}</div>
+                    </div>
+                </div>
+            </div>
+        <div class="fecha">Realse Date: ${"(" + detalles.release_date+")"}</div>
+        <div class="producer">Producer:${detalles.producer}</div>
+        <div class="rtScore">Rt_Score:${detalles.rt_score}</div>
+        </div>
+        <div class="description">Description:${detalles.description}</div>
+        </div>
+    </div >`;
+    containerAnimes.appendChild(detallesPeliculas);
+   }
+
+
 boton.addEventListener('click', buscador);
+
+//acceso a peliculas , personajes y detalles de cada pelicula de acuerdo al link+
+
+containerAnimes.addEventListener("click",detallesPeliculas);
+function detallesPeliculas(e){
+    let capturaClick= e.target.textContent.toString();
+    let capturando=('"'+capturaClick+'"');
+
+    console.log(capturando);
+    //"\'Hola\'"
+    let detallesFiltrado=data.films.filter((title) => title.title=="Castle in the Sky");
+
+    console.log(detallesFiltrado);
+    limpieza();
+    detallesFiltrado.forEach(detalles);
+    };
+

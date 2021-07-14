@@ -9,6 +9,9 @@ html {
 }
 body {
     font-family: arial, helvetica;
+   background-color:#D6E8EB; 
+   /* background-color: #FBFBFF;*/
+    
 }
 .nav {
     background-color: #00283A;
@@ -99,7 +102,7 @@ input[type="text"]:focus {
 }
 
 
-.detallePelicula .imagenPelicula{
+.detallePelicula .imagenPelicula .tituloPelicula{
     height: 50vh;
     width: 50vw;
     border: 2px solid #00283A;
