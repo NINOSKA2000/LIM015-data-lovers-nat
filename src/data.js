@@ -32,10 +32,7 @@ function mostrarFilms(dato) {
     <br>
     </div>`;
     containerAnimes.appendChild(cardAnime);
-    
-    
 
-    
 }
 
 //limpieza de pantallas
