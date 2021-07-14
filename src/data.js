@@ -9,6 +9,7 @@ const botonSeleccionado = document.getElementById("list-order");
 export const mostrarPelicula = data.films.forEach(mostrarFilms);
 
 function mostrarFilms(dato) {
+
     const cardAnime = document.createElement("div");
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
@@ -18,7 +19,9 @@ function mostrarFilms(dato) {
     </p>
     <p id="release"> ${"(" + dato.release_date + ")"} </p>
     <br>
+    <a class=" referncia" id='${detalles.id}'> click para ver mas detalles </a>
     </div>`;
+
     containerAnimes.appendChild(cardAnime);
 
 }
@@ -91,6 +94,7 @@ const buscador = () => {
         containerAnimes.appendChild(noBuscador);
     }
 }
+boton.addEventListener('click', buscador);
 
 
 
@@ -102,6 +106,7 @@ function detalles (detalles){
     <div >
         <img src= '${detalles.poster}' id="image-poster"></img>
         <div class="tituloPelicula"> titulo:${detalles.title} </div>
+
             <div class="cuadrogeneral">
                 <div class="cuadros">
                     <div class= "director">                
@@ -115,26 +120,32 @@ function detalles (detalles){
         </div>
         <div class="description">Description:${detalles.description}</div>
         </div>
+        
     </div >`;
     containerAnimes.appendChild(detallesPeliculas);
+    
    }
 
 
-boton.addEventListener('click', buscador);
+
+
 
 //acceso a peliculas , personajes y detalles de cada pelicula de acuerdo al link+
 
-containerAnimes.addEventListener("click",detallesPeliculas);
+let referencia= document.getElementById("${dato.id}");
+
+referencia.addEventListener("click",detallesPeliculas);
 function detallesPeliculas(e){
-    let capturaClick= e.target.textContent.toString();
-    let capturando=('"'+capturaClick+'"');
+    //let capturaClick= e.target.textContent.toString();
+    //let capturando=('"'+capturaClick+'"');
 
-    console.log(capturando);
-    //"\'Hola\'"
-    let detallesFiltrado=data.films.filter((title) => title.title=="Castle in the Sky");
+    //console.log(capturando);
+    //let detallesFiltrado=data.films.filter((title) => title.title==="Castle in the Sky");
 
-    console.log(detallesFiltrado);
-    limpieza();
-    detallesFiltrado.forEach(detalles);
+    //console.log(detallesFiltrado);
+    //limpieza();
+    //detallesFiltrado.forEach(detalles);
+
+    
     };
 
