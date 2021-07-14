@@ -216,12 +216,6 @@ section button i {
     position: absolute;
     opacity: 0.5;
 }
-.welcome-main h1 {
-    position: relative;
-    color: white;
-    display: flex;
-    align-items: center;
-}
 .text {
     position: relative;
     color: white;
@@ -229,11 +223,11 @@ section button i {
     font-size: 1.5rem;
     padding: 20px 10px;
 }
-.button {
+.button-welcome {
     display: flex;
     justify-content: center;
 }
-.button a{
+.button-welcome a{
     background-color: #00283A;
     position: relative;
     border: 1px solid #00283A;
