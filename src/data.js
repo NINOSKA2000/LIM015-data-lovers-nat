@@ -175,6 +175,10 @@ function detalles (datos){
    }
 
 
+   detalles();
+   
+
+
 //acceso a peliculas , personajes "y detalles de cada pelicula de acuerdo al link+
 
 
