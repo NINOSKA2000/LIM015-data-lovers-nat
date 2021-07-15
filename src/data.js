@@ -34,7 +34,6 @@ function mostrarFilms(dato) {
         <p id="release"> ${"(" + dato.release_date + ")"}
         </p>
         <br>
-        
     </div>
     <section id='${dato.id}' class="modalDialog">
     <section> 
