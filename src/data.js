@@ -28,14 +28,26 @@ function mostrarFilms(dato) {
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
     <div >
-    <img src= '${dato.poster}' id="image-poster"></img>
-    <p id="title"> ${dato.title}
-    </p>
-    <p id="release"> ${"(" + dato.release_date + ")"}
-    <button class="verMas" id='${dato.id}'> Mas detalles </button>
-    </p>
-    <br>
-    </div>`;
+        <a href='#${dato.id}'>  <img  src= '${dato.poster}' id="image-poster"></img> </a>
+        <p id="title"> ${dato.title}
+        </p>
+        <p id="release"> ${"(" + dato.release_date + ")"}
+        </p>
+        <br>
+        
+    </div>
+    <section id='${dato.id}' class="modalDialog">
+    <section> 
+     <a href="#close" title="Close" class="close">X</a>
+      <h2><p id="title"> ${dato.title}
+      </p>
+      </h2>
+      <h3>Pon lo que quieras</h3>
+    <img src="https://dummyimage.com/100x100/000/ffffff&text=Cualquier+Imagen" alt="" srcset="">
+    </section>
+   </section>    
+   
+        `;
     containerAnimes.appendChild(cardAnime);
 }
 
@@ -113,6 +125,8 @@ boton.addEventListener('click', buscador);
 //funcion de mas detalles
 let modal=document.getElementById("modalPersonajes");
 
+
+
 function detalles (datos){ 
     const detallesPeliculas = document.createElement("section");
     detallesPeliculas.className = "modalDialog";
@@ -164,16 +178,21 @@ function detalles (datos){
 
 //acceso a peliculas , personajes "y detalles de cada pelicula de acuerdo al link+
 
-let verMas=document.getElementById("botonVerMas");
-console.log(verMas);
-verMas.addEventListener("click",pelicula);
 
-function pelicula(){   
-    containerAnimes.innerHTML="";
-    let detallesFiltrado=data.films.filter((title) => title.title==="Castle in the Sky");
-    console.log(detallesFiltrado);
-    detallesFiltrado.forEach(detalles);
-}
+
+
+//let verMas=document.getElementById("${dato.id}");
+
+
+//console.log(verMas);
+//verMas.addEventListener("click",pelicula);
+
+//function pelicula(){   
+    //containerAnimes.innerHTML="";
+    //let detallesFiltrado=data.films.filter((title) => title.title==="Castle in the Sky");
+    //console.log(detallesFiltrado);
+    //detallesFiltrado.forEach(detalles);
+//}
 
 
 
