@@ -124,21 +124,59 @@ boton.addEventListener('click', buscador);
 //funcion de mas detalles
 let modal=document.getElementById("modalPersonajes");
 
+// personajes
+const persona = document.getElementById("personajes");
+persona.addEventListener("click", mostrarPersonajes);
+const containerPersonajes = document.getElementById("container-personajes");
+
+function personajes(person) {
+    const detallesPersonajes = document.createElement("div");
+    detallesPersonajes.className = "container-card-personajes";
+    detallesPersonajes.innerHTML = `
+    <div class="container-personajes">
+    <img src='${person.img}' class="image-personajes"></img>
+    <div class="descripciones">
+    <p><b>Name:</b> ${person.name}</p>
+    <p><b>Gender:</b> ${person.gender}</p>
+    <p><b>Age:</b> ${person.age}</p>
+    <p><b>Eye color:</b> ${person.eye_color}</p>
+    <p><b>Hair color:</b> ${person.hair_color}</p>
+    <p><b>Specie:</b> ${person.specie}</p>
+    </div>
+    </div>`;
+    //console.log(detallesPersonajes);
+    containerPersonajes.appendChild(detallesPersonajes);
+}
+
+function mostrarPersonajes() {
+    limpieza ();
+    const dataPersonajes = data.films.map((e) => e.people);
+    const totalPersonajes = dataPersonajes.reduce((acc, el) => acc.concat(el), []);
+    //console.log(dataPersonajes);
+    totalPersonajes.forEach(personajes);
+
+}
 
 
-function detalles (datos){ 
+
+
+
+
+
+
+function detalles (datos){
     const detallesPeliculas = document.createElement("section");
     detallesPeliculas.className = "modalDialog";
     detallesPeliculas.innerHTML = `
     <section  class="modalDialog" >
-        <div class="imagenPelicula"> 
+        <div class="imagenPelicula">
         <img src= '${datos.poster}' class="imagenPelicula"></img>
         </div>
         <div class="tituloPelicula"> titulo:${datos.title}
         </div>
         <div class="cuadrogeneral">
                 <div class="cuadros">
-                    <div class= "director">                
+                    <div class= "director">
                         <div id="d1">Director:${datos.director}</div>
                     </div>
                 </div>
@@ -150,15 +188,14 @@ function detalles (datos){
         <div class="description">Description:${datos.description}</div>
         </div>
     </section >
-        
     <section class="iconosPeliculas">
         <button type="submit" id="botonCharacters"><i class="fas fa-users"></i>Characters</button>
         <button type="submit" id="botonLocation" ><i class="fas fa-map-marker-alt"></i>Location</button>
         <button type="submit" id="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles</button>
-    </section> 
+    </section>
 
 
-    <section class="cuadroLista"> 
+    <section class="cuadroLista">
     <div id="per1">
         <div id="imagen"></div>
         <div> Name</div>
@@ -169,14 +206,14 @@ function detalles (datos){
         <div>specie</div>
     </div>
     </section>
-    
     `;
     modal.appendChild(detallesPeliculas);
-   }
+}
 
 
-   detalles();
-   
+
+detalles();
+
 
 
 //acceso a peliculas , personajes "y detalles de cada pelicula de acuerdo al link+
@@ -190,21 +227,10 @@ function detalles (datos){
 //console.log(verMas);
 //verMas.addEventListener("click",pelicula);
 
-//function pelicula(){   
+//function pelicula(){
     //containerAnimes.innerHTML="";
     //let detallesFiltrado=data.films.filter((title) => title.title==="Castle in the Sky");
     //console.log(detallesFiltrado);
     //detallesFiltrado.forEach(detalles);
 //}
-
-
-
-
-
-
-
-    
-
-
-
 

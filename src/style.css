@@ -11,8 +11,14 @@ html {
 
 body {
     font-family: arial, helvetica;
+<<<<<<< HEAD
+    background-color:#D6E8EB;
+    /* background-color: #FBFBFF;*/
+
+=======
    background-color:#D6E8EB; 
     
+>>>>>>> upstream/nuevaRama2
 }
 
 
@@ -260,17 +266,46 @@ section button i {
 option {
     cursor: pointer;
 }
-#container-animes ,#animeFiltrado ,#root{
+.container-personajes {
+    position: relative;
+    z-index: 0;
+    transition: 0.2s all
+}
+#container-animes,
+#container-personajes,
+#animeFiltrado,
+#root {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 20px;
 }
-#image-poster {
+.image-poster {
     width: 15vw;
     display: block;
     margin: auto;
 }
-#title {
+.image-personajes {
+    width: 14em;
+    height: 14em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.descripciones {
+    background-color: #DFD8EC;
+    color: black;
+    font-size: 1rem;
+    padding: 5px;
+    width: 14em;
+    display: block;
+    margin: auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-bottom: 15%;
+}
+.title {
     background-color: #232323;
     color: white;
     font-size: 1rem;
@@ -279,7 +314,7 @@ option {
     display: block;
     margin: auto;
 }
-#release {
+.release {
     background-color: #232323;
     color: white;
     display: block;
