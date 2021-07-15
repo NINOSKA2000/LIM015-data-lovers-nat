@@ -19,18 +19,24 @@ addEventListener('DOMContentLoaded', () => {
 //mostrar la lista de peliculas en la pantalla principal
 export const mostrarPelicula = data.films.forEach(mostrarFilms);
 
+
+
+
 function mostrarFilms(dato) {
+
     const cardAnime = document.createElement("div");
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
     <div >
-    <img src= '${dato.poster}' class="image-poster"></img>
-    <p class="title"> ${dato.title}</p>
-    <p class="release"> ${"(" + dato.release_date + ")"} </p>
+    <img src= '${dato.poster}' id="image-poster"></img>
+    <p id="title"> ${dato.title}
+    </p>
+    <p id="release"> ${"(" + dato.release_date + ")"}
+    <button class="verMas" id='${dato.id}'> Mas detalles </button>
+    </p>
     <br>
     </div>`;
     containerAnimes.appendChild(cardAnime);
-
 }
 
 //limpieza de pantallas
@@ -102,7 +108,10 @@ const buscador = () => {
     }
 }
 
+boton.addEventListener('click', buscador);
 
+//funcion de mas detalles
+let modal=document.getElementById("modalPersonajes");
 
 // personajes
 const persona = document.getElementById("personajes");
@@ -141,46 +150,49 @@ function mostrarPersonajes() {
 
 
 
-function detalles (detalles){
+function detalles (datos){
     const detallesPeliculas = document.createElement("div");
     detallesPeliculas.className = "detallePelicula";
     detallesPeliculas.innerHTML = `
-    <div >
-        <img src= '${detalles.poster}' id="image-poster"></img>
-        <div class="tituloPelicula"> titulo:${detalles.title} </div>
-            <div class="cuadrogeneral">
+    <section  class="modalDialog" >
+        <div class="imagenPelicula">
+        <img src= '${datos.poster}' class="imagenPelicula"></img>
+        </div>
+        <div class="tituloPelicula"> titulo:${datos.title}
+        </div>
+        <div class="cuadrogeneral">
                 <div class="cuadros">
                     <div class= "director">
-                        <div id="d1">Director:${detalles.director}</div>
+                        <div id="d1">Director:${datos.director}</div>
                     </div>
                 </div>
-            </div>
-        <div class="fecha">Realse Date: ${"(" + detalles.release_date+")"}</div>
-        <div class="producer">Producer:${detalles.producer}</div>
-        <div class="rtScore">Rt_Score:${detalles.rt_score}</div>
         </div>
-        <div class="description">Description:${detalles.description}</div>
+        <div class="fecha">Realse Date: ${"(" + datos.release_date+")"}</div>
+        <div class="producer">Producer:${datos.producer}</div>
+        <div class="rtScore">Rt_Score:${datos.rt_score}</div>
         </div>
-    </div >`;
-    containerAnimes.appendChild(detallesPeliculas);
+        <div class="description">Description:${datos.description}</div>
+        </div>
+    </section >
+    <section class="iconosPeliculas">
+        <button type="submit" id="botonCharacters"><i class="fas fa-users"></i>Characters</button>
+        <button type="submit" id="botonLocation" ><i class="fas fa-map-marker-alt"></i>Location</button>
+        <button type="submit" id="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles</button>
+    </section>
+
+
+    <section class="cuadroLista">
+    <div id="per1">
+        <div id="imagen"></div>
+        <div> Name</div>
+        <div> Gender</div>
+        <div> Age</div>
+        <div>Eye_color</div>
+        <div>hair_color</div>
+        <div>specie</div>
+    </div>
+    </section>
+    `;
+    modal.appendChild(detallesPeliculas);
 }
-
-
-boton.addEventListener('click', buscador);
-
-//acceso a peliculas , personajes y detalles de cada pelicula de acuerdo al link+
-
-containerAnimes.addEventListener("click",detallesPeliculas);
-function detallesPeliculas(e){
-    let capturaClick= e.target.textContent.toString();
-    let capturando=('"'+capturaClick+'"');
-
-    console.log(capturando);
-    //"\'Hola\'"
-    let detallesFiltrado=data.films.filter((title) => title.title=="Castle in the Sky");
-
-    console.log(detallesFiltrado);
-    limpieza();
-    detallesFiltrado.forEach(detalles);
-    }
 
