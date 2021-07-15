@@ -24,10 +24,9 @@ function mostrarFilms(dato) {
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
     <div >
-    <img src= '${dato.poster}' id="image-poster"></img>
-    <p id="title"> ${dato.title}
-    </p>
-    <p id="release"> ${"(" + dato.release_date + ")"} </p>
+    <img src= '${dato.poster}' class="image-poster"></img>
+    <p class="title"> ${dato.title}</p>
+    <p class="release"> ${"(" + dato.release_date + ")"} </p>
     <br>
     </div>`;
     containerAnimes.appendChild(cardAnime);
@@ -105,8 +104,44 @@ const buscador = () => {
 
 
 
+// personajes
+const persona = document.getElementById("personajes");
+persona.addEventListener("click", mostrarPersonajes);
+const containerPersonajes = document.getElementById("container-personajes");
 
-function detalles (detalles){ 
+function personajes(person) {
+    const detallesPersonajes = document.createElement("div");
+    detallesPersonajes.className = "container-card-personajes";
+    detallesPersonajes.innerHTML = `
+    <div class="container-personajes">
+    <img src='${person.img}' class="image-personajes"></img>
+    <div class="descripciones">
+    <p><b>Name:</b> ${person.name}</p>
+    <p><b>Gender:</b> ${person.gender}</p>
+    <p><b>Age:</b> ${person.age}</p>
+    <p><b>Eye color:</b> ${person.eye_color}</p>
+    <p><b>Hair color:</b> ${person.hair_color}</p>
+    <p><b>Specie:</b> ${person.specie}</p>
+    </div>
+    </div>`;
+    //console.log(detallesPersonajes);
+    containerPersonajes.appendChild(detallesPersonajes);
+}
+
+function mostrarPersonajes() {
+    limpieza ();
+    const dataPersonajes = data.films.map((e) => e.people);
+    const totalPersonajes = dataPersonajes.reduce((acc, el) => acc.concat(el), []);
+    //console.log(dataPersonajes);
+    totalPersonajes.forEach(personajes);
+
+}
+
+
+
+
+
+function detalles (detalles){
     const detallesPeliculas = document.createElement("div");
     detallesPeliculas.className = "detallePelicula";
     detallesPeliculas.innerHTML = `
@@ -115,7 +150,7 @@ function detalles (detalles){
         <div class="tituloPelicula"> titulo:${detalles.title} </div>
             <div class="cuadrogeneral">
                 <div class="cuadros">
-                    <div class= "director">                
+                    <div class= "director">
                         <div id="d1">Director:${detalles.director}</div>
                     </div>
                 </div>
@@ -128,7 +163,7 @@ function detalles (detalles){
         </div>
     </div >`;
     containerAnimes.appendChild(detallesPeliculas);
-   }
+}
 
 
 boton.addEventListener('click', buscador);
@@ -147,5 +182,5 @@ function detallesPeliculas(e){
     console.log(detallesFiltrado);
     limpieza();
     detallesFiltrado.forEach(detalles);
-    };
+    }
 
