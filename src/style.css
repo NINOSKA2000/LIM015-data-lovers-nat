@@ -11,7 +11,6 @@ html {
 }
 
 body {
-    font-family: arial, helvetica;
    background-color:#D6E8EB; 
 }
 
@@ -113,23 +112,27 @@ input[type="text"]:focus {
 }
 .mensaje-error {
     display: none;
+    position: relative;
 }
 .mensaje-correcto {
     display: block;
+    position: relative;
 }
 
 
-.detallePelicula .imagenPelicula .tituloPelicula{
+/*.detallePelicula .imagenPelicula .tituloPelicula{
     height: 80vh;
     width: 80vw;
     border: 1px solid #00283A;
     margin:  50px 20px  auto ;
-}
+}*/
+
 
 
 section button i {
     padding: 20px;
 }
+
 
 .cuadroLista {
     height: 90vh;
@@ -150,6 +153,7 @@ section button i {
     display: flex;
     justify-content: center;
 }
+
 
 
 .welcome-main {
@@ -236,14 +240,6 @@ option {
 
 }
 
-#container-animes,
-#container-personajes,
-#animeFiltrado,
-#root {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-top: 20px;
-}
 
 
 .container-card {
