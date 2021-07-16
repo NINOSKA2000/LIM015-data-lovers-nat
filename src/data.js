@@ -24,13 +24,12 @@ function mostrarFilms(dato) {
     const cardAnime = document.createElement("div");
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
-    <div >
-        <a href='#${dato.id}'>  <img  src= '${dato.poster}' id="image-poster"></img> </a>
-        <p id="title"> ${dato.title}
-        </p>
-        <p id="release"> ${"(" + dato.release_date + ")"}
-        </p>
-        <br>
+    <div class="container-card">
+        <a href='#${dato.id}'> <img  src= '${dato.poster}' class="image-poster"></img> </a>
+        <div class="post-description">
+            <span class="title">${dato.title}</span><br>
+            <span class="release">${"(" + dato.release_date + ")"}</span>
+        </div>
     </div>
 
     <section id='${dato.id}' class="modalDialog">
@@ -69,7 +68,6 @@ function mostrarFilms(dato) {
         </section>
                 
     </section>  `;
-
     containerAnimes.appendChild(cardAnime);
 }
 
@@ -155,14 +153,16 @@ function personajes(person) {
     detallesPersonajes.className = "container-card-personajes";
     detallesPersonajes.innerHTML = `
     <div class="container-personajes">
-    <img src='${person.img}' class="image-personajes"></img>
+    <figure>
+        <img src='${person.img}' class="image-personajes"></img>
+    </figure>
     <div class="descripciones">
-    <p><b>Name:</b> ${person.name}</p>
-    <p><b>Gender:</b> ${person.gender}</p>
-    <p><b>Age:</b> ${person.age}</p>
-    <p><b>Eye color:</b> ${person.eye_color}</p>
-    <p><b>Hair color:</b> ${person.hair_color}</p>
-    <p><b>Specie:</b> ${person.specie}</p>
+    <p class="person-name"><b>Name:</b> ${person.name}</p>
+    <p class="person-gender"><b>Gender:</b> ${person.gender}</p>
+    <p class="person-age"><b>Age:</b> ${person.age}</p>
+    <p class="person-eyes"><b>Eye color:</b> ${person.eye_color}</p>
+    <p class="person-hair"><b>Hair color:</b> ${person.hair_color}</p>
+    <p class="person-specie"><b>Specie:</b> ${person.specie}</p>
     </div>
     </div>`;
     //console.log(detallesPersonajes);
@@ -172,15 +172,11 @@ function personajes(person) {
 function mostrarPersonajes() {
     limpieza();
     const dataPersonajes = data.films.map((e) => e.people);
-
     const totalPersonajes = dataPersonajes.reduce((acc, el) => acc.concat(el), []);
-    
-
-    console.log(totalPersonajes);
+      console.log(totalPersonajes);
 
       let personajesUnicos=[];
      
-
     for( let i=0; i<totalPersonajes.length; i++) {
 
             if(personajesUnicos.length===0 || !personajesUnicos.includes(totalPersonajes[i])) {
@@ -193,12 +189,8 @@ function mostrarPersonajes() {
     console.log(personajesUnicos);
 
 
-
-
-
-
-
     //console.log(dataPersonajes);
     totalPersonajes.forEach(personajes);
 }
+
 

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 html {
@@ -12,7 +13,6 @@ html {
 body {
     font-family: arial, helvetica;
    background-color:#D6E8EB; 
-    
 }
 
 .nav {
@@ -58,6 +58,28 @@ body {
 ul .show {
     top: 65px;
 }
+.home-main {
+    display: flex;
+    flex-grow: 1;
+}
+.home {
+    min-height: 100%;
+    width: 100%;
+    background-image: url(./img/studio_ghibli.jpg);
+    background-size: cover;
+    flex-grow: 1;
+    /*padding: 0.5em 1rem;*/
+    position: relative;
+}
+.home:before {
+    content: "";
+    background: black;
+    opacity: 0.7;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+}
 input[type=text] {
     border: 1px solid gray;
     border-radius: 8px;
@@ -87,6 +109,7 @@ input[type="text"]:focus {
     display: flex;
     justify-content: center;
     padding-top: 3%;
+    position: relative;
 }
 .mensaje-error {
     display: none;
@@ -132,13 +155,10 @@ section button i {
 .welcome-main {
     background-image: url(./img/Image-Studio-ghibli.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     width: 100%;
     height: 100vh;
     position: relative;
-    display: flex;
-    align-items: center
-
 }
 .welcome-main::before {
     content: "";
@@ -174,15 +194,17 @@ section button i {
     margin-top: 12px;
 }
 .list-title p {
-    color: black;
+    color: white;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
     padding: 10px 0px;
+    position: relative;
 }
-.filter form {
+.filter {
     display: flex;
     justify-content: center;
+    position: relative;
 }
 #best-films-list, #list-order {
     width: 17%;
@@ -202,6 +224,18 @@ option {
     transition: 0.2s all
 }
 
+
+.container-collection {
+    margin: 2.3rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11.875em,1fr));
+    row-gap: 1.875em;
+    column-gap: 2rem;
+    justify-items: center;
+    position: relative;
+
+}
+
 #container-animes,
 #container-personajes,
 #animeFiltrado,
@@ -210,10 +244,24 @@ option {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-top: 20px;
 }
+
+
+.container-card {
+    width: 11.875em;
+    border-radius: 10px;
+    box-shadow: 0 0 0.313rem white;
+    transition: all 0.5s ease;
+}
+.container-card:hover {
+    box-shadow: 0 0 0.5rem gray;
+    transform: translateY(-3%);
+}
 .image-poster {
-    width: 15vw;
-    display: block;
-    margin: auto;
+    width: 100%;
+    height: 16.875em;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
 }
 .image-personajes {
     width: 14em;
@@ -236,24 +284,19 @@ option {
     border-bottom-right-radius: 10px;
     margin-bottom: 15%;
 }
-.title {
+.post-description {
     background-color: #232323;
     color: white;
-    font-size: 1rem;
-    padding: 10px;
-    width: 15vw;
-    display: block;
-    margin: auto;
+    padding: 0.5rem 0.5rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
-.release {
-    background-color: #232323;
-    color: white;
-    display: block;
-    margin: auto;
-    width: 15vw;
-    height: 5vh;
-    padding: 0 10px;
+.post-description .release {
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
 }
+
 footer {
     background-color: #00283A;
     color: white;
