@@ -18,7 +18,7 @@
         </figure>
         <ul class="nav-menu">
           <li class="active">
-            <a href="#list">Collection </a>
+            <a href="#home">Collection </a>
           </li>
           <li>
             <a id="personajes" href="#">Characters</a>
@@ -33,44 +33,48 @@
       </nav>
     </header>
     <main class="home-main">
-      <div id="animaciones" >
-        <img src="./img/animacion1.gif" alt="">
+      <section class="home" id="home">
+        <!--<div id="animaciones" >
+          <img src="./img/animacion1.gif" alt="">
+        </div>-->
+        <div class="menuBar">
+          <div class="search">
+            <input type="text" name="search" id="search" placeholder="Search movie titles">
+            <button class="button"id="btn">Buscar</button>
+            <div id="mensaje-error" class="mensaje-error">Enter text in the movie search engine.</div>
+          </div>
+          <div class="list-title" id="list">
+            <p>List studio Ghibli</p>
+          </div>
+          <div class="filter">
+            <select name="" id="best-films-list" class="best-films-list" >
+              <option disabled selected>--Filter by director--</option>
+              <option value="Hayao Miyazaki" id="direct1">Hayao Miyazaki</option>
+              <option value="Isao Takahata" id="direct2">Isao Takahata </option>
+              <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
+              <option value="Hiroyuki Morita">Hiroyuki Morita </option>
+              <option value="Gorō Miyazaki">Gorō Miyazaki </option>
+              <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
+            </select>
+            <select name="" id="list-order" class="list-order">
+              <option disabled selected>--Order by years--</option>
+              <option value="upward" id="upward">Upward</option>
+              <option value="falling" id="falling">Falling</option>
+            </select>
+          </div>
         </div>
-      <div class="search">
-        <input type="text" name="search" id="search" placeholder="Search movie titles">
-        <button class="button"id="btn">Buscar</button>
-        <div id="mensaje-error" class="mensaje-error">Enter text in the movie search engine.</div>
-      </div>
-      <div class="list-title" id="list">
-        <p>List studio Ghibli</p>
-      </div>
-      <div class="filter">
-        <form action="">
-          <select name="" id="best-films-list" class="best-films-list" >
-            <option disabled selected>--Filter by director--</option>
-            <option value="Hayao Miyazaki" id="direct1">Hayao Miyazaki</option>
-            <option value="Isao Takahata" id="direct2">Isao Takahata </option>
-            <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
-            <option value="Hiroyuki Morita">Hiroyuki Morita </option>
-            <option value="Gorō Miyazaki">Gorō Miyazaki </option>
-            <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
-          </select>
-          <select name="" id="list-order" class="list-order">
-            <option disabled selected>--Order by years--</option>
-            <option value="upward" id="upward">Upward</option>
-            <option value="falling" id="falling">Falling</option>
-          </select>
-        </form>
-      </div>
-      <div id="container-animes"></div>
-      <div id="orden"></div>
-      <div id="container-personajes"></div>
-      </main>
-      
-      <button id="botonVerMas" >Personajes</button>
-      <div id="modalPersonajes"></div>
-
-      <script src="https://kit.fontawesome.com/a07f6fa05e.js" crossorigin="anonymous"></script>
+        <div class="container-collection" id="container-animes"></div>
+      </section>
+      <section>
+        <div id="container-personajes"></div>
+      </section>
+      <section>
+        <div id="orden"></div>
+      </section>
+      <div id="root"></div>
+    </main>
+    <div id="modalPersonajes"></div>
+    <script src="https://kit.fontawesome.com/a07f6fa05e.js" crossorigin="anonymous"></script>
     <script src="main.js" type="module"></script>
   </body>
   <footer>
