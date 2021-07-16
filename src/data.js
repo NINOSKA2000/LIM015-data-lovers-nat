@@ -16,14 +16,11 @@ addEventListener('DOMContentLoaded', () => {
     }
 })
 
+
 //mostrar la lista de peliculas en la pantalla principal
 export const mostrarPelicula = data.films.forEach(mostrarFilms);
 
-
-
-
 function mostrarFilms(dato) {
-
     const cardAnime = document.createElement("div");
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
@@ -35,18 +32,44 @@ function mostrarFilms(dato) {
         </p>
         <br>
     </div>
+
     <section id='${dato.id}' class="modalDialog">
-    <section> 
-     <a href="#close" title="Close" class="close">X</a>
-      <h2><p id="title"> ${dato.title}
-      </p>
-      </h2>
-      <h3>Pon lo que quieras</h3>
-    <img src="https://dummyimage.com/100x100/000/ffffff&text=Cualquier+Imagen" alt="" srcset="">
-    </section>
-   </section>    
-   
-        `;
+
+        <section> 
+            <a href="#close" title="Close" class="close">CLOSE</a>
+
+            <section  class="seccionDetalles" >
+
+                <div class="imagenPelicula">
+                    <img src= '${dato.poster}' class="imagenPelicula"></img>
+                </div>
+
+
+                <div class="tituloPelicula"> titulo:${dato.title}
+                </div>
+                
+
+                <div class="cuadroGeneral">
+                    <div class="director">Director:${dato.director}</div>
+                    <div class="fecha">Realse Date: ${"(" + dato.release_date+")"}</div>
+                    <div class="producer">Producer:${dato.producer}</div>
+                    <div class="rtScore">Rt_Score:${dato.rt_score}</div>
+                    <div class="description">Description:${dato.description}</div>
+                </div>
+
+            </section >
+
+        </section >    
+
+        <section class="iconosPeliculas">
+
+            <button type="submit" id="botonCharacters"><i class="fas fa-users"></i>Characters</button>
+            <button type="submit" id="botonLocation" ><i class="fas fa-map-marker-alt"></i>Location</button>
+            <button type="submit" id="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles</button>
+        </section>
+                
+    </section>  `;
+
     containerAnimes.appendChild(cardAnime);
 }
 
@@ -121,8 +144,6 @@ const buscador = () => {
 
 boton.addEventListener('click', buscador);
 
-//funcion de mas detalles
-let modal=document.getElementById("modalPersonajes");
 
 // personajes
 const persona = document.getElementById("personajes");
@@ -149,88 +170,35 @@ function personajes(person) {
 }
 
 function mostrarPersonajes() {
-    limpieza ();
+    limpieza();
     const dataPersonajes = data.films.map((e) => e.people);
+
     const totalPersonajes = dataPersonajes.reduce((acc, el) => acc.concat(el), []);
+    
+
+    console.log(totalPersonajes);
+
+      let personajesUnicos=[];
+     
+
+    for( let i=0; i<totalPersonajes.length; i++) {
+
+            if(personajesUnicos.length===0 || !personajesUnicos.includes(totalPersonajes[i])) {
+
+            personajesUnicos.push(totalPersonajes[i]) 
+        }
+
+    }
+    
+    console.log(personajesUnicos);
+
+
+
+
+
+
+
     //console.log(dataPersonajes);
     totalPersonajes.forEach(personajes);
-
 }
-
-
-
-
-
-
-
-
-function detalles (datos){
-    const detallesPeliculas = document.createElement("section");
-    detallesPeliculas.className = "modalDialog";
-    detallesPeliculas.innerHTML = `
-    <section  class="modalDialog" >
-        <div class="imagenPelicula">
-        <img src= '${datos.poster}' class="imagenPelicula"></img>
-        </div>
-        <div class="tituloPelicula"> titulo:${datos.title}
-        </div>
-        <div class="cuadrogeneral">
-                <div class="cuadros">
-                    <div class= "director">
-                        <div id="d1">Director:${datos.director}</div>
-                    </div>
-                </div>
-        </div>
-        <div class="fecha">Realse Date: ${"(" + datos.release_date+")"}</div>
-        <div class="producer">Producer:${datos.producer}</div>
-        <div class="rtScore">Rt_Score:${datos.rt_score}</div>
-        </div>
-        <div class="description">Description:${datos.description}</div>
-        </div>
-    </section >
-    <section class="iconosPeliculas">
-        <button type="submit" id="botonCharacters"><i class="fas fa-users"></i>Characters</button>
-        <button type="submit" id="botonLocation" ><i class="fas fa-map-marker-alt"></i>Location</button>
-        <button type="submit" id="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles</button>
-    </section>
-
-
-    <section class="cuadroLista">
-    <div id="per1">
-        <div id="imagen"></div>
-        <div> Name</div>
-        <div> Gender</div>
-        <div> Age</div>
-        <div>Eye_color</div>
-        <div>hair_color</div>
-        <div>specie</div>
-    </div>
-    </section>
-    `;
-    modal.appendChild(detallesPeliculas);
-}
-
-
-
-detalles();
-
-
-
-//acceso a peliculas , personajes "y detalles de cada pelicula de acuerdo al link+
-
-
-
-
-//let verMas=document.getElementById("${dato.id}");
-
-
-//console.log(verMas);
-//verMas.addEventListener("click",pelicula);
-
-//function pelicula(){
-    //containerAnimes.innerHTML="";
-    //let detallesFiltrado=data.films.filter((title) => title.title==="Castle in the Sky");
-    //console.log(detallesFiltrado);
-    //detallesFiltrado.forEach(detalles);
-//}
 

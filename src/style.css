@@ -11,16 +11,9 @@ html {
 
 body {
     font-family: arial, helvetica;
-<<<<<<< HEAD
-    background-color:#D6E8EB;
-    /* background-color: #FBFBFF;*/
-
-=======
    background-color:#D6E8EB; 
     
->>>>>>> upstream/nuevaRama2
 }
-
 
 .nav {
     background-color: #00283A;
@@ -110,52 +103,6 @@ input[type="text"]:focus {
     margin:  50px 20px  auto ;
 }
 
-.cuadros {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.description {
-    height: 10vh;
-    width: 50vw;
-    background-color: violet;
-    margin: 20px 30px;
-    padding: 30px;
-    border:2px solid #00283A;
-}
-
-
-.director, .fecha ,.producer ,.rtScore {
-    height: 20vh;
-    width: 20vw;
-    background-color: violet;
-    margin: 20px 30px;
-    padding: 30px;
-    border:2px solid #00283A;
-    justify-content: center;
-    text-align: center;
-}
-
-
-.iconosPeliculas {
-    display: flex;
-    justify-content: center;
-
-}
-
-#botonCharacters ,#botonLocation,#botonVehicles {
-    width: 30vh;
-    background-color:#C8C34A;
-    color: black;
-    display: inline-block;
-    font-size: 20px;
-    margin: 20px;
-    padding: 10px ;
-    text-align: center;
-    text-decoration:none;
-    box-shadow:0px 0.5px 0px  ;
-    border-radius: 10%;
-}
 
 section button i {
     padding: 20px;
@@ -181,24 +128,7 @@ section button i {
     justify-content: center;
 }
 
-#per1 ,#per2 ,#per3 ,#per4 {
-    margin: 1%;
-    height: 70vh;
-    width: 60vw;
-    border-radius:10%;
-    margin: 1%  solid #00283A ;
-    padding: auto;
-    border-radius: 1%;
-    background-color: cadetblue;
-    align-content: center;
-    text-align: center;
-}
 
-.cuadropersonal {
-    margin: 1%  solid #00283A ;
-    padding: auto;
-    border-radius: 1%;
-}
 .welcome-main {
     background-image: url(./img/Image-Studio-ghibli.jpg);
     background-repeat: no-repeat;
@@ -271,6 +201,7 @@ option {
     z-index: 0;
     transition: 0.2s all
 }
+
 #container-animes,
 #container-personajes,
 #animeFiltrado,
@@ -336,7 +267,7 @@ footer {
 
 
 
-/* mostrador de detalles */
+/* mostrador de detalles de peliculas */
 
 .modal {
     display: none; /* Hidden by default */
@@ -358,6 +289,8 @@ footer {
     bottom: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.8);
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
     z-index: 99999;
     opacity:0;
     -webkit-transition: opacity 100ms ease-in;
@@ -369,36 +302,93 @@ footer {
     opacity:1;
     pointer-events: auto;
   }
+
   .modalDialog > section {
-    max-width: 800px;
-    width: 90%;
+
+    max-width: 90vw;
+    width: 90vw;
     position: relative;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 3px;
-    background: #fff;
+    margin: 2% auto;
+    padding: 10px;
+    border-radius: 4px;
+    background: rgb(238, 232, 238);
+
+
   }
   .close {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f26d7d;
+    background:#00283A;
     color: #fff;
     line-height: 25px;
     position: absolute;
     right: -12px;
     text-align: center;
     top: -10px;
-    width: 34px;
+    width: 70px;
     height: 34px;
     text-decoration: none;
     font-weight: bold;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
-    border-radius: 50%;
+    border-radius: 20%;
     -moz-box-shadow: 1px 1px 3px #000;
     -webkit-box-shadow: 1px 1px 3px #000;
     box-shadow: 1px 1px 3px #000;
-    padding-top: 5px;
+    padding-top: 10px;
   }
   .close:hover {
     background: #fa3f6f;
   }
+
+/* dentro de los detalles de peliculas*/
+  
+.seccionDetalles {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+}
+
+
+
+.director, .fecha ,.producer ,.rtScore {
+    height: 2vh;
+    width: 50vw;
+    background-color: rgb(216, 177, 216);
+    margin: 5px;
+    padding: 5px;
+    border:0.5px solid #51580d;
+    justify-content: center;
+    text-align: center;
+
+}
+
+
+.description {
+    height: auto;
+    width: 50vw;
+    background-color: violet;
+    margin: 20px 30px;
+    padding: 30px;
+    border:2px solid #00283A;
+}
+
+
+
+.iconosPeliculas {
+    display: flex;
+    justify-content: center;
+
+}
+
+#botonCharacters ,#botonLocation,#botonVehicles {
+    width: 30vh;
+    background-color:#C8C34A;
+    color: black;
+    display: inline-block;
+    font-size: 20px;
+    margin: 20px;
+    padding: 10px ;
+    text-align: center;
+    text-decoration:none;
+    box-shadow:0px 0.5px 0px  ;
+    border-radius: 10%;
+}
