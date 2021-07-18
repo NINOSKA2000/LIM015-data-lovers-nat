@@ -318,7 +318,9 @@ footer {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0.4); 
+    /* Black w/ opacity */
+   
   }
 
   .modalDialog {
@@ -336,6 +338,7 @@ footer {
     -moz-transition: opacity 100ms ease-in;
     transition: opacity 100ms ease-in;
     pointer-events: none;
+    box-shadow: 2px 2px 5px #999;
   }
   .modalDialog:target {
     opacity:1;
@@ -345,16 +348,16 @@ footer {
   .modalDialog > section {
 
     max-width: 90vw;
-    width: 90vw;
+    width: 80vw;
     position: relative;
     margin: 2% auto;
     padding: 10px;
-    border-radius: 4px;
-    background: rgb(238, 232, 238);
-
+    border-radius: 10px;
+    background: rgb(46, 13, 46);
+    border: 2.5px solid rgb(83, 52, 77);
 
   }
-  .close {
+  .modalDialog .close {
     font-family: Arial, Helvetica, sans-serif;
     background:#00283A;
     color: #fff;
@@ -375,59 +378,149 @@ footer {
     box-shadow: 1px 1px 3px #000;
     padding-top: 10px;
   }
+  
+
   .close:hover {
     background: #fa3f6f;
   }
 
+  
+
 /* dentro de los detalles de peliculas*/
   
-.seccionDetalles {
+
+.modalDialog-details {
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.modalDialog-details-pictureMovie {
+
+    width: 90%;
+    height: 90%;
+    object-position: center;
+    border-radius: 1px;
+    padding: 2px 5px;
+    margin: 10px ;
+
+} 
+.modalDialog-details-pictureMovie  img {
+    box-shadow: 1px  2px 1px 2px rgb(225, 238, 204);
+    border-radius: 10px;
 }
 
 
 
-.director, .fecha ,.producer ,.rtScore {
-    height: 2vh;
-    width: 50vw;
-    background-color: rgb(216, 177, 216);
-    margin: 5px;
-    padding: 5px;
-    border:0.5px solid #51580d;
-    justify-content: center;
+
+h1.titleFilms {
+    padding: 24px 0px 0px;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 0;
+    line-height: 1.5rem;
+}
+
+
+
+
+.sectionDetails .pDescription {
+
+    display: block;
+    padding: 10px 10px;
+    margin: 1em 3em;
+    word-wrap: break-word;
+    color: #D6E8EB;
+    text-align: justify ;
+    overflow:hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.sectionDetails .rtScore {
+    color:aqua;
+    padding: 2px;
+
+}
+.sectionDetails .rtScore span {
+    color: #1a1818;
+    background-color: #edb709;
+    font-size: 1rem;
+    font-weight: 700;
+    height: 2rem;
+    line-height: 1rem;
+    border-radius: 1rem;
+    display: inline-block;
     text-align: center;
+    padding: 10px;
+    vertical-align:middle;
+
+
+    
 
 }
 
 
-.description {
-    height: auto;
-    width: 50vw;
-    background-color: violet;
-    margin: 20px 30px;
-    padding: 30px;
-    border:2px solid #00283A;
-}
 
 
 
-.iconosPeliculas {
+.sectionDetails  li{
+    color:#D6E8EB;
+    display: list-item;
+    text-align: -webkit-match-parent;
+    list-style: none;
+    
+   
+  }
+  .sectionDetails  li strong{
+    font-weight: 700;
+    color:rgb(136, 134, 127);
+    
+
+  }
+
+
+
+.sectionDetails .movieIcons {
+
     display: flex;
     justify-content: center;
+    height: auto;
+    width: 40%;
+    display: flex;
+    margin:10%;     
 
 }
 
-#botonCharacters ,#botonLocation,#botonVehicles {
-    width: 30vh;
-    background-color:#C8C34A;
-    color: black;
-    display: inline-block;
-    font-size: 20px;
-    margin: 20px;
-    padding: 10px ;
+.movieIcons button{
+    color:rgb(235, 238, 79);
+    font-size: 1rem;
+    display: flex;
+    align-content: center;
+    align-items: baseline;
+
+    }
+
+
+.movieIcons  .botonCharacters ,.botonLocation, .botonVehicles {
+    background-color:darkgoldenrod;
+    font-size: 0.8rem;
+    margin: 1rem 2rem;
+    padding: 0em 2rem ;
     text-align: center;
     text-decoration:none;
-    box-shadow:0px 0.5px 0px  ;
-    border-radius: 10%;
+    border-radius: 20px;
+    
 }
+
+
+.botonCharacters:focus, .botonLocation:focus, .botonVehicles:focus{
+
+    background-color:rgb(136, 134, 127);;
+    font-size: 0.9rem;
+    box-shadow: 0.2rem 0.2rem gold;
+   
+
+}
+
+

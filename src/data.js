@@ -34,38 +34,55 @@ function mostrarFilms(dato) {
 
     <section id='${dato.id}' class="modalDialog">
 
-        <section> 
-            <a href="#close" title="Close" class="close">CLOSE</a>
+        <a href="#close" title="Close" class="close">CLOSE</a>
 
-            <section  class="seccionDetalles" >
+        <section class="modalDialog-details">
+        
+            <section> 
+                <figure class="modalDialog-details-pictureMovie">
+                    <img src= '${dato.poster}'></img>
+                </figure>
+            </section >  
 
-                <div class="imagenPelicula">
-                    <img src= '${dato.poster}' class="imagenPelicula"></img>
-                </div>
+            <section  class="sectionDetails" >
 
+                <div >
 
-                <div class="tituloPelicula"> titulo:${dato.title}
-                </div>
-                
+                    <h1 class="titleFilms"> ${dato.title}</h1>
 
-                <div class="cuadroGeneral">
-                    <div class="director">Director:${dato.director}</div>
-                    <div class="fecha">Realse Date: ${"(" + dato.release_date+")"}</div>
-                    <div class="producer">Producer:${dato.producer}</div>
-                    <div class="rtScore">Rt_Score:${dato.rt_score}</div>
-                    <div class="description">Description:${dato.description}</div>
-                </div>
+                    <div class="pDescription">${dato.description}</div>
+                        
+                    <div class="rtScore" > <img src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
+                    <strong>Rt_Score:</strong> &nbsp &nbsp <span>${dato.rt_score} </span>
+                    </div>
 
-            </section >
+                    <li class="director">
+                        <p><strong>Director:</strong> &nbsp
+                        ${dato.director}</p> 
+                    </li> 
+
+                    <li class="producer">
+                        <p> <strong>Producer: </strong>&nbsp${dato.producer}</p>
+                    </li> 
+
+                    <li class="RealseDate">
+                        <p ><strong>Realse Date: </strong>&nbsp${"(" + dato.release_date+")"}</p>
+                    </li> 
+                        
+                </div>        
+
+            <section class="movieIcons">
+
+                <button type="submit" class="botonCharacters"><i class="fas fa-users"></i> Characters</button>
+                <button type="submit" class="botonLocation"><i class="fas fa-map-marker-alt"></i>Location</button>
+                <button type="submit" class="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles </button>
+           </section>
+
+           </section >
 
         </section >    
 
-        <section class="iconosPeliculas">
 
-            <button type="submit" id="botonCharacters"><i class="fas fa-users"></i>Characters</button>
-            <button type="submit" id="botonLocation" ><i class="fas fa-map-marker-alt"></i>Location</button>
-            <button type="submit" id="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles</button>
-        </section>
                 
     </section>  `;
     containerAnimes.appendChild(cardAnime);
