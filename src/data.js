@@ -34,12 +34,11 @@ function mostrarFilms(dato) {
 
     <section id='${dato.id}' class="modalDialog">
 
-        <a href="#close" title="Close" class="close">CLOSE</a>
-
         <section class="modalDialog-details">
-        
+            <a href="#close" title="Close" class="close">CLOSE</a>
+            
             <section> 
-                <figure class="modalDialog-details-pictureMovie">
+                <figure class="pictureMovie">
                     <img src= '${dato.poster}'></img>
                 </figure>
             </section >  
