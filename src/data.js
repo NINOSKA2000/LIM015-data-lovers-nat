@@ -37,11 +37,11 @@ function mostrarFilms(dato) {
         <section class="modalDialog-details">
             <a href="#close" title="Close" class="close">CLOSE</a>
 
-            <section> 
+            <section>
                 <figure class="pictureMovie">
                     <img src= '${dato.poster}'></img>
                 </figure>
-            </section >  
+            </section >
 
             <section  class="sectionDetails" >
 
@@ -50,37 +50,35 @@ function mostrarFilms(dato) {
                     <h1 class="titleFilms"> ${dato.title}</h1>
 
                     <div class="pDescription">${dato.description}</div>
-                        
+
                     <div class="rtScore" > <img src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
                     <strong>Rt_Score:</strong> &nbsp &nbsp <span>${dato.rt_score} </span>
                     </div>
 
                     <li class="director">
                         <p><strong>Director:</strong> &nbsp
-                        ${dato.director}</p> 
-                    </li> 
+                        ${dato.director}</p>
+                    </li>
 
                     <li class="producer">
                         <p> <strong>Producer: </strong>&nbsp${dato.producer}</p>
-                    </li> 
+                    </li>
 
                     <li class="RealseDate">
                         <p ><strong>Realse Date: </strong>&nbsp${"(" + dato.release_date+")"}</p>
-                    </li> 
-                        
-                </div>        
+                    </li>
+                </div>
 
-            <section class="movieIcons">
+                <section class="movieIcons">
 
-                <button type="submit" class="botonCharacters"><i class="fas fa-users"></i> Characters</button>
-                <button type="submit" class="botonLocation"><i class="fas fa-map-marker-alt"></i>Location</button>
-                <button type="submit" class="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles </button>
-           </section>
+                    <button type="submit" class="botonCharacters"><i class="fas fa-users"></i> Characters</button>
+                    <button type="submit" class="botonLocation"><i class="fas fa-map-marker-alt"></i>Location</button>
+                    <button type="submit" class="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles </button>
+                </section>
 
-           </section >
+            </section >
 
         </section >
-
 
     </section>  `;
     containerAnimes.appendChild(cardAnime);
@@ -257,4 +255,15 @@ function mostrarPersonajes() {
 
     //console.log(dataPersonajes);
     totalPersonajes.forEach(mostrarDatosPersonajes);
+}
+
+
+const especieSeleccionada = document.getElementById("filter-by-species");
+especieSeleccionada.addEventListener("change", filterEspecies);
+
+function filterEspecies() {
+    let valorEspecie = especieSeleccionada.value;
+    console.log(valorEspecie);
+    let filterEspecieSeleccionada = data.films.filter((character) => character.people === valorEspecie);
+    console.log(filterEspecieSeleccionada);
 }

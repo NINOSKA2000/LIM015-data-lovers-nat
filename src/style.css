@@ -311,12 +311,11 @@ footer {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); 
+    background-color: rgba(0,0,0,0.4);
     /* Black w/ opacity */
-   
-  }
+}
 
-  .modalDialog {
+.modalDialog {
     position: fixed;
     top: 0;
     right: 0;
@@ -332,14 +331,12 @@ footer {
     transition: opacity 100ms ease-in;
     pointer-events: none;
     box-shadow: 2px 2px 5px #999;
-  }
-  .modalDialog:target {
+}
+.modalDialog:target {
     opacity:1;
     pointer-events: auto;
-  }
-
-  .modalDialog > section {
-
+}
+.modalDialog > section {
     max-width: 90vw;
     width: 80vw;
     position: relative;
@@ -348,9 +345,8 @@ footer {
     border-radius: 10px;
     background: rgb(46, 13, 46);
     border: 2.5px solid rgb(83, 52, 77);
-
-  }
-  .modalDialog .close {
+}
+.modalDialog .close {
     font-family: Arial, Helvetica, sans-serif;
     background:#00283A;
     color: #fff;
@@ -370,37 +366,26 @@ footer {
     -webkit-box-shadow: 1px 1px 3px #000;
     box-shadow: 1px 1px 3px #000;
     padding-top: 10px;
-  }
-  
-
-  .close:hover {
+}
+.close:hover {
     background-color:#edb709;
-  }
-
-  
+}
 
 /* dentro de los detalles de peliculas*/
-  
 
 .modalDialog-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    
-
 }
 
 .modalDialog-details .pictureMovie {
-
     margin: 20px 30px;
     align-items: center;
-        
-
-} 
+}
 
 .pictureMovie  img {
     box-shadow: 2px  2px 2px 2px rgb(109, 14, 104);
     border-radius: 10%;
-
 }
 
 .sectionDetails h1.titleFilms {
@@ -412,9 +397,7 @@ footer {
     text-align: left;
 }
 
-
 .sectionDetails .pDescription {
-
     display: block;
     padding: 10px 10px;
     margin: 1em 3em;
@@ -443,30 +426,18 @@ footer {
     text-align: center;
     padding: 10px;
     vertical-align:middle;
-   
-
 }
-
-
-
-
 
 .sectionDetails  li{
     color:#D6E8EB;
     display: list-item;
     text-align: -webkit-match-parent;
     list-style: none;
-    
-   
-  }
-  .sectionDetails  li strong{
+}
+.sectionDetails  li strong{
     font-weight: 700;
     color:rgb(136, 134, 127);
-    
-
-  }
-
-
+}
 
 .sectionDetails .movieIcons {
 
@@ -475,9 +446,7 @@ footer {
     height: auto;
     width: auto;
     display: flex;
-    margin:10%;  
-    
-    
+    margin:10%;
 }
 
 .movieIcons button{
@@ -488,8 +457,7 @@ footer {
     align-items: baseline;
     letter-spacing: 1px;
     transition: 0.5s;
-    }
-
+}
 
 .movieIcons  .botonCharacters ,.botonLocation, .botonVehicles {
     background-color:darkgoldenrod;
@@ -499,19 +467,13 @@ footer {
     text-align: center;
     text-decoration:none;
     border-radius: 20px;
-    
 }
 
-
 .botonCharacters:focus, .botonLocation:focus, .botonVehicles:focus{
-
     background-color:rgb(136, 134, 127);;
     font-size: 1.3rem;
     box-shadow: 0 0 10px rgb(240, 196, 36), 0 0 40px rgb(240, 196, 36), 0 0 80px rgb(240, 196, 36) ;
     transition: 0.5s;
-
-   
-
 }
 
 
