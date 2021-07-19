@@ -1,5 +1,6 @@
 import data from "./data/ghibli/ghibli.js";
 
+
 const contenedorFiltrado = document.getElementById("root");
 const containerAnimes = document.getElementById("container-animes");
 const valorSeleccionado = document.getElementById("best-films-list");
@@ -71,27 +72,23 @@ function mostrarFilms(dato) {
                 </div>        
 
             <section class="movieIcons">
-
                 <button type="submit" class="botonCharacters"><i class="fas fa-users"></i> Characters</button>
                 <button type="submit" class="botonLocation"><i class="fas fa-map-marker-alt"></i>Location</button>
                 <button type="submit" class="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles </button>
            </section>
-
            </section >
-
-        </section >    
-
-
-                
+        </section >                    
     </section>  `;
     containerAnimes.appendChild(cardAnime);
 }
+
 
 //limpieza de pantallas
 function limpieza () {
     containerAnimes.innerHTML="";
     contenedorFiltrado.innerHTML="";
 }
+
 
 
 //filtrado de peliculas por directores
@@ -159,6 +156,7 @@ const buscador = () => {
 boton.addEventListener('click', buscador);
 
 
+
 // personajes
 const persona = document.getElementById("personajes");
 persona.addEventListener("click", mostrarPersonajes);
@@ -185,32 +183,18 @@ function personajes(person) {
     containerPersonajes.appendChild(detallesPersonajes);
 }
 
+
 function mostrarPersonajes() {
     limpieza();
     const dataPersonajes = data.films.map((e) => e.people);
     const totalPersonajes = dataPersonajes.reduce((acc, el) => acc.concat(el), []);
-      //console.log(totalPersonajes);
-
-      let personajesUnicos=[];
-     
-    for( let i=0; i<totalPersonajes.length; i++) {
-
-            if(personajesUnicos.length===0 || !personajesUnicos.includes(totalPersonajes[i])) {
-
-            personajesUnicos.push(totalPersonajes[i]) 
-        }
-
-    }
-    
-   // console.log(personajesUnicos);
-
+    console.log(totalPersonajes);
     //console.log(dataPersonajes);
     totalPersonajes.forEach(personajes);
 }
 
 
 //aqui la nueva rmaa 3 
-
 
 
 
