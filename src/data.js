@@ -16,12 +16,12 @@ addEventListener('DOMContentLoaded', () => {
     }
 })
 
+
 //mostrar la lista de peliculas en la pantalla principal
 export const mostrarPelicula = data.films.forEach(mostrarFilms);
 
 
 function mostrarFilms(dato) {
-
     const cardAnime = document.createElement("div");
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
@@ -33,16 +33,56 @@ function mostrarFilms(dato) {
         </div>
     </div>
     <section id='${dato.id}' class="modalDialog">
-    <section>
-    <a href="#close" title="Close" class="close">X</a>
-    <h2><p id="title"> ${dato.title}
-    </p>
-    </h2>
-    <h3>Pon lo que quieras</h3>
-    <img src="https://dummyimage.com/100x100/000/ffffff&text=Cualquier+Imagen" alt="" srcset="">
-    </section>
-    </section>
-        `;
+
+        <section class="modalDialog-details">
+            <a href="#close" title="Close" class="close">CLOSE</a>
+
+            <section> 
+                <figure class="pictureMovie">
+                    <img src= '${dato.poster}'></img>
+                </figure>
+            </section >  
+
+            <section  class="sectionDetails" >
+
+                <div >
+
+                    <h1 class="titleFilms"> ${dato.title}</h1>
+
+                    <div class="pDescription">${dato.description}</div>
+                        
+                    <div class="rtScore" > <img src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
+                    <strong>Rt_Score:</strong> &nbsp &nbsp <span>${dato.rt_score} </span>
+                    </div>
+
+                    <li class="director">
+                        <p><strong>Director:</strong> &nbsp
+                        ${dato.director}</p> 
+                    </li> 
+
+                    <li class="producer">
+                        <p> <strong>Producer: </strong>&nbsp${dato.producer}</p>
+                    </li> 
+
+                    <li class="RealseDate">
+                        <p ><strong>Realse Date: </strong>&nbsp${"(" + dato.release_date+")"}</p>
+                    </li> 
+                        
+                </div>        
+
+            <section class="movieIcons">
+
+                <button type="submit" class="botonCharacters"><i class="fas fa-users"></i> Characters</button>
+                <button type="submit" class="botonLocation"><i class="fas fa-map-marker-alt"></i>Location</button>
+                <button type="submit" class="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles </button>
+           </section>
+
+           </section >
+
+        </section >
+
+
+    </section>  `;
     containerAnimes.appendChild(cardAnime);
 }
 
@@ -117,7 +157,6 @@ const buscador = () => {
 
 boton.addEventListener('click', buscador);
 
-//funcion de mas detalles
 
 // personajes
 const characters = document.getElementById("personajes");
@@ -201,6 +240,21 @@ function mostrarPersonajes() {
     filterPersonajes();
     const dataPersonajes = data.films.map((e) => e.people);
     const totalPersonajes = dataPersonajes.reduce((acc, el) => acc.concat(el), []);
+      //console.log(totalPersonajes);
+
+    let personajesUnicos=[];
+
+    for( let i=0; i<totalPersonajes.length; i++) {
+
+            if(personajesUnicos.length===0 || !personajesUnicos.includes(totalPersonajes[i])) {
+
+            personajesUnicos.push(totalPersonajes[i])
+        }
+
+    }
+
+   // console.log(personajesUnicos);
+
     //console.log(dataPersonajes);
     totalPersonajes.forEach(mostrarDatosPersonajes);
 }
