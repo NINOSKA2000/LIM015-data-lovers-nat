@@ -11,7 +11,13 @@ html {
 }
 
 body {
-   background-color:#D6E8EB; 
+    background: #D6E8EB;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .nav {
@@ -60,24 +66,21 @@ ul .show {
 .home-main {
     display: flex;
     flex-grow: 1;
-}
-.home {
-    min-height: 100%;
-    width: 100%;
     background-image: url(./img/studio_ghibli.jpg);
     background-size: cover;
-    flex-grow: 1;
-    /*padding: 0.5em 1rem;*/
     position: relative;
+    width: 100%;
+    min-height: 100%;
+    display: block;
 }
-.home:before {
+
+.home-main:before {
     content: "";
     background: black;
     opacity: 0.7;
     width: 100%;
     height: 100%;
     position: absolute;
-
 }
 input[type=text] {
     border: 1px solid gray;
@@ -102,7 +105,6 @@ input[type="text"]:focus {
     font-size: 1rem;
     color: white;
     cursor: pointer;
-
 }
 .search  {
     display: flex;
@@ -118,43 +120,6 @@ input[type="text"]:focus {
     display: block;
     position: relative;
 }
-
-
-/*.detallePelicula .imagenPelicula .tituloPelicula{
-    height: 80vh;
-    width: 80vw;
-    border: 1px solid #00283A;
-    margin:  50px 20px  auto ;
-}*/
-
-
-
-section button i {
-    padding: 20px;
-}
-
-
-.cuadroLista {
-    height: 90vh;
-    width: 90vw;
-    margin: 1%;
-    padding: auto;
-    display: flex;
-    border: solid #DBF0D9;
-    border-radius: 1%;
-}
-
-
-#imagen {
-    margin:7%;
-    height: 30vh;
-    width: 18vw;
-    background-color: chartreuse;
-    display: flex;
-    justify-content: center;
-}
-
-
 
 .welcome-main {
     background-image: url(./img/Image-Studio-ghibli.jpg);
@@ -183,20 +148,6 @@ section button i {
     display: flex;
     justify-content: center;
 }
-.button-welcome a{
-    background-color: #00283A;
-    position: relative;
-    border: 1px solid #00283A;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    width: 18%;
-    padding: 12px;
-    margin-top: 12px;
-}
 .list-title p {
     color: white;
     text-align: center;
@@ -210,6 +161,20 @@ section button i {
     justify-content: center;
     position: relative;
 }
+.button-welcome a {
+    background-color: #00283A;
+    position: relative;
+    border: 1px solid #00283A;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    width: 18%;
+    padding: 12px;
+    margin-top: 12px;
+}
 #best-films-list, #list-order {
     width: 17%;
     border: 1px solid gray;
@@ -222,33 +187,23 @@ section button i {
 option {
     cursor: pointer;
 }
-.container-personajes {
-    position: relative;
-    z-index: 0;
-    transition: 0.2s all
-}
-
-
 .container-collection {
-    margin: 2.3rem 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(11.875em,1fr));
     row-gap: 1.875em;
     column-gap: 2rem;
+    margin: 2.3rem 2rem;
     justify-items: center;
     position: relative;
-
 }
-
-
-
-.container-card {
+.container-card{
     width: 11.875em;
     border-radius: 10px;
     box-shadow: 0 0 0.313rem white;
     transition: all 0.5s ease;
 }
-.container-card:hover {
+.container-card:hover,
+.card-characters:hover{
     box-shadow: 0 0 0.5rem gray;
     transform: translateY(-3%);
 }
@@ -259,39 +214,77 @@ option {
     border-top-right-radius: 10px;
     object-fit: cover;
 }
-.image-personajes {
-    width: 14em;
-    height: 14em;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-.descripciones {
-    background-color: #DFD8EC;
-    color: black;
-    font-size: 1rem;
-    padding: 5px;
-    width: 14em;
-    display: block;
-    margin: auto;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    margin-bottom: 15%;
-}
-.post-description {
+.post-dato {
     background-color: #232323;
     color: white;
     padding: 0.5rem 0.5rem;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-.post-description .release {
+.post-dato .release {
     display: flex;
     justify-content: flex-end;
     text-align: center;
 }
+.characters {
+    padding: 0.5rem 1rem;
+}
+.container-filter-characters {
+    position: relative;
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 0.5em;
+}
+.container-filter-characters > * {
+    padding: 0.8em;
+}
+.filter-characters {
+    display: flex;
+}
+.filter-box {
+    outline: none;
+    width: 100%;
+    border-radius: 10px;
+    padding: 0.50em;
+    color: black;
+    font-size: 1em;
+    border: 1px solid #eee;
+}
+.filter-box:focus {
+    border: 2px solid orange;
+    border-radius: 10px;
+}
+.container-characters {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11.875em,1fr));
+    row-gap: 2.275em;
+    column-gap: 2rem;
+    margin: 2rem;
+    justify-items: center;
+    position: relative;
+}
+.card-characters {
+    width: 11.875em;
+    border-radius: 10px;
+    box-shadow: 0 0 0.313rem white;
+    transition: all 0.5s ease;
+}
+.image-characters {
+    width: 100%;
+    height: 12em;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+}
+.description {
+    background-color: #232323;
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
 
 footer {
     background-color: #00283A;
