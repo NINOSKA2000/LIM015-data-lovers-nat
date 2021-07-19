@@ -450,10 +450,7 @@ footer {
     text-align: center;
     padding: 10px;
     vertical-align:middle;
-    
-
-
-    
+   
 
 }
 
@@ -496,9 +493,8 @@ footer {
     display: flex;
     align-content: center;
     align-items: baseline;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     transition: 0.5s;
-    
     }
 
 
@@ -517,7 +513,7 @@ footer {
 .botonCharacters:focus, .botonLocation:focus, .botonVehicles:focus{
 
     background-color:rgb(136, 134, 127);;
-    font-size: 0.9rem;
+    font-size: 1.3rem;
     box-shadow: 0 0 10px rgb(240, 196, 36), 0 0 40px rgb(240, 196, 36), 0 0 80px rgb(240, 196, 36) ;
     transition: 0.5s;
 
