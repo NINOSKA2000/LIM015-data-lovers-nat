@@ -36,7 +36,7 @@ function mostrarFilms(dato) {
 
         <section class="modalDialog-details">
             <a href="#close" title="Close" class="close">CLOSE</a>
-            
+
             <section> 
                 <figure class="pictureMovie">
                     <img src= '${dato.poster}'></img>
@@ -189,7 +189,7 @@ function mostrarPersonajes() {
     limpieza();
     const dataPersonajes = data.films.map((e) => e.people);
     const totalPersonajes = dataPersonajes.reduce((acc, el) => acc.concat(el), []);
-      console.log(totalPersonajes);
+      //console.log(totalPersonajes);
 
       let personajesUnicos=[];
      
@@ -202,7 +202,7 @@ function mostrarPersonajes() {
 
     }
     
-    console.log(personajesUnicos);
+   // console.log(personajesUnicos);
 
 
     //console.log(dataPersonajes);
