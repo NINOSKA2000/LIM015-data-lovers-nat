@@ -209,4 +209,8 @@ function mostrarPersonajes() {
 }
 
 
+//aqui la nueva rmaa 3 
+
+
+
 
