@@ -204,9 +204,9 @@ function mostrarPersonajes() {
     
    // console.log(personajesUnicos);
 
-
     //console.log(dataPersonajes);
     totalPersonajes.forEach(personajes);
 }
+
 
 
