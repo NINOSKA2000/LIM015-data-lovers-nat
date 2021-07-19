@@ -21,18 +21,18 @@ addEventListener('DOMContentLoaded', () => {
 //mostrar la lista de peliculas en la pantalla principal
 export const mostrarPelicula = data.films.forEach(mostrarFilms);
 
+
 function mostrarFilms(dato) {
     const cardAnime = document.createElement("div");
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
     <div class="container-card">
         <a href='#${dato.id}'> <img  src= '${dato.poster}' class="image-poster"></img> </a>
-        <div class="post-description">
+        <div class="post-dato">
             <span class="title">${dato.title}</span><br>
             <span class="release">${"(" + dato.release_date + ")"}</span>
         </div>
     </div>
-
     <section id='${dato.id}' class="modalDialog">
 
         <section class="modalDialog-details">
@@ -75,10 +75,11 @@ function mostrarFilms(dato) {
                 <button type="submit" class="botonCharacters"><i class="fas fa-users"></i> Characters</button>
                 <button type="submit" class="botonLocation"><i class="fas fa-map-marker-alt"></i>Location</button>
                 <button type="submit" class="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles </button>
-           </section>
-           </section >
-        </section >                    
+            </section>
+        </section >
+        </section >
     </section>  `;
+
     containerAnimes.appendChild(cardAnime);
 }
 
@@ -88,7 +89,6 @@ function limpieza () {
     containerAnimes.innerHTML="";
     contenedorFiltrado.innerHTML="";
 }
-
 
 
 //filtrado de peliculas por directores
@@ -158,43 +158,101 @@ boton.addEventListener('click', buscador);
 
 
 // personajes
-const persona = document.getElementById("personajes");
-persona.addEventListener("click", mostrarPersonajes);
-const containerPersonajes = document.getElementById("container-personajes");
+const characters = document.getElementById("personajes");
+characters.addEventListener("click", mostrarPersonajes);
+const containerCharacters = document.getElementById("container-characters");
 
-function personajes(person) {
+function mostrarDatosPersonajes(person) {
     const detallesPersonajes = document.createElement("div");
-    detallesPersonajes.className = "container-card-personajes";
+    detallesPersonajes.className = "container-card-characters";
     detallesPersonajes.innerHTML = `
-    <div class="container-personajes">
-    <figure>
-        <img src='${person.img}' class="image-personajes"></img>
-    </figure>
-    <div class="descripciones">
-    <p class="person-name"><b>Name:</b> ${person.name}</p>
-    <p class="person-gender"><b>Gender:</b> ${person.gender}</p>
-    <p class="person-age"><b>Age:</b> ${person.age}</p>
-    <p class="person-eyes"><b>Eye color:</b> ${person.eye_color}</p>
-    <p class="person-hair"><b>Hair color:</b> ${person.hair_color}</p>
-    <p class="person-specie"><b>Specie:</b> ${person.specie}</p>
-    </div>
+    <div class="card-characters">
+        <figure>
+            <img src='${person.img}' class="image-characters"></img>
+        </figure>
+        <div class="description">
+            <p class="person-name"><b>Name:</b> ${person.name}</p>
+            <p class="person-gender"><b>Gender:</b> ${person.gender}</p>
+            <p class="person-age"><b>Age:</b> ${person.age}</p>
+            <p class="person-eyes"><b>Eye color:</b> ${person.eye_color}</p>
+            <p class="person-hair"><b>Hair color:</b> ${person.hair_color}</p>
+            <p class="person-specie"><b>Specie:</b> ${person.specie}</p>
+        </div>
     </div>`;
     //console.log(detallesPersonajes);
-    containerPersonajes.appendChild(detallesPersonajes);
+    containerCharacters.appendChild(detallesPersonajes);
+}
+
+const filterCharacters = document.getElementById("menu");
+
+function filterPersonajes() {
+    const filtrado = document.createElement("div");
+    filtrado.className = "container-filter-characters";
+    filtrado.innerHTML = `
+    <div class="filter-characters">
+        <select  id="filter-by-species" class="filter-box">
+            <option disabled selected>--Filter by species--</option>
+            <option value="Human">Human</option>
+            <option value="Totoro">Totoro</option>
+            <option value="Cat">Cat</option>
+            <option value="Witch">Witch</option>
+            <option value="Raccoon Dog">Raccoon Dog</option>
+            <option value="Red elk">Red elk</option>
+            <option value="Spirit">Spirit</option>
+            <option value="Wolf">Wolf</option>
+            <option value="Deity, Dragon">Deity, Dragon</option>
+            <option value="Spirit of The White Fox">Spirit of The White Fox</option>
+            <option value="unknown">unknown</option>
+            <option value="Bird">Bird</option>
+            <option value="Wizard">Wizard</option>
+            <option value="Witch/Human">Witch/Human</option>
+            <option value="Human/Scarecrow">Human/Scarecrow</option>
+            <option value="Dog">Dog</option>
+            <option value="Arch-mage/Human">Arch-mage/Human</option>
+            <option value="Fish/Human">Fish/Human</option>
+            <option value="Deity">Deity</option>
+            <option value="Borrower">Borrower</option>
+        </select>
+    </div>
+    <div class="filter-characters">
+        <select id="order-by-alphabet" class="filter-box">
+            <option disabled selected>--Order by alphabet--</option>
+            <option value="A-Z">A-Z</option>
+            <option value="Z-A">Z-A</option>
+        </select>
+    </div>
+    <div class="filter-characters">
+        <select id="order-by-age" class="filter-box">
+            <option disabled selected>--Order-by-age--</option>
+            <option value="Ascended">Upward</option>
+            <option value="Descended">Falling</option>
+        </select>
+    </div>`;
+    filterCharacters.appendChild(filtrado);
 }
 
 
 function mostrarPersonajes() {
     limpieza();
+    document.querySelector(".home").style.display = "none";
+    filterPersonajes();
     const dataPersonajes = data.films.map((e) => e.people);
     const totalPersonajes = dataPersonajes.reduce((acc, el) => acc.concat(el), []);
-    console.log(totalPersonajes);
+      //console.log(totalPersonajes);
+
+    let personajesUnicos=[];
+
+    for( let i=0; i<totalPersonajes.length; i++) {
+
+            if(personajesUnicos.length===0 || !personajesUnicos.includes(totalPersonajes[i])) {
+
+            personajesUnicos.push(totalPersonajes[i])
+        }
+
+    }
+
+   // console.log(personajesUnicos);
+
     //console.log(dataPersonajes);
-    totalPersonajes.forEach(personajes);
+    totalPersonajes.forEach(mostrarDatosPersonajes);
 }
-
-
-//aqui la nueva rmaa 3 
-
-
-
