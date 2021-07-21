@@ -18,63 +18,43 @@ function mostrarFilms(dato) {
     const cardAnime = document.createElement("div");
     cardAnime.className = "container-card-anime";   
     cardAnime.innerHTML = `
-    <div class="container-card">
-        <a href='#${dato.id}'> <img  src= '${dato.poster}' class="image-poster"></img> </a>
+    <div class="container-card" id="${dato.id}">
+        <div> <img  src= '${dato.poster}' class="image-poster"></img> </div>
         <div class="post-dato">
             <span class="title">${dato.title}</span><br>
             <span class="release">${"(" + dato.release_date + ")"}</span>
         </div>
     </div>
-    <section id='${dato.id}' class="modalDialog">
+ `;
 
-        <section class="modalDialog-details">
-            <a href="#close" title="Close" class="close">CLOSE</a>
-
-            <section> 
-                <figure class="pictureMovie">
-                    <img src= '${dato.poster}'></img>
-                </figure>
-            </section >  
-
-            <section  class="sectionDetails" >
-
-                <div >
-
-                    <h1 class="titleFilms"> ${dato.title}</h1>
-
-                    <div class="pDescription">${dato.description}</div>
-                        
-                    <div class="rtScore" > <img src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
-                    <strong>Rt_Score:</strong> &nbsp &nbsp <span>${dato.rt_score} </span>
-                    </div>
-
-                    <li class="director">
-                        <p><strong>Director:</strong> &nbsp
-                        ${dato.director}</p> 
-                    </li> 
-
-                    <li class="producer">
-                        <p> <strong>Producer: </strong>&nbsp${dato.producer}</p>
-                    </li> 
-
-                    <li class="RealseDate">
-                        <p ><strong>Realse Date: </strong>&nbsp${"(" + dato.release_date+")"}</p>
-                    </li> 
-                        
-                </div>        
-
-            <section class="movieIcons">
-                <button type="submit" id="botonCharacters"  class="botonCharacters"><i class="fas fa-users"></i> Characters</button>
-                <button type="submit" class="botonLocation"><i class="fas fa-map-marker-alt"></i>Location</button>
-                <button type="submit" class="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles </button>
-            </section>
- 
-            </section>
-        </section >
-    </section>  `;
     containerAnimes.appendChild(cardAnime);
+
+    cardAnime.addEventListener("click", ()=>{
+
+        let idFilms=cardAnime.firstElementChild.id;
+
+            console.log(idFilms);
+
+            most(idFilms);
+        
+    });
+    return cardAnime;
     
 }
+
+
+function most(idFilms) { 
+
+    console.log(idFilms);
+    console.log("hola");
+
+    
+
+
+}
+
+
+
 
 
 //limpieza de pantallas
