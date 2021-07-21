@@ -69,13 +69,47 @@
         <div id="orden"></div>
         <div id="root"></div>
       </section>
+    </main>
 
+    <main class="characters-home" id="characters-main">
       <!-- SECCION CHARACTERS -->
       <section class="characters" id="characters">
-        <div class="menu" id="menu"></div>
+        <div class="container-filter-characters" id="container-filter-characters">
+          <div class="filter-characters">
+            <select  id="filter-by-species" class="filter-box">
+                <option disabled selected>--Filter by species--</option>
+                <option value="Human">Human</option>
+                <option value="Totoro">Totoro</option>
+                <option value="Cat">Cat</option>
+                <option value="Witch">Witch</option>
+                <option value="Raccoon Dog">Raccoon Dog</option>
+                <option value="Red elk">Red elk</option>
+                <option value="Spirit">Spirit</option>
+                <option value="Wolf">Wolf</option>
+                <option value="Deity, Dragon">Deity, Dragon</option>
+                <option value="Spirit of The White Fox">Spirit of The White Fox</option>
+                <option value="unknown">unknown</option>
+                <option value="Bird">Bird</option>
+                <option value="Wizard">Wizard</option>
+                <option value="Witch/Human">Witch/Human</option>
+                <option value="Human/Scarecrow">Human/Scarecrow</option>
+                <option value="Dog">Dog</option>
+                <option value="Arch-mage/Human">Arch-mage/Human</option>
+                <option value="Fish/Human">Fish/Human</option>
+                <option value="Deity">Deity</option>
+                <option value="Borrower">Borrower</option>
+            </select>
+          </div>
+          <div class="filter-characters">
+            <select id="order-by-alphabet" class="filter-box">
+              <option disabled selected>--Order by alphabet--</option>
+              <option value="A-Z">A-Z</option>
+              <option value="Z-A">Z-A</option>
+            </select>
+          </div>
+        </div>
         <div class="container-characters" id="container-characters"></div>
       </section>
-
     </main>
     <section id="modalPersonajes"></section>
     <script src="https://kit.fontawesome.com/a07f6fa05e.js" crossorigin="anonymous"></script>

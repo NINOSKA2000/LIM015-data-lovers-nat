@@ -4,6 +4,7 @@ const contenedorFiltrado = document.getElementById("root");
 const containerAnimes = document.getElementById("container-animes");
 const valorSeleccionado = document.getElementById("best-films-list");
 const botonSeleccionado = document.getElementById("list-order");
+//const seccionFilter = document.getElementById("#characters-main");
 
 //dinamico boton desplegado
 addEventListener('DOMContentLoaded', () => {
@@ -26,62 +27,63 @@ function mostrarFilms(dato) {
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
     <div class="container-card">
-        <a href='#${dato.id}'> <img  src= '${dato.poster}' class="image-poster"></img> </a>
-        <div class="post-dato">
-            <span class="title">${dato.title}</span><br>
-            <span class="release">${"(" + dato.release_date + ")"}</span>
-        </div>
+    <a href='#${dato.id}'> <img  src= '${dato.poster}' class="image-poster"></img> </a>
+    <div class="post-dato">
+    <span class="title">${dato.title}</span><br>
+    <span class="release">${"(" + dato.release_date + ")"}</span>
+    </div>
     </div>
     <section id='${dato.id}' class="modalDialog">
-
-        <section class="modalDialog-details">
-            <a href="#close" title="Close" class="close">CLOSE</a>
-
-            <section>
-                <figure class="pictureMovie">
-                    <img src= '${dato.poster}'></img>
-                </figure>
-            </section >
-
-            <section  class="sectionDetails" >
-
-                <div >
-
-                    <h1 class="titleFilms"> ${dato.title}</h1>
-
-                    <div class="pDescription">${dato.description}</div>
-
-                    <div class="rtScore" > <img src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
-                    <strong>Rt_Score:</strong> &nbsp &nbsp <span>${dato.rt_score} </span>
-                    </div>
-
-                    <li class="director">
-                        <p><strong>Director:</strong> &nbsp
-                        ${dato.director}</p>
-                    </li>
-
-                    <li class="producer">
-                        <p> <strong>Producer: </strong>&nbsp${dato.producer}</p>
-                    </li>
-
-                    <li class="RealseDate">
-                        <p ><strong>Realse Date: </strong>&nbsp${"(" + dato.release_date+")"}</p>
-                    </li>
-                </div>
-
-                <section class="movieIcons">
-
-                    <button type="submit" class="botonCharacters"><i class="fas fa-users"></i> Characters</button>
-                    <button type="submit" class="botonLocation"><i class="fas fa-map-marker-alt"></i>Location</button>
-                    <button type="submit" class="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles </button>
-                </section>
-
-            </section >
-
-        </section >
-
+    
+    <section class="modalDialog-details">
+    <a href="#close" title="Close" class="close">CLOSE</a>
+    
+    <section>
+    <figure class="pictureMovie">
+    <img src= '${dato.poster}'></img>
+    </figure>
+    </section >
+    
+    <section  class="sectionDetails" >
+    
+    <div >
+    
+    <h1 class="titleFilms"> ${dato.title}</h1>
+    
+    <div class="pDescription">${dato.description}</div>
+    
+    <div class="rtScore" > <img src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
+    <strong>Rt_Score:</strong> &nbsp &nbsp <span>${dato.rt_score} </span>
+    </div>
+    
+    <li class="director">
+    <p><strong>Director:</strong> &nbsp
+    ${dato.director}</p>
+    </li>
+    
+    <li class="producer">
+    <p> <strong>Producer: </strong>&nbsp${dato.producer}</p>
+    </li>
+    
+    <li class="RealseDate">
+    <p ><strong>Realse Date: </strong>&nbsp${"(" + dato.release_date+")"}</p>
+    </li>
+    </div>
+    
+    <section class="movieIcons">
+    
+    <button type="submit" class="botonCharacters"><i class="fas fa-users"></i> Characters</button>
+    <button type="submit" class="botonLocation"><i class="fas fa-map-marker-alt"></i>Location</button>
+    <button type="submit" class="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles </button>
+    </section>
+    
+    </section >
+    
+    </section >
+    
     </section>  `;
     containerAnimes.appendChild(cardAnime);
+    //seccionFilter.innerHTML= "";
 }
 
 //limpieza de pantallas
@@ -113,11 +115,11 @@ function orden() {
     if(opcion=="falling") {
         const yearsPeli = data.films.sort((unNumero, otroNumero) => otroNumero.release_date - unNumero.release_date);
     yearsPeli.forEach(mostrarFilms);
-}
+    }
     else if (opcion=="upward") {
         const yearsPeli = data.films.sort((unNumero, otroNumero) => unNumero.release_date - otroNumero.release_date);
     yearsPeli.forEach(mostrarFilms);
-}
+    }
 }
 
 //Buscador de peliculas
@@ -182,88 +184,58 @@ function mostrarDatosPersonajes(person) {
     containerCharacters.appendChild(detallesPersonajes);
 }
 
-const filterCharacters = document.getElementById("menu");
 
-function filterPersonajes() {
-    const filtrado = document.createElement("div");
-    filtrado.className = "container-filter-characters";
-    filtrado.innerHTML = `
-    <div class="filter-characters">
-        <select  id="filter-by-species" class="filter-box">
-            <option disabled selected>--Filter by species--</option>
-            <option value="Human">Human</option>
-            <option value="Totoro">Totoro</option>
-            <option value="Cat">Cat</option>
-            <option value="Witch">Witch</option>
-            <option value="Raccoon Dog">Raccoon Dog</option>
-            <option value="Red elk">Red elk</option>
-            <option value="Spirit">Spirit</option>
-            <option value="Wolf">Wolf</option>
-            <option value="Deity, Dragon">Deity, Dragon</option>
-            <option value="Spirit of The White Fox">Spirit of The White Fox</option>
-            <option value="unknown">unknown</option>
-            <option value="Bird">Bird</option>
-            <option value="Wizard">Wizard</option>
-            <option value="Witch/Human">Witch/Human</option>
-            <option value="Human/Scarecrow">Human/Scarecrow</option>
-            <option value="Dog">Dog</option>
-            <option value="Arch-mage/Human">Arch-mage/Human</option>
-            <option value="Fish/Human">Fish/Human</option>
-            <option value="Deity">Deity</option>
-            <option value="Borrower">Borrower</option>
-        </select>
-    </div>
-    <div class="filter-characters">
-        <select id="order-by-alphabet" class="filter-box">
-            <option disabled selected>--Order by alphabet--</option>
-            <option value="A-Z">A-Z</option>
-            <option value="Z-A">Z-A</option>
-        </select>
-    </div>
-    <div class="filter-characters">
-        <select id="order-by-age" class="filter-box">
-            <option disabled selected>--Order-by-age--</option>
-            <option value="Ascended">Upward</option>
-            <option value="Descended">Falling</option>
-        </select>
-    </div>`;
-    filterCharacters.appendChild(filtrado);
+const especieSeleccionada = document.getElementById("filter-by-species");
+//console.log(especieSeleccionada);
+especieSeleccionada.addEventListener("change", filterEspecies);
+
+function filterEspecies() {
+    containerCharacters.innerHTML="";
+    const dataPersonajes = data.films.map((e) => e.people);
+    const totalPersonajes = dataPersonajes.reduce((acc, el) => acc.concat(el), []);
+    let valorEspecie = especieSeleccionada.value;
+    //console.log(valorEspecie);
+    let datoCharacter = totalPersonajes.filter((character) => character.specie.includes(valorEspecie));
+    datoCharacter.forEach((mostrarDatosPersonajes));
+    //console.log(datoCharacter);
 }
 
+const alphabetSeleccionada = document.getElementById("order-by-alphabet");
+alphabetSeleccionada.addEventListener("change", orderAlphabet);
+
+function orderAlphabet() {
+    containerCharacters.innerHTML="";
+    const valorAlphabet = alphabetSeleccionada.value;
+    //console.log(valorAlphabet);
+    if(valorAlphabet == "A-Z") {
+        let datoCharacters = data.films.map((e) => e.people);
+        let totalCharacters = datoCharacters.reduce((opcion, element) => opcion.concat(element), []);
+        //console.log(totalCharacters);
+        let dataCharacter = totalCharacters.sort((unaLetra, otraLetra) => unaLetra.name.localeCompare(otraLetra.name));
+        //console.log(dataCharacter);
+        dataCharacter.forEach((mostrarDatosPersonajes));
+        //console.log(dataCharacter);
+    }
+    else if (valorAlphabet == "Z-A") {
+        //containerCharacters.innerHTML="";
+        let datoCharacters = data.films.map((e) => e.people);
+        let totalCharacters = datoCharacters.reduce((opcion, element) => opcion.concat(element), []);
+        //console.log(totalCharacters);
+        let dataCharacter = totalCharacters.sort((unaLetra, otraLetra) => otraLetra.name.localeCompare(unaLetra.name));
+        //console.log(dataCharacter);
+        dataCharacter.forEach((mostrarDatosPersonajes));
+        //console.log(dataCharacter);
+    }
+}
 
 
 function mostrarPersonajes() {
     limpieza();
     document.querySelector(".home").style.display = "none";
-    filterPersonajes();
+    //filterPersonajes();
     const dataPersonajes = data.films.map((e) => e.people);
     const totalPersonajes = dataPersonajes.reduce((acc, el) => acc.concat(el), []);
       //console.log(totalPersonajes);
 
-    let personajesUnicos=[];
-
-    for( let i=0; i<totalPersonajes.length; i++) {
-
-            if(personajesUnicos.length===0 || !personajesUnicos.includes(totalPersonajes[i])) {
-
-            personajesUnicos.push(totalPersonajes[i])
-        }
-
-    }
-
-   // console.log(personajesUnicos);
-
-    //console.log(dataPersonajes);
     totalPersonajes.forEach(mostrarDatosPersonajes);
-}
-
-
-const especieSeleccionada = document.getElementById("filter-by-species");
-especieSeleccionada.addEventListener("change", filterEspecies);
-
-function filterEspecies() {
-    let valorEspecie = especieSeleccionada.value;
-    console.log(valorEspecie);
-    let filterEspecieSeleccionada = data.films.filter((character) => character.people === valorEspecie);
-    console.log(filterEspecieSeleccionada);
 }
