@@ -1,30 +1,23 @@
-import data from "./data/ghibli/ghibli.js";
 
+import data from "./data/ghibli/ghibli.js";
 
 const contenedorFiltrado = document.getElementById("root");
 const containerAnimes = document.getElementById("container-animes");
 const valorSeleccionado = document.getElementById("best-films-list");
 const botonSeleccionado = document.getElementById("list-order");
 
-//dinamico boton desplegado
-addEventListener('DOMContentLoaded', () => {
-    const botonMenu = document.querySelector(".btn-menu");
-    if(botonMenu) {
-        botonMenu.addEventListener("click", () => {
-            const navMenu = document.querySelector('.nav-menu')
-            navMenu.classList.toggle('show')
-        })
-    }
-})
 
 
 //mostrar la lista de peliculas en la pantalla principal
+
+
 export const mostrarPelicula = data.films.forEach(mostrarFilms);
 
 
 function mostrarFilms(dato) {
+
     const cardAnime = document.createElement("div");
-    cardAnime.className = "container-card-anime";
+    cardAnime.className = "container-card-anime";   
     cardAnime.innerHTML = `
     <div class="container-card">
         <a href='#${dato.id}'> <img  src= '${dato.poster}' class="image-poster"></img> </a>
@@ -72,16 +65,20 @@ function mostrarFilms(dato) {
                 </div>        
 
             <section class="movieIcons">
-                <button type="submit" class="botonCharacters"><i class="fas fa-users"></i> Characters</button>
+                <button type="submit" id="botonCharacters"  class="botonCharacters"><i class="fas fa-users"></i> Characters</button>
                 <button type="submit" class="botonLocation"><i class="fas fa-map-marker-alt"></i>Location</button>
                 <button type="submit" class="botonVehicles"><i class="fas fa-helicopter"></i>Vehicles </button>
             </section>
-        </section >
+ 
+            </section>
         </section >
     </section>  `;
-
     containerAnimes.appendChild(cardAnime);
 }
+
+
+
+
 
 
 //limpieza de pantallas
@@ -120,6 +117,9 @@ function orden() {
 }
 }
 
+
+
+
 //Buscador de peliculas
 const input = document.querySelector("#search");
 const boton = document.querySelector("#btn");
@@ -129,6 +129,7 @@ input.addEventListener("keyup", () => {
     mensaje.classList.remove("mensaje-correcto");
     mensaje.classList.add("mensaje-error");
 })
+
 
 const buscador = () => {
     const texto = input.value.toLowerCase();
@@ -157,10 +158,12 @@ boton.addEventListener('click', buscador);
 
 
 
-// personajes
+
+// function de mostrador de personajes
 const characters = document.getElementById("personajes");
 characters.addEventListener("click", mostrarPersonajes);
 const containerCharacters = document.getElementById("container-characters");
+
 
 function mostrarDatosPersonajes(person) {
     const detallesPersonajes = document.createElement("div");
@@ -182,6 +185,8 @@ function mostrarDatosPersonajes(person) {
     //console.log(detallesPersonajes);
     containerCharacters.appendChild(detallesPersonajes);
 }
+
+
 
 const filterCharacters = document.getElementById("menu");
 
@@ -237,6 +242,7 @@ function mostrarPersonajes() {
     document.querySelector(".home").style.display = "none";
     filterPersonajes();
     const dataPersonajes = data.films.map((e) => e.people);
+
     const totalPersonajes = dataPersonajes.reduce((acc, el) => acc.concat(el), []);
       //console.log(totalPersonajes);
 
@@ -248,7 +254,6 @@ function mostrarPersonajes() {
 
             personajesUnicos.push(totalPersonajes[i])
         }
-
     }
 
    // console.log(personajesUnicos);
@@ -256,3 +261,6 @@ function mostrarPersonajes() {
     //console.log(dataPersonajes);
     totalPersonajes.forEach(mostrarDatosPersonajes);
 }
+
+// mostrar personajes en la cartilla de detalles 
+
