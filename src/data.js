@@ -7,7 +7,6 @@ const valorSeleccionado = document.getElementById("best-films-list");
 const botonSeleccionado = document.getElementById("list-order");
 
 
-
 //mostrar la lista de peliculas en la pantalla principal
 
 
@@ -74,11 +73,8 @@ function mostrarFilms(dato) {
         </section >
     </section>  `;
     containerAnimes.appendChild(cardAnime);
+    
 }
-
-
-
-
 
 
 //limpieza de pantallas

@@ -31,7 +31,6 @@ addEventListener('DOMContentLoaded', () => {
 
 
 
-
 //mostrador de detalles de tabs 
 
 const [tabs, tabsPanels] = [
