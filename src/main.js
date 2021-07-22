@@ -208,22 +208,6 @@ function orderAlphabet() {
 }
 
 
-
-
-//dinamico boton desplegado
-addEventListener('DOMContentLoaded', () => {
-    const botonMenu = document.querySelector(".btn-menu");
-    if(botonMenu) {
-        botonMenu.addEventListener("click", () => {
-            const navMenu = document.querySelector('.nav-menu')
-            navMenu.classList.toggle('show')
-        })
-    }
-})
-
-
-
-
 //mostrador de detalles de tabs 
 
 const [tabs, tabsPanels] = [
