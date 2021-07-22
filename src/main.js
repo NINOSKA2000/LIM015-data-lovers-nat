@@ -1,7 +1,7 @@
 import { mostrarPelicula} from './data.js';
 //import { searchFilters} from './data.js';
 
-//mostrarPelicula();
+mostrarPelicula();
 
 
 //console.log(example, data);
