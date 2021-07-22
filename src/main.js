@@ -150,7 +150,7 @@ function mostrarPersonajes() {
 
     charactersHome.style.display="block";
     limpieza();
-    //document.querySelector(".home").style.display = "none";
+    document.querySelector(".home").style.display = "none";
    let totalPersonajes = joinCharacter(dataFilms);
     console.log(totalPersonajes);
     totalPersonajes.forEach(showDataCharacters);
