@@ -52,7 +52,6 @@ export const orderAlphabetPerson = (valor,data) => {
 
 
 
-
 export const SearchByTitle = (input,data) => { 
 
     const texto = input.value.toLowerCase();

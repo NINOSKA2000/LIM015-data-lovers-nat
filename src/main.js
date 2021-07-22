@@ -157,7 +157,6 @@ function mostrarPersonajes() {
 }
 
 
-
 function showDataCharacters(person) {
     
     const detallesPersonajes = document.createElement("div");

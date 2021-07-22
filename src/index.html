@@ -67,36 +67,7 @@
         </div>
         <div class="container-collection" id="container-animes"></div>
         <div id="orden">
-          <div class="container">
-            <ul class="tabs">
-              <li class="active" data-target="panel-1">
-                CHARACTERES
-              </li>
-              <li data-target="panel-2">
-                LOCATIONS
-              </li>
-              <li data-target="panel-3">
-                VEHICLES
-              </li>
-            </ul>
-            <div class="tabs-content">
-              <div class="tabs-panel active" id="panel-1">
-                <p>
-                  VER PERSONAJES
-                </p>
-              </div>
-              <div class="tabs-panel" id="panel-2">
-                <p>
-                  VER LOCACIONES
-                </p>
-              </div>
-              <div class="tabs-panel" id="panel-3">
-                <p>
-                  VER VEHICLES
-                </p>
-              </div>
-            </div>
-          </div>
+
 
         <div id="root"></div>
       </section>
@@ -142,7 +113,85 @@
         <div class="container-characters" id="container-characters"></div>
       </section>
     </main>
-    <section id="modalPersonajes"></section>
+
+    <!--modal de detalles de peliculas -->
+
+    <section  class="modalDialog">
+
+      <section class="modalDialog-details">
+          <a href="#" title="Close" class="close">CLOSE</a>
+
+          <section> 
+              <figure class="pictureMovie">
+                  <img src= '${dato.poster}'></img>
+              </figure>
+          </section >  
+          
+          <section  class="sectionDetails" >
+
+              <div >
+                <div class="titleFilms">title</div>
+                <div class="pDescription">description</div>
+                <div class="rtScore" > <img src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
+                <strong>Rt_Score:</strong> &nbsp &nbsp <span>score </span>
+                </div>
+                    <li class="director">
+                      <p><strong>Director:</strong> director</p> 
+                    </li> 
+                    <li class="producer">
+                      <p> <strong>Producer: </strong>pdato.producer</p>
+                    </li> 
+                    <li class="RealseDate">
+                      <p ><strong>Realse Date: </strong>dato.release_date</p>
+                    </li> 
+                </div>        
+
+                <div class="tabsContainerDetails"  >
+                  
+                  <div class="tabsboton">
+                    <ul class="tabs">
+                        <li class="active" data-target="panel-1" ><i class="fas fa-users"></i>
+                          CHARACTERES
+                        </li>
+                        <li data-target="panel-2" ><i class="fas fa-map-marker-alt"></i>
+                          LOCATIONS
+                        </li>
+                        <li data-target="panel-3"  ><i class="fas fa-helicopter"></i>
+                          VEHICLES
+                        </li>
+                    </ul>  
+                 </div>
+                                  
+                  <div class="tabs-content">
+                        <div class="tabs-panel active" id="panel-1">
+                          <p>
+                            VER PERSONAJES
+                          </p>
+                        </div>
+                        <div class="tabs-panel" id="panel-2">
+                          <p>
+                            VER LOCACIONES
+                          </p>
+                        </div>
+                        <div class="tabs-panel" id="panel-3">
+                          <p>
+                            VER VEHICLES
+                          </p>
+                        </div>
+
+                  </div>
+
+                </div>
+    
+          </section>
+
+      </section > 
+
+    </section>
+
+    <section id="modalPersonajes">
+    </section>
+
     <script src="https://kit.fontawesome.com/a07f6fa05e.js" crossorigin="anonymous"></script>
     <script src="main.js" type="module"></script>
   </body>
