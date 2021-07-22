@@ -304,9 +304,10 @@ footer {
 
 /* mostrador de detalles de peliculas */
 
+
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
+    display: block; /* Hidden by default  none tiene que seer*/
+    position: relative; /* Stay in place  aqui tiene que ir fixed */
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
@@ -317,6 +318,10 @@ footer {
     background-color: rgba(0,0,0,0.4);
     /* Black w/ opacity */
 }
+*/
+
+
+
 
 .modalDialog {
     position: fixed;
@@ -391,7 +396,7 @@ footer {
     border-radius: 10%;
 }
 
-.sectionDetails h1.titleFilms {
+.sectionDetails .titleFilms {
     padding: 24px 0px 0px;
     font-size: 2rem;
     color:rgb(156, 165, 173);
@@ -444,42 +449,6 @@ footer {
     color:rgb(136, 134, 127);
 }
 
-.sectionDetails .movieIcons {
-
-    display: flex;
-    justify-content: center;
-    height: auto;
-    width: auto;
-    display: flex;
-    margin:10%;
-}
-
-.movieIcons button{
-    color:rgb(235, 238, 79);
-    font-size: 1rem;
-    display: flex;
-    align-content: center;
-    align-items: baseline;
-    letter-spacing: 1px;
-    transition: 0.5s;
-}
-
-.movieIcons  .botonCharacters ,.botonLocation, .botonVehicles {
-    background-color:darkgoldenrod;
-    font-size: 0.8rem;
-    margin: 1rem 2rem;
-    padding: 0em 2rem ;
-    text-align: center;
-    text-decoration:none;
-    border-radius: 20px;
-}
-
-.botonCharacters:focus, .botonLocation:focus, .botonVehicles:focus{
-    background-color:rgb(136, 134, 127);;
-    font-size: 1.3rem;
-    box-shadow: 0 0 10px rgb(240, 196, 36), 0 0 40px rgb(240, 196, 36), 0 0 80px rgb(240, 196, 36) ;
-    transition: 0.5s;
-}
 
 
 /*tabs de mostrador de detalles */
@@ -490,39 +459,55 @@ footer {
 
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap");
 
-html,
-body {
-  font-family: "Manrope", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+
+.tabsboton {
+    max-width: 800px;
+    margin: 1rem auto;
+    padding: 0 2rem;
+    color:rgb(235, 238, 79);
+    font-size: 1rem;
+    display: flex;
+    align-content: center;
+    align-items: baseline;
+    letter-spacing: 1px;
+    transition: 0.5s;
+    
 }
 
-.container {
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 0 2rem;
-}
 
 .tabs {
-  list-style: none;
-  padding-left: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin: 0;
-  border: 1px solid #efefef;
+
+    background-color:darkgoldenrod;
+    font-size: 0.8rem;
+    margin: 1rem 2rem;
+    text-align: center;
+    text-decoration:none;
+    border-radius: 20px;
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
+    border: 1px solid #efefef;
 }
 
 .tabs li {
   text-align: center;
-  background-color: #fcfcfc;
   padding: 1rem;
   cursor: pointer;
   transition: background-color 0.45s ease-in-out;
+  position: relative;
+  
 }
 
 .tabs li.active {
   background-color: #eee;
+  background-color:rgb(136, 134, 127);;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgb(240, 196, 36), 0 0 40px rgb(240, 196, 36), 0 0 80px rgb(240, 196, 36) ;
+  transition: 0.5s;
+  border-radius:20px ;
 }
 
 .tabs li > a {
@@ -533,6 +518,7 @@ body {
 .tabs-content {
   border: 1px solid #eee;
   border-top: 0;
+  position: relative;
 }
 
 .tabs-panel {

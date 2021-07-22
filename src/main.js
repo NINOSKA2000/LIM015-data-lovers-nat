@@ -1,5 +1,5 @@
 
-import {  filterByDirector ,filterByCharteres, orderByYears,orderAlphabetPerson, SearchByTitle , joinCharacter} from './data.js';
+import {  filterByDirector ,filterByCharteres,filterById, orderByYears,orderAlphabetPerson, SearchByTitle , joinCharacter} from './data.js';
 
 import data from "./data/ghibli/ghibli.js";
 
@@ -50,12 +50,61 @@ function mostrarFilms(dato) {
     
 }
 
+
+const titleFilms = document.querySelector(".titleFilms");
+const pDescription = document.querySelector(".pDescription");
+const rtScore = document.querySelector(".rtScore");
+const pirector = document.querySelector(".pDirector");
+const pProducer = document.querySelector(".pProducer");
+const pictureMovie = document.querySelector(".pictureMovie");
+
+const CardPeopleFilm = document.getElementById("panel-1");
+const CardLocationFilm = document.getElementById("panel-2");
+const CardVehiclesFilm = document.getElementById("panel-3");
+
+
+
+
 //funcion para detalles de peliculas con sus locaciones y personajes 
 function most(idFilms) { 
-    console.log(idFilms);
-    console.log("hola");
 
+    //identifique la pelicula seleccionada
+    let dataFiltrado = filterById(idFilms,dataFilms);
+    console.log(dataFiltrado);
+
+    // muestre los datos en mi modal de detalles 
+    titleFilms.innerHTML= dataFiltrado[0].title;
+    pictureMovie.src= dataFiltrado[0].poster;
+    pDescription.innerHTML= dataFiltrado[0].description;
+    rtScore.innerHTML= dataFiltrado[0].rt_score;
+    pirector.innerHTML= dataFiltrado[0].director;
+    pProducer.innerHTML= dataFiltrado[0].producer;
+    
+    //data de  sus personajes 
+
+    let dataPerson=dataFiltrado[0].people; 
+    CardPeopleFilm.innerHTML="";
+    peopleShow(CardPeopleFilm,dataPerson);
+
+    //data de location 
+
+    let dataLocation=dataFiltrado[0].locations; 
+    //console.log(dataLocation);
+    CardLocationFilm.innerHTML="";
+    locationShow(CardLocationFilm,dataLocation);
+
+    let dataVehicles=dataFiltrado[0].vehicles; 
+    console.log(dataVehicles);
+    //console.log(dataLocation);
+    CardVehiclesFilm.innerHTML="";
+    vehiclesShow(CardVehiclesFilm ,dataVehicles);
+   
 }
+
+
+
+
+
 
 
 
@@ -146,39 +195,110 @@ const containerCharacters = document.getElementById("container-characters");
 console.log(containerCharacters);
 
 
-function mostrarPersonajes() {
 
+function peopleShow (contenedor, datatotal) {
+
+    datatotal.forEach((person)=> {
+        const detallesPersonajes = document.createElement("div");
+        detallesPersonajes.className = "container-card-characters";
+        detallesPersonajes.innerHTML = `
+        <div class="card-characters">
+            <figure>
+                <img src='${person.img}' class="image-characters"></img>
+            </figure>
+            <div class="description">
+                <p class="person-name"><b>Name:</b> ${person.name}</p>
+                <p class="person-gender"><b>Gender:</b> ${person.gender}</p>
+                <p class="person-age"><b>Age:</b> ${person.age}</p>
+                <p class="person-eyes"><b>Eye color:</b> ${person.eye_color}</p>
+                <p class="person-hair"><b>Hair color:</b> ${person.hair_color}</p>
+                <p class="person-specie"><b>Specie:</b> ${person.specie}</p>
+            </div>
+        </div>`;
+        //console.log(detallesPersonajes);
+        console.log(detallesPersonajes);
+        contenedor.appendChild(detallesPersonajes);
+    })
+}
+
+
+
+
+function locationShow (contenedor, datatotal) {
+
+    datatotal.forEach((ele)=> {
+        const detallesPersonajes = document.createElement("div");
+        detallesPersonajes.className = "container-card-characters";
+        detallesPersonajes.innerHTML = `
+        <div class="card-location">
+            <figure>
+                <img src='${ele.img}' class="image-characters"></img>
+            </figure>
+            <div class="detailsLocation">
+                <p ><b>Name:</b> ${ele.name}</p>
+                <p ><b>Gender:</b> ${ele.climate}</p>
+                <p ><b>residents:</b> ${ele.residents}</p>
+                
+            </div>
+        </div>`;
+        //console.log(detallesPersonajes);
+        contenedor.appendChild(detallesPersonajes);
+     
+    })
+}
+
+
+function vehiclesShow (contenedor, datatotal) {
+
+    datatotal.forEach((ele)=> {
+        const detallesPersonajes = document.createElement("div");
+        detallesPersonajes.className = "container-card-characters";
+        detallesPersonajes.innerHTML = `
+        <div class="card-vehicles">
+            <figure>
+                <img src='${ele.img}' class="image-characters"></img>
+            </figure>
+            <div class="detailsLocation">
+                <p ><b>Name:</b> ${ele.name}</p>
+                <p ><b>vehicle class:</b> ${ele.vehicle_class}</p>
+                <p ><b>Pilots:</b> ${ele.pilot}</p>
+                
+            </div>
+        </div>`;
+        //console.log(detallesPersonajes);
+        contenedor.appendChild(detallesPersonajes);
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function mostrarPersonajes() {
     charactersHome.style.display="block";
     limpieza();
     document.querySelector(".home").style.display = "none";
    let totalPersonajes = joinCharacter(dataFilms);
     console.log(totalPersonajes);
-    totalPersonajes.forEach(showDataCharacters);
+    peopleShow(containerCharacters,totalPersonajes);
+     //totalPersonajes.forEach(showDataCharacters);
 }
 
-
-
-function showDataCharacters(person) {
-    
-    const detallesPersonajes = document.createElement("div");
-    detallesPersonajes.className = "container-card-characters";
-    detallesPersonajes.innerHTML = `
-    <div class="card-characters">
-        <figure>
-            <img src='${person.img}' class="image-characters"></img>
-        </figure>
-        <div class="description">
-            <p class="person-name"><b>Name:</b> ${person.name}</p>
-            <p class="person-gender"><b>Gender:</b> ${person.gender}</p>
-            <p class="person-age"><b>Age:</b> ${person.age}</p>
-            <p class="person-eyes"><b>Eye color:</b> ${person.eye_color}</p>
-            <p class="person-hair"><b>Hair color:</b> ${person.hair_color}</p>
-            <p class="person-specie"><b>Specie:</b> ${person.specie}</p>
-        </div>
-    </div>`;
-    //console.log(detallesPersonajes);
-    containerCharacters.appendChild(detallesPersonajes);
-}
 
 
 //funcion de filtrar  data personajes 
@@ -190,7 +310,8 @@ function filterEspecies() {
     let valorEspecie = selectedSpecie.value;
     const totalPersonajes = joinCharacter(dataFilms);  
     let datoCharacter = filterByCharteres(valorEspecie,totalPersonajes);
-    datoCharacter.forEach((showDataCharacters));
+    peopleShow(containerCharacters,datoCharacter);
+    //datoCharacter.forEach((showDataCharacters));
 }
 
 
@@ -204,7 +325,8 @@ function orderAlphabet() {
     const valorAlphabet =alphabetSelect.value;
     const totalPersonajes = joinCharacter(dataFilms);
     let dataCharacter = orderAlphabetPerson(valorAlphabet,totalPersonajes);
-    dataCharacter.forEach((showDataCharacters));
+    peopleShow(containerCharacters,dataCharacter);
+    //dataCharacter.forEach((showDataCharacters));
 }
 
 
