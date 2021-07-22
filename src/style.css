@@ -207,6 +207,9 @@ option {
     box-shadow: 0 0 0.5rem gray;
     transform: translateY(-3%);
 }
+.characters-home {
+    display: none;
+}
 .image-poster {
     width: 100%;
     height: 16.875em;

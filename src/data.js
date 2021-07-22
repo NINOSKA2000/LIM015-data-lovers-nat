@@ -4,7 +4,6 @@ const contenedorFiltrado = document.getElementById("root");
 const containerAnimes = document.getElementById("container-animes");
 const valorSeleccionado = document.getElementById("best-films-list");
 const botonSeleccionado = document.getElementById("list-order");
-//const seccionFilter = document.getElementById("#characters-main");
 
 //dinamico boton desplegado
 addEventListener('DOMContentLoaded', () => {
@@ -23,6 +22,7 @@ export const mostrarPelicula = data.films.forEach(mostrarFilms);
 
 
 function mostrarFilms(dato) {
+    
     const cardAnime = document.createElement("div");
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
@@ -164,6 +164,7 @@ characters.addEventListener("click", mostrarPersonajes);
 const containerCharacters = document.getElementById("container-characters");
 
 function mostrarDatosPersonajes(person) {
+    document.getElementById("characters-main").style.display = 'block';
     const detallesPersonajes = document.createElement("div");
     detallesPersonajes.className = "container-card-characters";
     detallesPersonajes.innerHTML = `
