@@ -1,8 +1,5 @@
 
-
-
-import {  filterByDirector ,orderByYears, SearchByTitle , joinCharacter} from './data.js';
-
+import {  filterByDirector ,filterByCharteres, orderByYears,orderAlphabetPerson, SearchByTitle , joinCharacter} from './data.js';
 
 import data from "./data/ghibli/ghibli.js";
 
@@ -10,18 +7,22 @@ const contenedorFiltrado = document.getElementById("root");
 const containerAnimes = document.getElementById("container-animes");
 const valorSeleccionado = document.getElementById("best-films-list");
 const botonSeleccionado = document.getElementById("list-order");
+const charactersHome=document.getElementById("characters-main");
+const input = document.querySelector("#search");
+const boton = document.querySelector("#btn");
+const mensaje = document.querySelector("#mensaje-error");
+const selectedSpecie = document.getElementById("filter-by-species");
+const alphabetSelect = document.getElementById("order-by-alphabet");
+
 
 
 
 //mostrar la lista de peliculas en la pantalla principal
 
-
-let dataFilms=data.films;
-
+let dataFilms = data.films;
 dataFilms.forEach(mostrarFilms);
 
 function mostrarFilms(dato) {
-
     const cardAnime = document.createElement("div");
     cardAnime.className = "container-card-anime";   
     cardAnime.innerHTML = `
@@ -36,11 +37,11 @@ function mostrarFilms(dato) {
 
     containerAnimes.appendChild(cardAnime);
 
-    cardAnime.addEventListener("click", ()=>{
+   cardAnime.addEventListener("click", ()=>{
 
-        let idFilms=cardAnime.firstElementChild.id;
+        let idFilms = cardAnime.firstElementChild.id;
 
-            console.log(idFilms);
+           // console.log(idFilms);
 
             most(idFilms);
         
@@ -49,8 +50,8 @@ function mostrarFilms(dato) {
     
 }
 
+//funcion para detalles de peliculas con sus locaciones y personajes 
 function most(idFilms) { 
-
     console.log(idFilms);
     console.log("hola");
 
@@ -58,11 +59,10 @@ function most(idFilms) {
 
 
 
-
 //limpieza de pantallas
 function limpieza () {
-    containerAnimes.innerHTML="";
-    contenedorFiltrado.innerHTML="";
+    containerAnimes.innerHTML = "";
+    contenedorFiltrado.innerHTML = "";
 }
 
 
@@ -73,26 +73,25 @@ valorSeleccionado.addEventListener("change", filterDirectors);
 function filterDirectors() {
     limpieza ();
      //containerAnimes.style.display="none";  //oculta el cuadro de animes totales
-    let valor = valorSeleccionado.value;
+    let selectedDirector = valorSeleccionado.value;
      //console.log (valor);
-    let dire=filterByDirector(valor,dataFilms)//filtra las peliculas que incluyes el director seleccioando
+    let directorFilms = filterByDirector(selectedDirector,dataFilms)//filtra las peliculas que incluyes el director seleccioando
 	//console.log(dire);
-    dire.forEach(mostrarFilms);
+    directorFilms.forEach(mostrarFilms);
 }
 
 
 
-//ordenado por año
+
+// peliculas ordenados por año
 
 botonSeleccionado.addEventListener("change", sortYear);
 
 function sortYear() {
     limpieza ();
-    let opcion = botonSeleccionado.value;
-
-	let yearsPeli=orderByYears(opcion,dataFilms);
-
-	yearsPeli.forEach(mostrarFilms);
+    let selectedOption = botonSeleccionado.value;
+	let orderedMovie = orderByYears(selectedOption,dataFilms);
+	orderedMovie.forEach(mostrarFilms);
 }
 
 
@@ -100,9 +99,7 @@ function sortYear() {
 
 
 //Buscador de peliculas
-const input = document.querySelector("#search");
-const boton = document.querySelector("#btn");
-const mensaje = document.querySelector("#mensaje-error");
+
 
 input.addEventListener("keyup", () => {
     mensaje.classList.remove("mensaje-correcto");
@@ -140,15 +137,29 @@ boton.addEventListener('click', movieSearch);
 
 
 
-
-
 // function de mostrador de personajes
+
+
 const characters = document.getElementById("personajes");
 characters.addEventListener("click", mostrarPersonajes);
 const containerCharacters = document.getElementById("container-characters");
+console.log(containerCharacters);
 
 
-function mostrarDatosPersonajes(person) {
+function mostrarPersonajes() {
+
+    charactersHome.style.display="block";
+    limpieza();
+    //document.querySelector(".home").style.display = "none";
+   let totalPersonajes = joinCharacter(dataFilms);
+    console.log(totalPersonajes);
+    totalPersonajes.forEach(showDataCharacters);
+}
+
+
+
+function showDataCharacters(person) {
+    
     const detallesPersonajes = document.createElement("div");
     detallesPersonajes.className = "container-card-characters";
     detallesPersonajes.innerHTML = `
@@ -170,68 +181,31 @@ function mostrarDatosPersonajes(person) {
 }
 
 
+//funcion de filtrar  data personajes 
 
-const filterCharacters = document.getElementById("menu");
+selectedSpecie.addEventListener("change", filterEspecies);
 
-function filterPersonajes() {
-    const filtrado = document.createElement("div");
-    filtrado.className = "container-filter-characters";
-    filtrado.innerHTML = `
-    <div class="filter-characters">
-        <select  id="filter-by-species" class="filter-box">
-            <option disabled selected>--Filter by species--</option>
-            <option value="Human">Human</option>
-            <option value="Totoro">Totoro</option>
-            <option value="Cat">Cat</option>
-            <option value="Witch">Witch</option>
-            <option value="Raccoon Dog">Raccoon Dog</option>
-            <option value="Red elk">Red elk</option>
-            <option value="Spirit">Spirit</option>
-            <option value="Wolf">Wolf</option>
-            <option value="Deity, Dragon">Deity, Dragon</option>
-            <option value="Spirit of The White Fox">Spirit of The White Fox</option>
-            <option value="unknown">unknown</option>
-            <option value="Bird">Bird</option>
-            <option value="Wizard">Wizard</option>
-            <option value="Witch/Human">Witch/Human</option>
-            <option value="Human/Scarecrow">Human/Scarecrow</option>
-            <option value="Dog">Dog</option>
-            <option value="Arch-mage/Human">Arch-mage/Human</option>
-            <option value="Fish/Human">Fish/Human</option>
-            <option value="Deity">Deity</option>
-            <option value="Borrower">Borrower</option>
-        </select>
-    </div>
-    <div class="filter-characters">
-        <select id="order-by-alphabet" class="filter-box">
-            <option disabled selected>--Order by alphabet--</option>
-            <option value="A-Z">A-Z</option>
-            <option value="Z-A">Z-A</option>
-        </select>
-    </div>
-    <div class="filter-characters">
-        <select id="order-by-age" class="filter-box">
-            <option disabled selected>--Order-by-age--</option>
-            <option value="Ascended">Upward</option>
-            <option value="Descended">Falling</option>
-        </select>
-    </div>`;
-    filterCharacters.appendChild(filtrado);
+function filterEspecies() {
+    containerCharacters.innerHTML="";
+    let valorEspecie = selectedSpecie.value;
+    const totalPersonajes = joinCharacter(dataFilms);  
+    let datoCharacter = filterByCharteres(valorEspecie,totalPersonajes);
+    datoCharacter.forEach((showDataCharacters));
 }
 
 
 
-function mostrarPersonajes() {
-    limpieza();
-    document.querySelector(".home").style.display = "none";
-    filterPersonajes();
-   const totalPersonajes = joinCharacter(dataFilms)
-    //console.log(dataPersonajes);
-    totalPersonajes.forEach(mostrarDatosPersonajes);
+// funcion de ordenar personajes alfabeticamente 
+
+alphabetSelect.addEventListener("change", orderAlphabet);
+
+function orderAlphabet() {
+    containerCharacters.innerHTML="";
+    const valorAlphabet =alphabetSelect.value;
+    const totalPersonajes = joinCharacter(dataFilms);
+    let dataCharacter = orderAlphabetPerson(valorAlphabet,totalPersonajes);
+    dataCharacter.forEach((showDataCharacters));
 }
-
-
-
 
 
 
@@ -246,6 +220,7 @@ addEventListener('DOMContentLoaded', () => {
         })
     }
 })
+
 
 
 
