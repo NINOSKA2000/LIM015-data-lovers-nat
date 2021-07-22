@@ -257,7 +257,7 @@ option {
     border: 2px solid orange;
     border-radius: 10px;
 }
-.container-characters {
+.container-characters , #showCharacters {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(11.875em,1fr));
     row-gap: 2.275em;
@@ -431,6 +431,8 @@ footer {
     vertical-align:middle;
 }
 
+
+
 .sectionDetails  li{
     color:#D6E8EB;
     display: list-item;
@@ -480,3 +482,70 @@ footer {
 }
 
 
+/*tabs de mostrador de detalles */
+
+#orden {
+    position: relative;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300&display=swap");
+
+html,
+body {
+  font-family: "Manrope", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.tabs {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0;
+  border: 1px solid #efefef;
+}
+
+.tabs li {
+  text-align: center;
+  background-color: #fcfcfc;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.45s ease-in-out;
+}
+
+.tabs li.active {
+  background-color: #eee;
+}
+
+.tabs li > a {
+  text-decoration: none;
+  color: #0f0f0f;
+}
+
+.tabs-content {
+  border: 1px solid #eee;
+  border-top: 0;
+}
+
+.tabs-panel {
+  padding: 2rem 1rem;
+  display: none;
+}
+
+.tabs-panel.active {
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .tabs {
+    grid-template-columns: 1fr;
+  }
+}
