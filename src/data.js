@@ -8,6 +8,19 @@ export const filterByDirector = (valor, data) => {
 
 
 
+export const filterById = (valor, data) => {
+
+    let dataFiltrado= data.filter(item =>item.id==valor);
+    return dataFiltrado;
+}
+
+
+
+
+
+
+
+
 export const filterByCharteres = (valor, data) => {
 
     let datoCharacter = data.filter((character) => character.specie.includes(valor));
