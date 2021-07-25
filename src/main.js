@@ -120,8 +120,6 @@ function most(idFilms) {
     pProducer.innerHTML= "<strong>Producer: </strong>"+dataFiltrado[0].producer;
     pRealseDate.innerHTML= "<strong>Date: </strong>"+dataFiltrado[0].release_date;
 
-
-
     //data de  sus personajes
 
     let dataPerson=dataFiltrado[0].people;
