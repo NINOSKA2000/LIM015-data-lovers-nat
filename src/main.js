@@ -3,6 +3,24 @@ import {  filterByDirector ,filterByCharteres,filterById, orderByYears,orderAlph
 
 import data from "./data/ghibli/ghibli.js";
 
+const navMenu = document.querySelector('.nav-menu');
+
+addEventListener('DOMContentLoaded', () => {
+    /*---- botón de hamburguesa ---- */
+    const botonMenu = document.querySelector('.btn-menu');
+    botonMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    })
+})
+
+const navLink = document.querySelector(".nav-link");
+navLink.addEventListener('click', () => {
+    navMenu.classList.remove("show");
+    //navMenu.classList.add("oculto");
+})
+
+
+
 const contenedorFiltrado = document.getElementById("root");
 const containerAnimes = document.getElementById("container-animes");
 const valorSeleccionado = document.getElementById("best-films-list");
@@ -16,7 +34,6 @@ const alphabetSelect = document.getElementById("order-by-alphabet");
 
 
 
-
 //mostrar la lista de peliculas en la pantalla principal
 
 let dataFilms = data.films;
@@ -24,7 +41,7 @@ dataFilms.forEach(mostrarFilms);
 
 function mostrarFilms(dato) {
     const cardAnime = document.createElement("div");
-    cardAnime.className = "container-card-anime";   
+    cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
     <div class="container-card" id="${dato.id}">
         <div> <img  src= '${dato.poster}' class="image-poster"></img> </div>
@@ -32,22 +49,18 @@ function mostrarFilms(dato) {
             <span class="title">${dato.title}</span><br>
             <span class="release">${"(" + dato.release_date + ")"}</span>
         </div>
-    </div>
- `;
+    </div>`;
 
     containerAnimes.appendChild(cardAnime);
 
-   cardAnime.addEventListener("click", ()=>{
+    cardAnime.addEventListener("click", ()=>{
 
-        let idFilms = cardAnime.firstElementChild.id;
+    let idFilms = cardAnime.firstElementChild.id;
 
-           // console.log(idFilms);
+    most(idFilms);
 
-            most(idFilms);
-        
     });
     return cardAnime;
-    
 }
 
 
@@ -65,46 +78,39 @@ const CardVehiclesFilm = document.getElementById("panel-3");
 
 
 
-//funcion para detalles de peliculas con sus locaciones y personajes 
-function most(idFilms) { 
+//funcion para detalles de peliculas con sus locaciones y personajes
+function most(idFilms) {
 
     //identifique la pelicula seleccionada
     let dataFiltrado = filterById(idFilms,dataFilms);
-    console.log(dataFiltrado);
 
-    // muestre los datos en mi modal de detalles 
+    // muestre los datos en mi modal de detalles
     titleFilms.innerHTML= dataFiltrado[0].title;
     pictureMovie.src= dataFiltrado[0].poster;
     pDescription.innerHTML= dataFiltrado[0].description;
     rtScore.innerHTML= dataFiltrado[0].rt_score;
     pirector.innerHTML= dataFiltrado[0].director;
     pProducer.innerHTML= dataFiltrado[0].producer;
-    
-    //data de  sus personajes 
 
-    let dataPerson=dataFiltrado[0].people; 
+    //data de  sus personajes
+
+    let dataPerson=dataFiltrado[0].people;
     CardPeopleFilm.innerHTML="";
     peopleShow(CardPeopleFilm,dataPerson);
 
-    //data de location 
+    //data de location
 
-    let dataLocation=dataFiltrado[0].locations; 
+    let dataLocation=dataFiltrado[0].locations;
     //console.log(dataLocation);
     CardLocationFilm.innerHTML="";
     locationShow(CardLocationFilm,dataLocation);
 
-    let dataVehicles=dataFiltrado[0].vehicles; 
-    console.log(dataVehicles);
+    let dataVehicles=dataFiltrado[0].vehicles;
     //console.log(dataLocation);
     CardVehiclesFilm.innerHTML="";
     vehiclesShow(CardVehiclesFilm ,dataVehicles);
-   
+
 }
-
-
-
-
-
 
 
 
@@ -154,7 +160,7 @@ input.addEventListener("keyup", () => {
     mensaje.classList.remove("mensaje-correcto");
     mensaje.classList.add("mensaje-error");
 })
- 
+
 const movieSearch = () => {
 
     const texto = input.value.toLowerCase();
@@ -192,8 +198,6 @@ boton.addEventListener('click', movieSearch);
 const characters = document.getElementById("personajes");
 characters.addEventListener("click", mostrarPersonajes);
 const containerCharacters = document.getElementById("container-characters");
-console.log(containerCharacters);
-
 
 
 function peopleShow (contenedor, datatotal) {
@@ -215,8 +219,6 @@ function peopleShow (contenedor, datatotal) {
                 <p class="person-specie"><b>Specie:</b> ${person.specie}</p>
             </div>
         </div>`;
-        //console.log(detallesPersonajes);
-        console.log(detallesPersonajes);
         contenedor.appendChild(detallesPersonajes);
     })
 }
@@ -238,12 +240,11 @@ function locationShow (contenedor, datatotal) {
                 <p ><b>Name:</b> ${ele.name}</p>
                 <p ><b>Gender:</b> ${ele.climate}</p>
                 <p ><b>residents:</b> ${ele.residents}</p>
-                
+
             </div>
         </div>`;
-        //console.log(detallesPersonajes);
         contenedor.appendChild(detallesPersonajes);
-     
+
     })
 }
 
@@ -262,10 +263,9 @@ function vehiclesShow (contenedor, datatotal) {
                 <p ><b>Name:</b> ${ele.name}</p>
                 <p ><b>vehicle class:</b> ${ele.vehicle_class}</p>
                 <p ><b>Pilots:</b> ${ele.pilot}</p>
-                
+
             </div>
         </div>`;
-        //console.log(detallesPersonajes);
         contenedor.appendChild(detallesPersonajes);
     })
 }
@@ -328,22 +328,6 @@ function orderAlphabet() {
     peopleShow(containerCharacters,dataCharacter);
     //dataCharacter.forEach((showDataCharacters));
 }
-
-
-
-
-//dinamico boton desplegado
-addEventListener('DOMContentLoaded', () => {
-    const botonMenu = document.querySelector(".btn-menu");
-    if(botonMenu) {
-        botonMenu.addEventListener("click", () => {
-            const navMenu = document.querySelector('.nav-menu')
-            navMenu.classList.toggle('show')
-        })
-    }
-})
-
-
 
 
 //mostrador de detalles de tabs 
