@@ -304,7 +304,7 @@ footer {
 
 /* mostrador de detalles de peliculas */
 
-
+/*
 .modal {
     display: block; /* Hidden by default  none tiene que seer*/
     position: relative; /* Stay in place  aqui tiene que ir fixed */
@@ -318,7 +318,7 @@ footer {
     background-color: rgba(0,0,0,0.4);
     /* Black w/ opacity */
 }
-*/
+
 
 
 
@@ -339,7 +339,20 @@ footer {
     transition: opacity 100ms ease-in;
     pointer-events: none;
     box-shadow: 2px 2px 5px #999;
+    background-image: linear-gradient(45deg, #1d0205 0%, #8d211d 100%);
+    display: flex;
+    justify-content: center;
+    align-items:center ;
 }
+
+
+.modalDialog-details{
+
+    transition: 2s;
+    transform: translate();
+}
+
+
 .modalDialog:target {
     opacity:1;
     pointer-events: auto;
@@ -351,10 +364,12 @@ footer {
     margin: 2% auto;
     padding: 10px;
     border-radius: 10px;
-    background: rgb(46, 13, 46);
     border: 2.5px solid rgb(83, 52, 77);
+    background-image: linear-gradient(45deg, #8f2c0e 0%, #1a0504 100%);
 }
+
 .modalDialog .close {
+    
     font-family: Arial, Helvetica, sans-serif;
     background:#00283A;
     color: #fff;
@@ -534,4 +549,13 @@ footer {
   .tabs {
     grid-template-columns: 1fr;
   }
+}
+
+
+
+/*graficos estadisticos */
+
+#grafics {
+
+    display: none;
 }
