@@ -9,7 +9,6 @@ html {
     width: 100%;
     min-height: 100vh;
 }
-
 body {
     background: #D6E8EB;
     min-height: 100vh;
@@ -19,49 +18,53 @@ body {
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
-
-.nav {
-    background-color: #00283A;
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header {
+    position: relative;
 }
 .logo img {
-    height: 15vh;
-    width: 20vw;
-    padding: 4px;
+    max-width: 100%;
+    height: 50px;
+    padding-left: 20px;
+}
+.nav {
+    background-color: #00283A;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    z-index: 10;
 }
 .nav-menu {
-    display: flex;
     list-style: none;
-    margin-right: 30px;
+    padding: 0;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
 }
-.nav-menu li {
-    margin: 0 5px;
+.nav-menu.show {
+    top: 100px;
 }
-.nav-menu li a {
-    padding: 7px 13px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
+.nav-menu.oculto {
+    left: -200px;
+}
+.nav-list {
+    padding: 0px 50px 0px 0px;
+}
+.nav-link {
     display: block;
+    padding: 20px 30px;
     color: white;
-}
-.nav-menu li:hover {
-    background-color: rgba(0, 0, 0, .3);
-    transition: .4s;
+    text-decoration: none;
+    font-size: 20px;
 }
 .btn-menu {
-    margin-right: 30px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
     display: none;
-}
-ul .show {
-    top: 65px;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
 }
 .home-main {
     display: flex;
@@ -73,7 +76,6 @@ ul .show {
     min-height: 100%;
     display: block;
 }
-
 .home-main:before {
     content: "";
     background: black;
@@ -82,35 +84,40 @@ ul .show {
     height: 100%;
     position: absolute;
 }
+.containerMenuBar {
+    margin-top: 7rem;
+    position: relative;
+}
+.menuBar {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
 input[type=text] {
-    border: 1px solid gray;
-    border-radius: 8px;
-    width: 30%;
-    padding: 10px;
+    width: 100%;
     font-size: 1rem;
+    padding: 0.50em;
+    border: 1px solid #eee;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     cursor: pointer;
 }
 input[type="text"]:focus {
     border: 2px solid orange;
-    border-radius: 8px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     outline: none;
 }
 .button {
     border: 1px solid #00283A;
-    border-radius: 8px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     background-color: #00283A;
     padding: 10px;
-    margin-left: 5px;
     font-weight: bold;
     font-size: 1rem;
     color: white;
     cursor: pointer;
-}
-.search  {
-    display: flex;
-    justify-content: center;
-    padding-top: 3%;
-    position: relative;
 }
 .mensaje-error {
     display: none;
@@ -120,7 +127,6 @@ input[type="text"]:focus {
     display: block;
     position: relative;
 }
-
 .welcome-main {
     background-image: url(./img/Image-Studio-ghibli.jpg);
     background-repeat: no-repeat;
@@ -151,15 +157,9 @@ input[type="text"]:focus {
 .list-title p {
     color: white;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     padding: 10px 0px;
-    position: relative;
-}
-.filter {
-    display: flex;
-    justify-content: center;
-    position: relative;
 }
 .button-welcome a {
     background-color: #00283A;
@@ -175,15 +175,6 @@ input[type="text"]:focus {
     padding: 12px;
     margin-top: 12px;
 }
-#best-films-list, #list-order {
-    width: 17%;
-    border: 1px solid gray;
-    border-radius: 8px;
-    padding: 10px;
-    margin: 8px 15px;
-    cursor: pointer;
-    font-size: 1rem;
-}
 option {
     cursor: pointer;
 }
@@ -192,7 +183,7 @@ option {
     grid-template-columns: repeat(auto-fill, minmax(11.875em,1fr));
     row-gap: 1.875em;
     column-gap: 2rem;
-    margin: 2.3rem 2rem;
+    margin: 2rem;
     justify-items: center;
     position: relative;
 }
@@ -235,23 +226,27 @@ option {
 .container-filter-characters {
     position: relative;
     display: flex;
+    justify-content: center;
     flex-flow: column wrap;
-    margin-top: 0.5em;
+    margin-top: 8em;
 }
-.container-filter-characters > * {
+.container-filter-characters > *,
+.menuBar > * {
     padding: 0.8em;
 }
-.filter-characters {
+.filter-characters,
+.search,
+.filter-movie {
     display: flex;
 }
 .filter-box {
-    outline: none;
     width: 100%;
     border-radius: 10px;
     padding: 0.50em;
     color: black;
     font-size: 1em;
     border: 1px solid #eee;
+    outline: none;
 }
 .filter-box:focus {
     border: 2px solid orange;
@@ -288,7 +283,6 @@ option {
     border-bottom-right-radius: 10px;
 }
 
-
 footer {
     background-color: #00283A;
     color: white;
@@ -300,11 +294,8 @@ footer {
     font-weight: bold;
 }
 
-
-
 /* mostrador de detalles de peliculas */
 
-/*
 .modal {
     display: block; /* Hidden by default  none tiene que seer*/
     position: relative; /* Stay in place  aqui tiene que ir fixed */
@@ -318,10 +309,6 @@ footer {
     background-color: rgba(0,0,0,0.4);
     /* Black w/ opacity */
 }
-
-
-
-
 
 .modalDialog {
     position: fixed;
@@ -396,48 +383,40 @@ footer {
 
 /* dentro de los detalles de peliculas*/
 
-.modalDialog-details {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.containerModal {
+    margin: 1em;
+    display: flex;
+    position: relative;
 }
 
-.modalDialog-details .pictureMovie {
-    margin: 20px 30px;
-    align-items: center;
-}
-
-.pictureMovie  img {
+.pictureMovie {
     box-shadow: 2px  2px 2px 2px rgb(109, 14, 104);
-    border-radius: 10%;
+    border-radius: 10px;
 }
 
-.sectionDetails .titleFilms {
-    padding: 24px 0px 0px;
-    font-size: 2rem;
+.sectionModal .titleFilms {
+    font-size: 1.5rem;
+    margin: 0.6em 0;
     color:rgb(156, 165, 173);
     font-weight: 700;
     line-height: 1.5rem;
     text-align: left;
 }
 
-.sectionDetails .pDescription {
-    display: block;
-    padding: 10px 10px;
-    margin: 1em 3em;
+.sectionModal .pDescription {
+    margin: 1em 0;
     word-wrap: break-word;
+    text-align: justify;
     color: #D6E8EB;
-    text-align: justify ;
     overflow:hidden;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.sectionDetails .rtScore {
+.rtScore {
     color:aqua;
-    padding: 2px;
-    margin: 2.5%;
-
+    margin-bottom: 1em;
 }
-.sectionDetails .rtScore span {
+.rtScore span {
     color: #1a1818;
     background-color: #edb709;
     font-size: 1rem;
@@ -451,17 +430,20 @@ footer {
     vertical-align:middle;
 }
 
-
-
-.sectionDetails  li{
+.sectionModal  li{
     color:#D6E8EB;
     display: list-item;
     text-align: -webkit-match-parent;
     list-style: none;
 }
-.sectionDetails  li strong{
+.sectionModal  li strong{
     font-weight: 700;
     color:rgb(136, 134, 127);
+}
+.pDirector,
+.pProducer,
+.pRealseDate {
+    margin-bottom: 0.4em;
 }
 
 
@@ -479,20 +461,16 @@ footer {
 .tabsboton {
     max-width: 800px;
     margin: 1rem auto;
-    padding: 0 2rem;
     color:rgb(235, 238, 79);
     font-size: 1rem;
     display: flex;
-    align-content: center;
-    align-items: baseline;
+    justify-content: center;
     letter-spacing: 1px;
     transition: 0.5s;
-    
 }
 
 
 .tabs {
-
     background-color:darkgoldenrod;
     font-size: 0.8rem;
     margin: 1rem 2rem;
@@ -508,54 +486,42 @@ footer {
 }
 
 .tabs li {
-  text-align: center;
-  padding: 1rem;
-  cursor: pointer;
-  transition: background-color 0.45s ease-in-out;
-  position: relative;
-  
+    text-align: center;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background-color 0.45s ease-in-out;
+    position: relative;
 }
 
 .tabs li.active {
-  background-color: #eee;
-  background-color:rgb(136, 134, 127);;
-  font-size: 1rem;
-  box-shadow: 0 0 10px rgb(240, 196, 36), 0 0 40px rgb(240, 196, 36), 0 0 80px rgb(240, 196, 36) ;
-  transition: 0.5s;
-  border-radius:20px ;
+    background-color: #eee;
+    background-color:rgb(136, 134, 127);;
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgb(240, 196, 36), 0 0 40px rgb(240, 196, 36), 0 0 80px rgb(240, 196, 36) ;
+    transition: 0.5s;
+    border-radius:20px ;
 }
 
 .tabs li > a {
-  text-decoration: none;
-  color: #0f0f0f;
+    text-decoration: none;
+    color: #0f0f0f;
 }
 
 .tabs-content {
-  border: 1px solid #eee;
-  border-top: 0;
-  position: relative;
+    position: relative;
 }
 
 .tabs-panel {
-  padding: 2rem 1rem;
-  display: none;
+    padding: 2rem 1rem;
+    display: none;
 }
 
 .tabs-panel.active {
-  display: block;
+    display: block;
+   /*  display: grid; */
+    grid-template-columns: repeat(auto-fill, minmax(11.875em,1fr));
+    row-gap: 1.875em;
+    column-gap: 1.100em;
+    justify-items: center;
 }
 
-@media (max-width: 480px) {
-  .tabs {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-/*graficos estadisticos */
-
-#grafics {
-
-    display: none;
-}
