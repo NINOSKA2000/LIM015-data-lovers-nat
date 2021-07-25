@@ -34,6 +34,18 @@ const alphabetSelect = document.getElementById("order-by-alphabet");
 const modalDialog = document.querySelector(".modalDialog");
 const close = document.getElementById("close");
 
+const titleFilms = document.querySelector(".titleFilms");
+const pDescription = document.querySelector(".pDescription");
+const rtScore = document.querySelector(".rtScore");
+const pirector = document.querySelector(".pDirector");
+const pProducer = document.querySelector(".pProducer");
+const pictureMovie = document.querySelector(".pictureMovie");
+
+const CardPeopleFilm = document.getElementById("panel-1");
+const CardLocationFilm = document.getElementById("panel-2");
+const CardVehiclesFilm = document.getElementById("panel-3");
+
+
 
 //mostrar la lista de peliculas en la pantalla principal
 
@@ -78,6 +90,7 @@ close.addEventListener("click", function (){
 });
 
 
+
 window.addEventListener("click",function (e){
     //console.log(e.target);
     if(e.target==modalDialog){
@@ -85,32 +98,6 @@ window.addEventListener("click",function (e){
     }
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const titleFilms = document.querySelector(".titleFilms");
-const pDescription = document.querySelector(".pDescription");
-const rtScore = document.querySelector(".rtScore");
-const pirector = document.querySelector(".pDirector");
-const pProducer = document.querySelector(".pProducer");
-const pictureMovie = document.querySelector(".pictureMovie");
-
-const CardPeopleFilm = document.getElementById("panel-1");
-const CardLocationFilm = document.getElementById("panel-2");
-const CardVehiclesFilm = document.getElementById("panel-3");
 
 
 
