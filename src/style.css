@@ -252,6 +252,7 @@ option {
     border: 2px solid orange;
     border-radius: 10px;
 }
+
 .container-characters , #showCharacters {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(11.875em,1fr));
@@ -260,7 +261,12 @@ option {
     margin: 2rem;
     justify-items: center;
     position: relative;
+
 }
+
+
+
+
 .card-characters {
     width: 11.875em;
     border-radius: 10px;
@@ -518,7 +524,7 @@ footer {
 
 .tabs-panel.active {
     display: block;
-   /*  display: grid; */
+    display: grid; 
     grid-template-columns: repeat(auto-fill, minmax(11.875em,1fr));
     row-gap: 1.875em;
     column-gap: 1.100em;
