@@ -296,40 +296,31 @@ footer {
 
 /* mostrador de detalles de peliculas */
 
-.modal {
-    display: block; /* Hidden by default  none tiene que seer*/
-    position: relative; /* Stay in place  aqui tiene que ir fixed */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4);
-    /* Black w/ opacity */
-}
+
+
+
 
 .modalDialog {
+    
+ 
+    display:none;
     position: fixed;
+    z-index: 999;
+    overflow: auto;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.8);
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    z-index: 99999;
-    opacity:0;
-    -webkit-transition: opacity 100ms ease-in;
-    -moz-transition: opacity 100ms ease-in;
-    transition: opacity 100ms ease-in;
-    pointer-events: none;
-    box-shadow: 2px 2px 5px #999;
-    background-image: linear-gradient(45deg, #1d0205 0%, #8d211d 100%);
-    display: flex;
-    justify-content: center;
-    align-items:center ;
+    animation-name:modalDialog ;
+    animation-duration:1s;
+}
+
+
+@keyframes modalDialog{
+
+    from{top:-330px;opacity:0;}
+    to{top:0; opacity: 1;}
 }
 
 
@@ -340,10 +331,13 @@ footer {
 }
 
 
-.modalDialog:target {
+/*.modalDialog:target {
     opacity:1;
     pointer-events: auto;
-}
+}*/
+
+
+
 .modalDialog > section {
     max-width: 90vw;
     width: 80vw;
@@ -376,9 +370,13 @@ footer {
     -webkit-box-shadow: 1px 1px 3px #000;
     box-shadow: 1px 1px 3px #000;
     padding-top: 10px;
+    
 }
+
 .close:hover {
+
     background-color:#edb709;
+    cursor: pointer;
 }
 
 /* dentro de los detalles de peliculas*/
@@ -445,6 +443,8 @@ footer {
 .pRealseDate {
     margin-bottom: 0.4em;
 }
+
+
 
 
 
@@ -525,3 +525,7 @@ footer {
     justify-items: center;
 }
 
+#grafics{
+    display:none;
+
+}

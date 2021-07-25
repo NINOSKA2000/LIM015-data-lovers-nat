@@ -31,8 +31,8 @@ const boton = document.querySelector("#btn");
 const mensaje = document.querySelector("#mensaje-error");
 const selectedSpecie = document.getElementById("filter-by-species");
 const alphabetSelect = document.getElementById("order-by-alphabet");
-const modaldialog = document.querySelector(".modalDialog");
-
+const modalDialog = document.querySelector(".modalDialog");
+const close = document.getElementById("close");
 
 
 //mostrar la lista de peliculas en la pantalla principal
@@ -45,7 +45,8 @@ function mostrarFilms(dato) {
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
     <div class="container-card" id="${dato.id}">
-        <div> <img  src= '${dato.poster}' class="image-poster"></img> </div>
+        
+        <div> <img  src= '${dato.poster}' class="image-poster"></img> </div>       
         <div class="post-dato">
             <span class="title">${dato.title}</span><br>
             <span class="release">${"(" + dato.release_date + ")"}</span>
@@ -53,16 +54,51 @@ function mostrarFilms(dato) {
     </div>`;
 
     containerAnimes.appendChild(cardAnime);
-
     cardAnime.addEventListener("click", ()=>{
 
     let idFilms = cardAnime.firstElementChild.id;
-
+    modalDialog.style.display="block";
     most(idFilms);
-
+    
     });
+
     return cardAnime;
 }
+
+
+
+
+//mostrador de modal 
+
+close.addEventListener("click", function (){
+    console.log("cerrar");
+    modalDialog.style.display="none";
+
+    
+});
+
+
+window.addEventListener("click",function (e){
+    //console.log(e.target);
+    if(e.target==modalDialog){
+        modalDialog.style.display="none";
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const titleFilms = document.querySelector(".titleFilms");
@@ -344,7 +380,7 @@ const removeActiveClass = (el) => {
 
 
 // graficos estadisticos 
-
+/*
 
 let ctx = document.getElementById('myChart').getContext('2d');
 let myChart = new Chart(ctx, {
@@ -384,9 +420,22 @@ let myChart = new Chart(ctx, {
 
 chart();
 
+*/
+
 
 
 
 
 // modal de detalles mostrador 
 
+
+
+
+
+
+/*
+abrir.addEventListener("click", function (){
+    modalDialog.display="block";
+
+
+}) */
