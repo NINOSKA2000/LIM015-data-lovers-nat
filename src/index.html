@@ -16,58 +16,61 @@
             <img src="./img/studio_ghibli_logo.png" alt="">
           </a>
         </figure>
-        <ul class="nav-menu">
-          <li class="active">
-            <a href="index.html">Collection</a>
-          </li>
-          <li>
-            <a id="personajes" href="#characters">Characters</a>
-          </li>
-          <li>
-            <a id="locaciones" href="#">Ranking</a>
-          </li>
-        </ul>
         <span class="btn-menu">
           <i class="fas fa-bars"></i>
         </span>
+        <ul class="nav-menu show">
+          <li class="nav-list">
+            <a href="index.html" class="nav-link">Collection</a>
+          </li>
+          <li class="nav-list">
+            <a id="personajes" href="#characters" class="nav-link">Characters</a>
+          </li>
+          <li class="nav-list">
+            <a id="locaciones" href="#" class="nav-link">Ranking</a>
+          </li>
+        </ul>
       </nav>
     </header>
-    <main class="home-main">
+    <main class="home-main" id="">
 
       <!-- SECCION COLLECTION -->
       <section class="home" id="home">
         <!--<div id="animaciones" >
           <img src="./img/animacion1.gif" alt="">
         </div>-->
-        <div class="menuBar">
-          <div class="search">
-            <input type="text" name="search" id="search" placeholder="Search movie titles">
-            <button class="button"id="btn">Buscar</button>
-            <div id="mensaje-error" class="mensaje-error">Enter text in the movie search engine.</div>
-          </div>
+        <div class="containerMenuBar">
           <div class="list-title" id="list">
             <p>List studio Ghibli</p>
           </div>
-          <div class="filter">
-            <select name="" id="best-films-list" class="best-films-list" >
-              <option disabled selected>--Filter by director--</option>
-              <option value="Hayao Miyazaki" id="direct1">Hayao Miyazaki</option>
-              <option value="Isao Takahata" id="direct2">Isao Takahata </option>
-              <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
-              <option value="Hiroyuki Morita">Hiroyuki Morita </option>
-              <option value="Gorō Miyazaki">Gorō Miyazaki </option>
-              <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
-            </select>
-            <select name="" id="list-order" class="list-order">
-              <option disabled selected>--Order by years--</option>
-              <option value="upward" id="upward">Upward</option>
-              <option value="falling" id="falling">Falling</option>
-            </select>
+          <div class="menuBar">
+            <div class="filter-movie">
+              <select name="" id="best-films-list" class="filter-box" >
+                <option disabled selected>--Filter by director--</option>
+                <option value="Hayao Miyazaki" id="direct1">Hayao Miyazaki</option>
+                <option value="Isao Takahata" id="direct2">Isao Takahata </option>
+                <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
+                <option value="Hiroyuki Morita">Hiroyuki Morita </option>
+                <option value="Gorō Miyazaki">Gorō Miyazaki </option>
+                <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
+              </select>
+            </div>
+            <div class="filter-movie">
+              <select name="" id="list-order" class="filter-box">
+                <option disabled selected>--Order by years--</option>
+                <option value="upward" id="upward">Upward</option>
+                <option value="falling" id="falling">Falling</option>
+              </select>
+            </div>
+            <div class="search">
+              <input type="text" name="search" id="search" placeholder="Search movie titles">
+              <button class="button"id="btn">Buscar</button>
+              <div id="mensaje-error" class="mensaje-error">Enter text in the movie search engine.</div>
+            </div>
           </div>
         </div>
         <div class="container-collection" id="container-animes"></div>
         <div id="orden">
-
 
         <div id="root"></div>
       </section>
@@ -117,76 +120,63 @@
     <!--modal de detalles de peliculas -->
 
     <section  class="modalDialog">
-
-      <section class="modalDialog-details">
-          <a href="#" title="Close" class="close">CLOSE</a>
-
-          <section> 
-              <figure >
-                  <img class="pictureMovie"  ></img>
-              </figure>
-          </section >  
-          
-          <section  class="sectionDetails" >
-
-              <div >
-                <div class="titleFilms">title</div>
-                <div class="pDescription">description</div>
-                <div class="rtScore" > <img src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
-                <strong>Rt_Score:</strong> &nbsp &nbsp <span>score </span>
-                </div>
-                    <li class="pDirector">
-                      <p><strong>Director:</strong> director</p> 
-                    </li> 
-                    <li class="pProducer">
-                      <p> <strong>Producer: </strong>pdato.producer</p>
-                    </li> 
-                    <li class="RealseDate">
-                      <p ><strong>Realse Date: </strong>dato.release_date</p>
-                    </li> 
-                </div>        
-
-                <div class="tabsContainerDetails"  >
-                  
-                  <div class="tabsboton">
-                    <ul class="tabs">
-                        <li class="active" data-target="panel-1" ><i class="fas fa-users"></i>
-                          CHARACTERES
-                        </li>
-                        <li data-target="panel-2" ><i class="fas fa-map-marker-alt"></i>
-                          LOCATIONS
-                        </li>
-                        <li data-target="panel-3"  ><i class="fas fa-helicopter"></i>
-                          VEHICLES
-                        </li>
-                    </ul>  
-                 </div>
-                                  
-                  <div class="tabs-content">
-                        <div class="tabs-panel active" id="panel-1">
-                          <p>
-                            VER PERSONAJES
-                          </p>
-                        </div>
-                        <div class="tabs-panel" id="panel-2">
-                          <p>
-                            VER LOCACIONES
-                          </p>
-                        </div>
-                        <div class="tabs-panel" id="panel-3">
-                          <p>
-                            VER VEHICLES
-                          </p>
-                        </div>
-
-                  </div>
-
-                </div>
-    
-          </section>
-
-      </section > 
-
+      <a href="#" title="Close" class="close">CLOSE</a>
+      <section  class="sectionModal">
+        <div class="containerModal">
+          <div class="image">
+            <figure>
+              <img class="pictureMovie"></img>
+            </figure>
+          </div>
+          <div class="modalDetails">
+            <div class="titleFilms">title</div>
+            <div class="pDescription">description</div>
+            <div class="rtScore" > <img src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
+              <strong>Rt_Score:</strong> &nbsp &nbsp <span>score </span></div>
+              <li class="pDirector">
+                <p><strong>Director:</strong> director</p>
+              </li>
+              <li class="pProducer">
+                <p><strong>Producer: </strong>pdato.producer</p>
+              </li>
+              <li class="RealseDate">
+                <p ><strong>Realse Date: </strong>dato.release_date</p>
+              </li>
+          </div>
+        </div>
+        <div class="tabsContainerDetails"  >
+          <div class="tabsboton">
+            <ul class="tabs">
+              <li class="active" data-target="panel-1" ><i class="fas fa-users"></i>
+                CHARACTER
+              </li>
+              <li data-target="panel-2" ><i class="fas fa-map-marker-alt"></i>
+                LOCATIONS
+              </li>
+              <li data-target="panel-3"  ><i class="fas fa-helicopter"></i>
+                VEHICLES
+              </li>
+            </ul>
+          </div>
+          <div class="tabs-content">
+            <div class="tabs-panel active" id="panel-1">
+              <p>
+                VER PERSONAJES
+              </p>
+            </div>
+            <div class="tabs-panel" id="panel-2">
+              <p>
+                VER LOCACIONES
+              </p>
+            </div>
+            <div class="tabs-panel" id="panel-3">
+              <p>
+                VER VEHICLES
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
 
     <section id="modalPersonajes">
