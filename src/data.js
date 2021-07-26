@@ -69,19 +69,31 @@ export const orderAlphabetPerson = (valor,data) => {
 
 export const SearchByTitle = (input,data) => { 
 
-    const texto = input.value.toLowerCase();
+    const texto = input.toLowerCase();
+
+    if(input==="" || input===0 || data===null  || data===0)
+    {
+        throw new TypeError("can not be empty, enter values");
+    }
+
+
+
     let nombreTitle = data.filter((nombre) => nombre.title.toLowerCase().indexOf(texto) !== -1);
 
     return nombreTitle;
+
 }
 
 
 export const joinCharacter = (data) => { 
 
     const dataPersonajes = data.map((e) => e.people);
-
     const totalPersonajes = dataPersonajes.reduce((acc, el) => acc.concat(el), []);
+    
     return totalPersonajes;
+
+    
+
 
 }
 
