@@ -282,44 +282,25 @@ function vehiclesShow (contenedor, datatotal) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function mostrarPersonajes() {
     charactersHome.style.display="block";
     limpieza();
     document.querySelector(".home").style.display = "none";
-   let totalPersonajes = joinCharacter(dataFilms);
-    console.log(totalPersonajes);
+    let totalPersonajes = joinCharacter(dataFilms);
     peopleShow(containerCharacters,totalPersonajes);
      //totalPersonajes.forEach(showDataCharacters);
 }
 
 
 
-//funcion de filtrar  data personajes 
+//funcion de filtrar  data personajes
 
 selectedSpecie.addEventListener("change", filterEspecies);
 
 function filterEspecies() {
     containerCharacters.innerHTML="";
     let valorEspecie = selectedSpecie.value;
-    const totalPersonajes = joinCharacter(dataFilms);  
+    const totalPersonajes = joinCharacter(dataFilms);
     let datoCharacter = filterByCharteres(valorEspecie,totalPersonajes);
     peopleShow(containerCharacters,datoCharacter);
     //datoCharacter.forEach((showDataCharacters));
@@ -327,7 +308,7 @@ function filterEspecies() {
 
 
 
-// funcion de ordenar personajes alfabeticamente 
+// funcion de ordenar personajes alfabeticamente
 
 alphabetSelect.addEventListener("change", orderAlphabet);
 
@@ -341,10 +322,10 @@ function orderAlphabet() {
 }
 
 
-//mostrador de detalles de tabs 
+//mostrador de detalles de tabs
 
 const [tabs, tabsPanels] = [
-    
+
 	Array.from(document.querySelectorAll(".tabs li")),
 	Array.from(document.querySelectorAll(".tabs-panel"))
 ];
