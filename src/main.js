@@ -114,7 +114,7 @@ function most(idFilms) {
     titleFilms.innerHTML= dataFiltrado[0].title;
     pictureMovie.src= dataFiltrado[0].poster;
     pDescription.innerHTML= dataFiltrado[0].description;
-    rtScore.innerHTML= `<img src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
+    rtScore.innerHTML= `<img   src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
     <strong>Rt_Score:</strong> <span>` + dataFiltrado[0].rt_score+ "</span> </div>";
     pirector.innerHTML= "<strong>Director: </strong>"+ dataFiltrado[0].director;
     pProducer.innerHTML= "<strong>Producer: </strong>"+dataFiltrado[0].producer;

@@ -1,15 +1,42 @@
-import { example, anotherExample } from '../src/data.js';
+
+/*,filterByCharteres,filterById, orderByYears,orderAlphabetPerson, SearchByTitle , joinCharacter*/
+
+import {  filterByDirector } from '../src/data.js';
 
 
-describe('example', () => {
-  it('is a function', () => {
-    expect(typeof example).toBe('function');
+
+
+
+
+
+//filtrado por directores 
+
+
+
+describe('filterByDirector', () => {
+  
+  it('is a function to filter by director of studio Ghibli', () => {
+    expect(typeof filterByDirector).toBe('function');
   });
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
-  });
+
+  const arrayPrueba = [{ director: "Yoshifumi Kondō", title: "Whisper of the Heart" }, { director: "Hayao Miyazaki", title: "Castle in the Sky" }];
+  expect(filterByDirector("Yoshifumi Kondō", arrayPrueba)).toEqual([
+      { director: "Yoshifumi Kondō", title: "Whisper of the Heart" }
+  ]);
+
 });
+
+
+
+
+
+
+
+
+
+
+/*
 
 
 describe('anotherExample', () => {
@@ -21,3 +48,5 @@ describe('anotherExample', () => {
     expect(anotherExample()).toBe('OMG');
   });
 });
+*/
+
