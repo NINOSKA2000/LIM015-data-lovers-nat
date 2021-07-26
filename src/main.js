@@ -85,7 +85,7 @@ function mostrarFilms(dato) {
 //mostrador de modal 
 
 close.addEventListener("click", function (){
-    console.log("cerrar");
+    //console.log("cerrar");
     modalDialog.style.display="none";
 
     
@@ -109,6 +109,9 @@ function most(idFilms) {
 
     //identifique la pelicula seleccionada
     let dataFiltrado = filterById(idFilms,dataFilms);
+    //console.log(dataFiltrado);
+    
+    
 
     // muestre los datos en mi modal de detalles
     titleFilms.innerHTML= dataFiltrado[0].title;
@@ -117,14 +120,18 @@ function most(idFilms) {
     rtScore.innerHTML= `<img   src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
     <strong>Rt_Score:</strong> <span>` + dataFiltrado[0].rt_score+ "</span> </div>";
     pirector.innerHTML= "<strong>Director: </strong>"+ dataFiltrado[0].director;
+    
     pProducer.innerHTML= "<strong>Producer: </strong>"+dataFiltrado[0].producer;
     pRealseDate.innerHTML= "<strong>Date: </strong>"+dataFiltrado[0].release_date;
 
     //data de  sus personajes
 
     let dataPerson=dataFiltrado[0].people;
+    
+
     CardPeopleFilm.innerHTML="";
     peopleShow(CardPeopleFilm,dataPerson);
+    
 
     //data de location
 
@@ -191,15 +198,22 @@ input.addEventListener("keyup", () => {
 
 const movieSearch = () => {
 
-    const texto = input.value.toLowerCase();
+    const inputTexto = input.value;
 
-    if(texto === "") {
+    if(inputTexto === "") {
         mensaje.classList.add("mensaje-correcto");
         //alert("completa el buscador");
         //console.log(texto);
     }
 
-    let nombreTitle =SearchByTitle (input,dataFilms);
+    let nombreTitle =SearchByTitle (inputTexto,dataFilms);
+
+
+    //let ji=SearchByTitle ("Whisper",dataFilms);
+
+    // console.log(ji);
+
+
 
     if(nombreTitle.length > 0) {
         limpieza();
@@ -283,6 +297,8 @@ function locationShow (contenedor, datatotal) {
 
 function vehiclesShow (contenedor, datatotal) {
 
+    
+
     datatotal.forEach((ele)=> {
         const detallesPersonajes = document.createElement("div");
         detallesPersonajes.className = "container-card-characters";
@@ -296,8 +312,17 @@ function vehiclesShow (contenedor, datatotal) {
                 <p ><b>vehicle class:</b> ${ele.vehicle_class}</p>
                 <p ><b>Pilots:</b> ${ele.pilot}</p>
 
+
             </div>
         </div>`;
+        
+        console.log(ele);
+        let pilote=ele.pilot;
+        console.log(pilote.name);
+        console.log(pilote.map((e)=>e.name));
+        
+
+        
         contenedor.appendChild(detallesPersonajes);
     })
 }
@@ -312,8 +337,11 @@ function mostrarPersonajes() {
     charactersHome.style.display="block";
     limpieza();
     document.querySelector(".home").style.display = "none";
+    
    let totalPersonajes = joinCharacter(dataFilms);
+
     console.log(totalPersonajes);
+
     peopleShow(containerCharacters,totalPersonajes);
      //totalPersonajes.forEach(showDataCharacters);
 }
@@ -328,7 +356,9 @@ function filterEspecies() {
     containerCharacters.innerHTML="";
     let valorEspecie = selectedSpecie.value;
     const totalPersonajes = joinCharacter(dataFilms);  
+    console.log(totalPersonajes);
     let datoCharacter = filterByCharteres(valorEspecie,totalPersonajes);
+    console.log(datoCharacter);
     peopleShow(containerCharacters,datoCharacter);
     //datoCharacter.forEach((showDataCharacters));
 }
