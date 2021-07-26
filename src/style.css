@@ -253,6 +253,7 @@ option {
     border: 2px solid orange;
     border-radius: 10px;
 }
+
 .container-characters , #showCharacters {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(11.875em,1fr));
@@ -261,7 +262,12 @@ option {
     margin: 2rem;
     justify-items: center;
     position: relative;
+
 }
+
+
+
+
 .card-characters {
     width: 11.875em;
     border-radius: 10px;
@@ -297,41 +303,48 @@ footer {
 
 /* mostrador de detalles de peliculas */
 
-.modal {
-    display: block; /* Hidden by default  none tiene que seer*/
-    position: relative; /* Stay in place  aqui tiene que ir fixed */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4);
-    /* Black w/ opacity */
-}
+
+
+
 
 .modalDialog {
-    /* position: fixed; */
+    
+ 
+    display:none;
+    position: fixed;
+    z-index: 999;
+    overflow: auto;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.8);
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    z-index: 99999;
-    /* opacity:0; */
-    -webkit-transition: opacity 100ms ease-in;
-    -moz-transition: opacity 100ms ease-in;
-    transition: opacity 100ms ease-in;
-    pointer-events: none;
-    box-shadow: 2px 2px 5px #999;
+    animation-name:modalDialog ;
+    animation-duration:1s;
 }
-.modalDialog:target {
+
+
+@keyframes modalDialog{
+
+    from{top:-330px;opacity:0;}
+    to{top:0; opacity: 1;}
+}
+
+
+.modalDialog-details{
+
+    transition: 2s;
+    transform: translate();
+}
+
+
+/*.modalDialog:target {
     opacity:1;
     pointer-events: auto;
-}
+}*/
+
+
+
 .modalDialog > section {
     max-width: 90vw;
     width: 80vw;
@@ -339,10 +352,12 @@ footer {
     margin: 2% auto;
     padding: 10px;
     border-radius: 10px;
-    background: rgb(46, 13, 46);
     border: 2.5px solid rgb(83, 52, 77);
+    background-image: linear-gradient(45deg, #8f2c0e 0%, #1a0504 100%);
 }
+
 .modalDialog .close {
+    
     font-family: Arial, Helvetica, sans-serif;
     background:#00283A;
     color: #fff;
@@ -362,9 +377,13 @@ footer {
     -webkit-box-shadow: 1px 1px 3px #000;
     box-shadow: 1px 1px 3px #000;
     padding-top: 10px;
+    
 }
+
 .close:hover {
+
     background-color:#edb709;
+    cursor: pointer;
 }
 
 /* dentro de los detalles de peliculas*/
@@ -431,6 +450,8 @@ footer {
 .pRealseDate {
     margin-bottom: 0.4em;
 }
+
+
 
 
 
@@ -504,10 +525,14 @@ footer {
 
 .tabs-panel.active {
     display: block;
-   /*  display: grid; */
+    display: grid; 
     grid-template-columns: repeat(auto-fill, minmax(11.875em,1fr));
     row-gap: 1.875em;
     column-gap: 1.100em;
     justify-items: center;
 }
 
+#grafics{
+    display:none;
+
+}

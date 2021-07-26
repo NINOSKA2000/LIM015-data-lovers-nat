@@ -38,6 +38,21 @@ const boton = document.querySelector("#btn");
 const mensaje = document.querySelector("#mensaje-error");
 const selectedSpecie = document.getElementById("filter-by-species");
 const alphabetSelect = document.getElementById("order-by-alphabet");
+const modalDialog = document.querySelector(".modalDialog");
+const close = document.getElementById("close");
+
+const titleFilms = document.querySelector(".titleFilms");
+const pDescription = document.querySelector(".pDescription");
+const rtScore = document.querySelector(".rtScore");
+const pirector = document.querySelector(".pDirector");
+const pProducer = document.querySelector(".pProducer");
+const pictureMovie = document.querySelector(".pictureMovie");
+const pRealseDate = document.querySelector(".RealseDate");
+
+
+const CardPeopleFilm = document.getElementById("panel-1");
+const CardLocationFilm = document.getElementById("panel-2");
+const CardVehiclesFilm = document.getElementById("panel-3");
 
 
 
@@ -55,7 +70,8 @@ function mostrarFilms(dato) {
     cardAnime.className = "container-card-anime";
     cardAnime.innerHTML = `
     <div class="container-card" id="${dato.id}">
-        <div> <img  src= '${dato.poster}' class="image-poster"></img> </div>
+        
+        <div> <img  src= '${dato.poster}' class="image-poster"></img> </div>       
         <div class="post-dato">
             <span class="title">${dato.title}</span><br>
             <span class="release">${"(" + dato.release_date + ")"}</span>
@@ -63,28 +79,38 @@ function mostrarFilms(dato) {
     </div>`;
 
     containerAnimes.appendChild(cardAnime);
-
     cardAnime.addEventListener("click", ()=>{
 
     let idFilms = cardAnime.firstElementChild.id;
-
+    modalDialog.style.display="block";
     most(idFilms);
-
+    
     });
+
     return cardAnime;
 }
 
 
-const titleFilms = document.querySelector(".titleFilms");
-const pDescription = document.querySelector(".pDescription");
-const rtScore = document.querySelector(".rtScore");
-const pirector = document.querySelector(".pDirector");
-const pProducer = document.querySelector(".pProducer");
-const pictureMovie = document.querySelector(".pictureMovie");
 
-const CardPeopleFilm = document.getElementById("panel-1");
-const CardLocationFilm = document.getElementById("panel-2");
-const CardVehiclesFilm = document.getElementById("panel-3");
+
+//mostrador de modal 
+
+close.addEventListener("click", function (){
+    console.log("cerrar");
+    modalDialog.style.display="none";
+
+    
+});
+
+
+
+window.addEventListener("click",function (e){
+    //console.log(e.target);
+    if(e.target==modalDialog){
+        modalDialog.style.display="none";
+    }
+})
+
 
 
 
@@ -99,9 +125,11 @@ function most(idFilms) {
     titleFilms.innerHTML= dataFiltrado[0].title;
     pictureMovie.src= dataFiltrado[0].poster;
     pDescription.innerHTML= dataFiltrado[0].description;
-    rtScore.innerHTML= dataFiltrado[0].rt_score;
-    pirector.innerHTML= dataFiltrado[0].director;
-    pProducer.innerHTML= dataFiltrado[0].producer;
+    rtScore.innerHTML= `<img   src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
+    <strong>Rt_Score:</strong> <span>` + dataFiltrado[0].rt_score+ "</span> </div>";
+    pirector.innerHTML= "<strong>Director: </strong>"+ dataFiltrado[0].director;
+    pProducer.innerHTML= "<strong>Producer: </strong>"+dataFiltrado[0].producer;
+    pRealseDate.innerHTML= "<strong>Date: </strong>"+dataFiltrado[0].release_date;
 
     //data de  sus personajes
 
@@ -203,6 +231,9 @@ boton.addEventListener('click', movieSearch);
 
 
 
+
+
+
 // function de mostrador de personajes
 
 
@@ -233,6 +264,7 @@ function peopleShow (contenedor, datatotal) {
         contenedor.appendChild(detallesPersonajes);
     })
 }
+
 
 
 
@@ -344,3 +376,66 @@ const removeActiveClass = (el) => {
 		item.find((e) => e.classList.contains("active")).classList.remove("active");
 	});
 };
+
+
+
+// graficos estadisticos 
+/*
+
+let ctx = document.getElementById('myChart').getContext('2d');
+let myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+chart();
+
+*/
+
+
+
+
+
+// modal de detalles mostrador 
+
+
+
+
+
+
+/*
+abrir.addEventListener("click", function (){
+    modalDialog.display="block";
+
+
+}) */
