@@ -3,21 +3,28 @@ import {  filterByDirector ,filterByCharteres,filterById, orderByYears,orderAlph
 
 import data from "./data/ghibli/ghibli.js";
 
-const navMenu = document.querySelector('.nav-menu');
 
 addEventListener('DOMContentLoaded', () => {
     /*---- botón de hamburguesa ---- */
     const botonMenu = document.querySelector('.btn-menu');
+    const navMenu = document.querySelector('.nav-menu');
     botonMenu.addEventListener('click', () => {
         navMenu.classList.toggle('show');
     })
+    /*---- botón de collection ---- */
+    const showCollection = document.querySelector('#show-collection');
+    showCollection.addEventListener('click', () => {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.classList.remove('show');
+    })
+    /*---- botón de characters ---- */
+    const showCharacters = document.querySelector('#show-characters');
+    showCharacters.addEventListener('click', () => {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.classList.remove('show');
+    })
 })
 
-const navLink = document.querySelector(".nav-link");
-navLink.addEventListener('click', () => {
-    navMenu.classList.remove("show");
-    //navMenu.classList.add("oculto");
-})
 
 
 
@@ -38,6 +45,10 @@ const alphabetSelect = document.getElementById("order-by-alphabet");
 
 let dataFilms = data.films;
 dataFilms.forEach(mostrarFilms);
+
+const movie = document.getElementById("animes");
+movie.addEventListener("click", mostrarFilms);
+//const containerAnimes = document.getElementById("container-animes");
 
 function mostrarFilms(dato) {
     const cardAnime = document.createElement("div");

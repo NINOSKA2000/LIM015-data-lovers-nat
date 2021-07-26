@@ -47,15 +47,15 @@ body {
 .nav-menu.show {
     top: 100px;
 }
-.nav-menu.oculto {
+/* .nav-menu.oculto {
     left: -200px;
-}
+} */
 .nav-list {
     padding: 0px 50px 0px 0px;
 }
 .nav-link {
     display: block;
-    padding: 20px 30px;
+    padding: 10px 20px;
     color: white;
     text-decoration: none;
     font-size: 20px;
@@ -70,6 +70,7 @@ body {
     display: flex;
     flex-grow: 1;
     background-image: url(./img/studio_ghibli.jpg);
+    background-attachment: fixed;
     background-size: cover;
     position: relative;
     width: 100%;
@@ -228,7 +229,7 @@ option {
     display: flex;
     justify-content: center;
     flex-flow: column wrap;
-    margin-top: 8em;
+    margin-top: 7em;
 }
 .container-filter-characters > *,
 .menuBar > * {
@@ -311,7 +312,7 @@ footer {
 }
 
 .modalDialog {
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     right: 0;
     bottom: 0;
@@ -320,7 +321,7 @@ footer {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     z-index: 99999;
-    opacity:0;
+    /* opacity:0; */
     -webkit-transition: opacity 100ms ease-in;
     -moz-transition: opacity 100ms ease-in;
     transition: opacity 100ms ease-in;

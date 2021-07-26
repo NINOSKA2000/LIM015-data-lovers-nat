@@ -7,7 +7,6 @@ export const filterByDirector = (valor, data) => {
 }
 
 
-
 export const filterById = (valor, data) => {
 
     let dataFiltrado= data.filter(item =>item.id==valor);
@@ -15,57 +14,43 @@ export const filterById = (valor, data) => {
 }
 
 
-
-
-
-
-
-
 export const filterByCharteres = (valor, data) => {
 
     let datoCharacter = data.filter((character) => character.specie.includes(valor));
-        return datoCharacter;
+    return datoCharacter;
 }
 
 
+export const orderByYears = (opcion,data) => {
+    if(opcion=="falling") {
 
+        const yearsPeli = data.sort((unNumero, otroNumero) => otroNumero.release_date - unNumero.release_date);
+        return yearsPeli;
 
+    } else if (opcion=="upward") {
 
-export const orderByYears = (opcion,data) => { 
-
-   if(opcion=="falling") {
-    const yearsPeli = data.sort((unNumero, otroNumero) => otroNumero.release_date - unNumero.release_date);
-   
+    const yearsPeli = data.sort((unNumero, otroNumero) => unNumero.release_date - otroNumero.release_date);
     return yearsPeli;
-        }
-   else if (opcion=="upward") {
-                
-   const yearsPeli = data.sort((unNumero, otroNumero) => unNumero.release_date - otroNumero.release_date);
-     return yearsPeli;
-            
-        }
-        
+
+    }
 }
 
 
-export const orderAlphabetPerson = (valor,data) => {  
+export const orderAlphabetPerson = (valor,data) => {
 
     if(valor == "A-Z") {
-        
+
         let dataCharacter = data.sort((unaLetra, otraLetra) => unaLetra.name.localeCompare(otraLetra.name));
         return dataCharacter;
-    }
-    else if (valor == "Z-A") {
-        
+    } else if (valor == "Z-A") {
+
         let dataCharacter = data.sort((unaLetra, otraLetra) => otraLetra.name.localeCompare(unaLetra.name));
         return dataCharacter;
     }
 }
 
 
-
-
-export const SearchByTitle = (input,data) => { 
+export const SearchByTitle = (input,data) => {
 
     const texto = input.value.toLowerCase();
     let nombreTitle = data.filter((nombre) => nombre.title.toLowerCase().indexOf(texto) !== -1);
@@ -74,7 +59,7 @@ export const SearchByTitle = (input,data) => {
 }
 
 
-export const joinCharacter = (data) => { 
+export const joinCharacter = (data) => {
 
     const dataPersonajes = data.map((e) => e.people);
 
