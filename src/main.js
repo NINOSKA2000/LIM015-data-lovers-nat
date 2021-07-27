@@ -1,4 +1,8 @@
 
+/*import { Chart } from 'chart.js';*/
+
+
+
 import {  filterByDirector ,filterByCharteres,filterById, orderByYears,orderAlphabetPerson, SearchByTitle , joinCharacter} from './data.js';
 
 import data from "./data/ghibli/ghibli.js";
@@ -16,7 +20,7 @@ addEventListener('DOMContentLoaded', () => {
 const navLink = document.querySelector(".nav-link");
 navLink.addEventListener('click', () => {
     navMenu.classList.remove("show");
-    //navMenu.classList.add("oculto");
+    /*navMenu.classList.add("oculto");*/
 })
 
 
@@ -33,6 +37,11 @@ const selectedSpecie = document.getElementById("filter-by-species");
 const alphabetSelect = document.getElementById("order-by-alphabet");
 const modalDialog = document.querySelector(".modalDialog");
 const close = document.getElementById("close");
+const ranking = document.getElementById("ranking");
+const grafics = document.getElementById("grafics");
+const menuBar = document.querySelector('.menuBar');
+const list = document.querySelector('#list');
+
 
 const titleFilms = document.querySelector(".titleFilms");
 const pDescription = document.querySelector(".pDescription");
@@ -46,6 +55,7 @@ const pRealseDate = document.querySelector(".RealseDate");
 const CardPeopleFilm = document.getElementById("panel-1");
 const CardLocationFilm = document.getElementById("panel-2");
 const CardVehiclesFilm = document.getElementById("panel-3");
+
 
 
 
@@ -301,19 +311,11 @@ function vehiclesShow (contenedor, datatotal) {
             <div class="detailsLocation">
                 <p ><b>Name:</b> ${ele.name}</p>
                 <p ><b>vehicle class:</b> ${ele.vehicle_class}</p>
-                <p ><b>Pilots:</b> ${ele.pilot}</p>
-
-
+                <p ><b>Pilots:</b> ${ele.pilot.name}</p>
             </div>
         </div>`;
-        
-        console.log(ele);
-        let pilote=ele.pilot;
-        console.log(pilote.name);
-        console.log(pilote.map((e)=>e.name));
-        
 
-        
+            
         contenedor.appendChild(detallesPersonajes);
     })
 }
@@ -345,9 +347,9 @@ function filterEspecies() {
     containerCharacters.innerHTML="";
     let valorEspecie = selectedSpecie.value;
     const totalPersonajes = joinCharacter(dataFilms);  
-    console.log(totalPersonajes);
+    //console.log(totalPersonajes);
     let datoCharacter = filterByCharteres(valorEspecie,totalPersonajes);
-    console.log(datoCharacter);
+    //console.log(datoCharacter);
     peopleShow(containerCharacters,datoCharacter);
     //datoCharacter.forEach((showDataCharacters));
 }
@@ -396,40 +398,50 @@ const removeActiveClass = (el) => {
 // graficos estadisticos 
 
 
+ranking.addEventListener("click", function (e){
+    e.preventDefault();
+const containerAnimes = document.getElementById("container-animes");
+    containerAnimes.style.display="none";
+    menuBar.style.display="none";
+    list.style.display="none";
+    grafics.style.display="block";
+});
+
+
 const dataFilmsOrder= orderByYears("rtScore",data.films);
-console.log(dataFilmsOrder);
-
 let dataTitle = dataFilmsOrder.map(e=>e.title);
-
-console.log(dataTitle);
-
 let dataFilmsRt = (dataFilmsOrder.map(e=>e.rt_score)).map(Number);
 
-console.log(dataFilmsRt);
 
-
- let ctx= document.getElementById("myChart").getContext("2d");
-
+let ctx= document.getElementById("myChart").getContext("2d");
  totalCaseschart(ctx)
  
-
-
 function totalCaseschart(ctx){
 
-   
-   const mychart = new Chart (ctx, {
+
+const mychart = new Chart (ctx, {
         type:'line',
         data: {
             labels: dataTitle,
+            borderColor: 'red',
             datasets: [{
                 label:'peliculas taquilleras',
                 data: dataFilmsRt,
             }]
         },
+        Options:{
+            title:{
+                text:'highest grossing movies from gibli studio',
+                fontSiZe:10,
+                padding:10,
+                fontColor:'#12619c'
+        }
+    }
+
         
     });
 
-    mychart();
+    
 
 }
 

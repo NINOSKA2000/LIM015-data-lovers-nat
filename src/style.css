@@ -119,10 +119,30 @@ input[type="text"]:focus {
     color: white;
     cursor: pointer;
 }
+
+
+.container-mensaje-error {
+    display: flex;
+    position: relative;
+    color:#edb709;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: auto;
+
+    
+}
+
+
 .mensaje-error {
     display: none;
     position: relative;
+    color:#D6E8EB;
+    padding: auto;
+
+
 }
+
 .mensaje-correcto {
     display: block;
     position: relative;
@@ -200,6 +220,13 @@ option {
 }
 .characters-home {
     display: none;
+    
+    background-image: url(./img/animacionTotoro2.gif);
+    background-attachment: fixed;
+    background-position-x: center;
+    background-size: cover;
+
+    
 }
 .image-poster {
     width: 100%;
@@ -244,13 +271,14 @@ option {
     border-radius: 10px;
     padding: 0.50em;
     color: black;
-    font-size: 1em;
+    font-size: 1.5em;
     border: 1px solid #eee;
     outline: none;
 }
 .filter-box:focus {
     border: 2px solid orange;
     border-radius: 10px;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
 
 .container-characters , #showCharacters {
