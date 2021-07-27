@@ -74,8 +74,10 @@
         grid-template-columns: 1fr;
     }
 }
-/* @media (min-width: 480px) and (max-width: 1200px) {
+ /*@media (min-width: 480px) and (max-width: 1200px) {
     .containerModal {
     flex-flow: column wrap;
     }
 } */
+
+
