@@ -1,6 +1,4 @@
 
-/*import { Chart } from 'chart.js';*/
-
 import {  filterByDirector ,filterByCharteres,filterById, orderByYears,orderAlphabetPerson, SearchByTitle , joinCharacter} from './data.js';
 
 import data from "./data/ghibli/ghibli.js";
@@ -420,7 +418,7 @@ function totalCaseschart(ctx){
 
    
    const mychart = new Chart (ctx, {
-        type:'bar',
+        type:'line',
         data: {
             labels: dataTitle,
             datasets: [{
