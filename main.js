@@ -1,4 +1,5 @@
 
+import { Chart } from 'chart.js';
 import {  filterByDirector ,filterByCharteres,filterById, orderByYears,orderAlphabetPerson, SearchByTitle , joinCharacter} from './data.js';
 
 import data from "./data/ghibli/ghibli.js";
@@ -394,45 +395,47 @@ const removeActiveClass = (el) => {
 
 
 // graficos estadisticos 
+
 /*
+const dataFilmsOrder= orderByYears("rtScore",data.films);
+console.log(dataFilmsOrder);
 
-let ctx = document.getElementById('myChart').getContext('2d');
-let myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
+let dataTitle = dataFilmsOrder.map(e=>e.title);
 
-chart();
+console.log(dataTitle);
+
+let dataFilmsRt = (dataFilmsOrder.map(e=>e.rt_score)).map(Number);
+
+console.log(dataFilmsRt);
+
+ let ctx= document.getElementById('#myChart').getContext('2d');
+
+ totalCaseschart(ctx)
+
+
+function totalCaseschart(ctx){
+
+    let x = [];
+    let y = [];
+    x.push(dataTitle);
+    y.push(dataFilmsRt);
+
+
+   const mychart = new Chart (ctx, {
+        type:'bar',
+        data: {
+            labels: x,
+            datasets: [{
+                label:'peliculas taquilleras',
+                data: y,
+            }]
+        },
+        
+    });
+
+    mychart();
+
+}
 
 */
 
@@ -440,16 +443,8 @@ chart();
 
 
 
-// modal de detalles mostrador 
 
 
 
 
 
-
-/*
-abrir.addEventListener("click", function (){
-    modalDialog.display="block";
-
-
-}) */

@@ -532,6 +532,7 @@ footer {
 }
 
 #grafics{
-    display:none;
+    
+    display:block;
 
 }

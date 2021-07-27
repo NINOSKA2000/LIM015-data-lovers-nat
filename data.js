@@ -35,19 +35,39 @@ export const filterByCharteres = (valor, data) => {
 
 export const orderByYears = (opcion,data) => { 
 
+    if(opcion=="rtScore") {
+
+        const dataFilmsOrder= data.sort((unNumero, otroNumero) => unNumero.rt_score -otroNumero.rt_score);
+        return dataFilmsOrder;
+            }
+
    if(opcion=="falling") {
     const yearsPeli = data.sort((unNumero, otroNumero) => otroNumero.release_date - unNumero.release_date);
    
     return yearsPeli;
         }
+
+
+
+
    else if (opcion=="upward") {
                 
    const yearsPeli = data.sort((unNumero, otroNumero) => unNumero.release_date - otroNumero.release_date);
      return yearsPeli;
             
         }
+
+        
+
+
         
 }
+
+
+
+
+
+
 
 
 export const orderAlphabetPerson = (valor,data) => {  
