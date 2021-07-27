@@ -1,4 +1,6 @@
 
+/*import { Chart } from 'chart.js';*/
+
 import {  filterByDirector ,filterByCharteres,filterById, orderByYears,orderAlphabetPerson, SearchByTitle , joinCharacter} from './data.js';
 
 import data from "./data/ghibli/ghibli.js";
@@ -202,23 +204,14 @@ const movieSearch = () => {
 
     if(inputTexto === "") {
         mensaje.classList.add("mensaje-correcto");
-        //alert("completa el buscador");
-        //console.log(texto);
     }
 
     let nombreTitle =SearchByTitle (inputTexto,dataFilms);
 
-
-    //let ji=SearchByTitle ("Whisper",dataFilms);
-
-    // console.log(ji);
-
-
-
     if(nombreTitle.length > 0) {
         limpieza();
         nombreTitle.forEach(mostrarFilms);
-        //console.log(nombreTitle);
+        
     }
     else {
         limpieza();
@@ -340,8 +333,6 @@ function mostrarPersonajes() {
     
    let totalPersonajes = joinCharacter(dataFilms);
 
-    console.log(totalPersonajes);
-
     peopleShow(containerCharacters,totalPersonajes);
      //totalPersonajes.forEach(showDataCharacters);
 }
@@ -405,62 +396,53 @@ const removeActiveClass = (el) => {
 
 
 // graficos estadisticos 
-/*
-
-let ctx = document.getElementById('myChart').getContext('2d');
-let myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-
-chart();
-
-*/
 
 
+const dataFilmsOrder= orderByYears("rtScore",data.films);
+console.log(dataFilmsOrder);
+
+let dataTitle = dataFilmsOrder.map(e=>e.title);
+
+console.log(dataTitle);
+
+let dataFilmsRt = (dataFilmsOrder.map(e=>e.rt_score)).map(Number);
+
+console.log(dataFilmsRt);
 
 
+ let ctx= document.getElementById("myChart").getContext("2d");
 
-// modal de detalles mostrador 
+ totalCaseschart(ctx)
+ 
+
+
+function totalCaseschart(ctx){
+
+   
+   const mychart = new Chart (ctx, {
+        type:'bar',
+        data: {
+            labels: dataTitle,
+            datasets: [{
+                label:'peliculas taquilleras',
+                data: dataFilmsRt,
+            }]
+        },
+        
+    });
+
+    mychart();
+
+}
 
 
 
 
 
 
-/*
-abrir.addEventListener("click", function (){
-    modalDialog.display="block";
 
 
-}) */
+
+
+
+

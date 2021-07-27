@@ -83,6 +83,16 @@ describe('filterById', () => {
 
 describe('orderByYears', () => {
 
+
+  it("if the option is 'rtScore ' , it returns ordered from highest to lowest RtScore ", () => {
+    expect(typeof orderByYears).toBe('function');
+  });
+   
+  const arrayRtScore= [{ title: "Castle in the Sky" , rt_score: "89"} ,{  title: "Whisper of the Heart", rt_score: "10" }];     
+  expect(orderByYears("rtScore", arrayRtScore)).toEqual([{ title: "Whisper of the Heart", rt_score: "10" } ,{ title: "Castle in the Sky" , rt_score: "89"}]);
+  
+
+
   
   it("if the option is 'falling ' , it returns ordered from highest to lowest years ", () => {
     expect(typeof orderByYears).toBe('function');
