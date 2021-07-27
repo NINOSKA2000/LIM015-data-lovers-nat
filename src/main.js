@@ -4,26 +4,6 @@ import {  filterByDirector ,filterByCharteres,filterById, orderByYears,orderAlph
 import data from "./data/ghibli/ghibli.js";
 
 
-addEventListener('DOMContentLoaded', () => {
-    /*---- botón de hamburguesa ---- */
-    const botonMenu = document.querySelector('.btn-menu');
-    const navMenu = document.querySelector('.nav-menu');
-    botonMenu.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
-    })
-    /*---- botón de collection ---- */
-    const showCollection = document.querySelector('#show-collection');
-    showCollection.addEventListener('click', () => {
-        const navMenu = document.querySelector('.nav-menu');
-        navMenu.classList.remove('show');
-    })
-    /*---- botón de characters ---- */
-    const showCharacters = document.querySelector('#show-characters');
-    showCharacters.addEventListener('click', () => {
-        const navMenu = document.querySelector('.nav-menu');
-        navMenu.classList.remove('show');
-    })
-})
 
 
 
@@ -439,3 +419,25 @@ abrir.addEventListener("click", function (){
 
 
 }) */
+
+
+addEventListener('DOMContentLoaded', () => {
+    /*---- botón de hamburguesa ---- */
+    const botonMenu = document.querySelector('.btn-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    botonMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    })
+    /*---- botón de collection ---- */
+    const showCollection = document.querySelector('#animes');
+    showCollection.addEventListener('click', () => {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.classList.remove('show');
+    })
+    /*---- botón de characters ---- */
+    const showCharacters = document.querySelector('#personajes');
+    showCharacters.addEventListener('click', () => {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.classList.remove('show');
+    })
+})

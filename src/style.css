@@ -248,6 +248,7 @@ option {
     font-size: 1em;
     border: 1px solid #eee;
     outline: none;
+    cursor: pointer;
 }
 .filter-box:focus {
     border: 2px solid orange;
