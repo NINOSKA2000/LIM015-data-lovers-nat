@@ -1,10 +1,11 @@
 
+/*import { Chart } from 'chart.js';*/
+
+
+
 import {  filterByDirector ,filterByCharteres,filterById, orderByYears,orderAlphabetPerson, SearchByTitle , joinCharacter} from './data.js';
 
 import data from "./data/ghibli/ghibli.js";
-
-
-
 
 
 
@@ -20,6 +21,11 @@ const selectedSpecie = document.getElementById("filter-by-species");
 const alphabetSelect = document.getElementById("order-by-alphabet");
 const modalDialog = document.querySelector(".modalDialog");
 const close = document.getElementById("close");
+const ranking = document.getElementById("ranking");
+const grafics = document.getElementById("grafics");
+const menuBar = document.querySelector('.menuBar');
+const list = document.querySelector('#list');
+
 
 const titleFilms = document.querySelector(".titleFilms");
 const pDescription = document.querySelector(".pDescription");
@@ -33,6 +39,7 @@ const pRealseDate = document.querySelector(".RealseDate");
 const CardPeopleFilm = document.getElementById("panel-1");
 const CardLocationFilm = document.getElementById("panel-2");
 const CardVehiclesFilm = document.getElementById("panel-3");
+
 
 
 
@@ -76,7 +83,7 @@ function mostrarFilms(dato) {
 //mostrador de modal 
 
 close.addEventListener("click", function (){
-    console.log("cerrar");
+    //console.log("cerrar");
     modalDialog.style.display="none";
 
     
@@ -100,6 +107,9 @@ function most(idFilms) {
 
     //identifique la pelicula seleccionada
     let dataFiltrado = filterById(idFilms,dataFilms);
+    //console.log(dataFiltrado);
+    
+    
 
     // muestre los datos en mi modal de detalles
     titleFilms.innerHTML= dataFiltrado[0].title;
@@ -108,14 +118,18 @@ function most(idFilms) {
     rtScore.innerHTML= `<img   src="https://cuevana3.io/wp-content/plugins/wp-postratings/images/stars/rating_on.gif"></img>
     <strong>Rt_Score:</strong> <span>` + dataFiltrado[0].rt_score+ "</span> </div>";
     pirector.innerHTML= "<strong>Director: </strong>"+ dataFiltrado[0].director;
+    
     pProducer.innerHTML= "<strong>Producer: </strong>"+dataFiltrado[0].producer;
     pRealseDate.innerHTML= "<strong>Date: </strong>"+dataFiltrado[0].release_date;
 
     //data de  sus personajes
 
     let dataPerson=dataFiltrado[0].people;
+    
+
     CardPeopleFilm.innerHTML="";
     peopleShow(CardPeopleFilm,dataPerson);
+    
 
     //data de location
 
@@ -182,20 +196,18 @@ input.addEventListener("keyup", () => {
 
 const movieSearch = () => {
 
-    const texto = input.value.toLowerCase();
+    const inputTexto = input.value;
 
-    if(texto === "") {
+    if(inputTexto === "") {
         mensaje.classList.add("mensaje-correcto");
-        //alert("completa el buscador");
-        //console.log(texto);
     }
 
-    let nombreTitle =SearchByTitle (input,dataFilms);
+    let nombreTitle =SearchByTitle (inputTexto,dataFilms);
 
     if(nombreTitle.length > 0) {
         limpieza();
         nombreTitle.forEach(mostrarFilms);
-        //console.log(nombreTitle);
+        
     }
     else {
         limpieza();
@@ -274,6 +286,8 @@ function locationShow (contenedor, datatotal) {
 
 function vehiclesShow (contenedor, datatotal) {
 
+    
+
     datatotal.forEach((ele)=> {
         const detallesPersonajes = document.createElement("div");
         detallesPersonajes.className = "container-card-characters";
@@ -285,10 +299,11 @@ function vehiclesShow (contenedor, datatotal) {
             <div class="detailsLocation">
                 <p ><b>Name:</b> ${ele.name}</p>
                 <p ><b>vehicle class:</b> ${ele.vehicle_class}</p>
-                <p ><b>Pilots:</b> ${ele.pilot}</p>
-
+                <p ><b>Pilots:</b> ${ele.pilot.name}</p>
             </div>
         </div>`;
+
+            
         contenedor.appendChild(detallesPersonajes);
     })
 }
@@ -298,7 +313,9 @@ function mostrarPersonajes() {
     charactersHome.style.display="block";
     limpieza();
     document.querySelector(".home").style.display = "none";
-    let totalPersonajes = joinCharacter(dataFilms);
+    
+   let totalPersonajes = joinCharacter(dataFilms);
+
     peopleShow(containerCharacters,totalPersonajes);
      //totalPersonajes.forEach(showDataCharacters);
 }
@@ -312,8 +329,10 @@ selectedSpecie.addEventListener("change", filterEspecies);
 function filterEspecies() {
     containerCharacters.innerHTML="";
     let valorEspecie = selectedSpecie.value;
-    const totalPersonajes = joinCharacter(dataFilms);
+    const totalPersonajes = joinCharacter(dataFilms);  
+    //console.log(totalPersonajes);
     let datoCharacter = filterByCharteres(valorEspecie,totalPersonajes);
+    //console.log(datoCharacter);
     peopleShow(containerCharacters,datoCharacter);
     //datoCharacter.forEach((showDataCharacters));
 }
@@ -360,65 +379,67 @@ const removeActiveClass = (el) => {
 
 
 // graficos estadisticos 
-/*
 
-let ctx = document.getElementById('myChart').getContext('2d');
-let myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
+
+ranking.addEventListener("click", function (e){
+    e.preventDefault();
+const containerAnimes = document.getElementById("container-animes");
+    containerAnimes.style.display="none";
+    menuBar.style.display="none";
+    list.style.display="none";
+    grafics.style.display="block";
 });
 
-chart();
 
-*/
-
-
-
+const dataFilmsOrder= orderByYears("rtScore",data.films);
+let dataTitle = dataFilmsOrder.map(e=>e.title);
+let dataFilmsRt = (dataFilmsOrder.map(e=>e.rt_score)).map(Number);
 
 
-// modal de detalles mostrador 
+let ctx= document.getElementById("myChart").getContext("2d");
+ totalCaseschart(ctx)
+ 
+function totalCaseschart(ctx){
+
+
+const mychart = new Chart (ctx, {
+        type:'line',
+        data: {
+            labels: dataTitle,
+            borderColor: 'red',
+            datasets: [{
+                label:'peliculas taquilleras',
+                data: dataFilmsRt,
+            }]
+        },
+        Options:{
+            title:{
+                text:'highest grossing movies from gibli studio',
+                fontSiZe:10,
+                padding:10,
+                fontColor:'#12619c'
+        }
+    }
+
+        
+    });
+
+    
+
+}
 
 
 
 
 
 
-/*
-abrir.addEventListener("click", function (){
-    modalDialog.display="block";
 
 
-}) */
+
+
+
+
+
 
 
 addEventListener('DOMContentLoaded', () => {

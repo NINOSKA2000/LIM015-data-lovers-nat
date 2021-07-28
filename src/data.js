@@ -21,19 +21,43 @@ export const filterByCharteres = (valor, data) => {
 }
 
 
-export const orderByYears = (opcion,data) => {
-    if(opcion=="falling") {
 
-        const yearsPeli = data.sort((unNumero, otroNumero) => otroNumero.release_date - unNumero.release_date);
-        return yearsPeli;
 
-    } else if (opcion=="upward") {
+export const orderByYears = (opcion,data) => { 
 
-    const yearsPeli = data.sort((unNumero, otroNumero) => unNumero.release_date - otroNumero.release_date);
+    if(opcion=="rtScore") {
+
+        const dataFilmsOrder= data.sort((unNumero, otroNumero) => unNumero.rt_score -otroNumero.rt_score);
+        return dataFilmsOrder;
+            }
+
+   if(opcion=="falling") {
+    const yearsPeli = data.sort((unNumero, otroNumero) => otroNumero.release_date - unNumero.release_date);
+   
     return yearsPeli;
+        }
 
-    }
+
+
+
+   else if (opcion=="upward") {
+                
+   const yearsPeli = data.sort((unNumero, otroNumero) => unNumero.release_date - otroNumero.release_date);
+     return yearsPeli;
+            
+        }
+
+        
+
+
+        
 }
+
+
+
+
+
+
 
 
 export const orderAlphabetPerson = (valor,data) => {
@@ -52,19 +76,31 @@ export const orderAlphabetPerson = (valor,data) => {
 
 export const SearchByTitle = (input,data) => {
 
-    const texto = input.value.toLowerCase();
+    const texto = input.toLowerCase();
+
+    if(input==="" || input===0 || data===null  || data===0)
+    {
+        throw new TypeError("can not be empty, enter values");
+    }
+
+
+
     let nombreTitle = data.filter((nombre) => nombre.title.toLowerCase().indexOf(texto) !== -1);
 
     return nombreTitle;
+
 }
 
 
 export const joinCharacter = (data) => {
 
     const dataPersonajes = data.map((e) => e.people);
-
     const totalPersonajes = dataPersonajes.reduce((acc, el) => acc.concat(el), []);
+    
     return totalPersonajes;
+
+    
+
 
 }
 

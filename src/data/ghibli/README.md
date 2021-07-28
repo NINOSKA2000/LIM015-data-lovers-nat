@@ -1,4 +1,5 @@
-# Studio Ghibli
+## PROTECTO "Studio Ghibli"
+
 
 Studio Ghibli es un estudio de animación japonés, conocido por sus largometrajes
 animados como **Mi vecino Totoro**, **El viaje de Chihiro** o

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="media.css">
     <script src="https://kit.fontawesome.com/2d09545b84.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.js" ></script>
   </head>
   <body >
     <header class="header">
@@ -28,7 +27,7 @@
             <a id="personajes" href="#" class="nav-link">Characters</a>
           </li>
           <li class="nav-list">
-            <a id="locaciones" href="#" class="nav-link">Ranking</a>
+            <a id="ranking" href="#grafics" class="nav-link">Ranking</a>
           </li>
         </ul>
       </nav>
@@ -42,7 +41,7 @@
         </div>-->
         <div class="containerMenuBar">
           <div class="list-title" id="list">
-            <p>List studio Ghibli</p>
+            <p id="list">List studio Ghibli</p>
           </div>
           <div class="menuBar">
             <div class="filter-movie">
@@ -184,8 +183,8 @@
     <section id="modalPersonajes">
 
     </section>
-
-    <section id="grafics" >
+    
+    <section id="grafics" style="display: none;">
       <canvas id="myChart" width="400" height="400">
 
       </canvas>
@@ -194,7 +193,8 @@
 
     <script src="https://kit.fontawesome.com/a07f6fa05e.js" crossorigin="anonymous"></script>
     <script src="main.js" type="module"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.js"></script>
+   
   </body>
 
   <footer>
