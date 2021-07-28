@@ -6,7 +6,7 @@ import {  filterByDirector ,filterByCharteres ,filterById, orderByYears ,orderAl
 
 
 
-//filtrado por directores 
+//filtrado por directores
 
 
 describe('filterByDirector', () => {

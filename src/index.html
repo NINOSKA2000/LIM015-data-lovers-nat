@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="media.css">
     <script src="https://kit.fontawesome.com/2d09545b84.js" crossorigin="anonymous"></script>
   </head>
@@ -21,10 +21,10 @@
         </span>
         <ul class="nav-menu show">
           <li class="nav-list">
-            <a href="index.html" class="nav-link">Collection</a>
+            <a id="animes" href="index.html" class="nav-link">Collection</a>
           </li>
           <li class="nav-list">
-            <a id="personajes" href="#characters" class="nav-link">Characters</a>
+            <a id="personajes" href="#" class="nav-link">Characters</a>
           </li>
           <li class="nav-list">
             <a id="ranking" href="#grafics" class="nav-link">Ranking</a>
@@ -32,7 +32,7 @@
         </ul>
       </nav>
     </header>
-    <main class="home-main" >
+    <main class="home-main" id="home-main">
 
       <!-- SECCION COLLECTION -->
       <section class="home" id="home">
@@ -64,7 +64,7 @@
             </div>
             <div class="search">
               <input type="text" name="search" id="search" placeholder="Search movie titles">
-              <input type="button" class="button"  id="btn" value="Buscar"> 
+              <input type="button" class="button"  id="btn" value="Buscar">
               <div id="mensaje-error" class="mensaje-error">Enter text in the movie search engine </div>
             </div>
           </div>
@@ -120,20 +120,20 @@
     <!--modal de detalles de peliculas -->
 
     <section  class="modalDialog">
-      
+
       <section  class="sectionModal">
         <div title="Close" id="close" class="close">CLOSE</div>
         <div class="containerModal">
           <div class="image">
             <figure>
-              <img  class="pictureMovie"> 
+              <img  class="pictureMovie">
             </figure>
           </div>
             <div class="modalDetails">
             <div class="titleFilms">title</div>
             <div class="pDescription">description</div>
-            <div class="rtScore" > 
-             </div>
+            <div class="rtScore" >
+            </div>
               <li class="pDirector">
                 <p><strong>Director:</strong> director</p>
               </li>
@@ -191,7 +191,6 @@
 
     </section>
 
-             
     <script src="https://kit.fontawesome.com/a07f6fa05e.js" crossorigin="anonymous"></script>
     <script src="main.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.js"></script>
@@ -200,7 +199,7 @@
 
   <footer>
     <div class="footer-text">
-        <p>© 2021 Made by Gina &#38 Nina</p>
+        <p>© 2021 By Gina &#38 Nina</p>
     </div>
 </footer>
 </html>
