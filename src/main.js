@@ -7,22 +7,6 @@ import {  filterByDirector ,filterByCharteres,filterById, orderByYears,orderAlph
 
 import data from "./data/ghibli/ghibli.js";
 
-const navMenu = document.querySelector('.nav-menu');
-
-addEventListener('DOMContentLoaded', () => {
-    /*---- botón de hamburguesa ---- */
-    const botonMenu = document.querySelector('.btn-menu');
-    botonMenu.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
-    })
-})
-
-const navLink = document.querySelector(".nav-link");
-navLink.addEventListener('click', () => {
-    navMenu.classList.remove("show");
-    /*navMenu.classList.add("oculto");*/
-})
-
 
 
 const contenedorFiltrado = document.getElementById("root");
@@ -63,6 +47,10 @@ const CardVehiclesFilm = document.getElementById("panel-3");
 
 let dataFilms = data.films;
 dataFilms.forEach(mostrarFilms);
+
+const movie = document.getElementById("animes");
+movie.addEventListener("click", mostrarFilms);
+//const containerAnimes = document.getElementById("container-animes");
 
 function mostrarFilms(dato) {
     const cardAnime = document.createElement("div");
@@ -321,11 +309,6 @@ function vehiclesShow (contenedor, datatotal) {
 }
 
 
-
-
-
-
-
 function mostrarPersonajes() {
     charactersHome.style.display="block";
     limpieza();
@@ -339,7 +322,7 @@ function mostrarPersonajes() {
 
 
 
-//funcion de filtrar  data personajes 
+//funcion de filtrar  data personajes
 
 selectedSpecie.addEventListener("change", filterEspecies);
 
@@ -356,7 +339,7 @@ function filterEspecies() {
 
 
 
-// funcion de ordenar personajes alfabeticamente 
+// funcion de ordenar personajes alfabeticamente
 
 alphabetSelect.addEventListener("change", orderAlphabet);
 
@@ -370,10 +353,10 @@ function orderAlphabet() {
 }
 
 
-//mostrador de detalles de tabs 
+//mostrador de detalles de tabs
 
 const [tabs, tabsPanels] = [
-    
+
 	Array.from(document.querySelectorAll(".tabs li")),
 	Array.from(document.querySelectorAll(".tabs-panel"))
 ];
@@ -456,3 +439,26 @@ const mychart = new Chart (ctx, {
 
 
 
+
+
+
+addEventListener('DOMContentLoaded', () => {
+    /*---- botón de hamburguesa ---- */
+    const botonMenu = document.querySelector('.btn-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    botonMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+    })
+    /*---- botón de collection ---- */
+    const showCollection = document.querySelector('#animes');
+    showCollection.addEventListener('click', () => {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.classList.remove('show');
+    })
+    /*---- botón de characters ---- */
+    const showCharacters = document.querySelector('#personajes');
+    showCharacters.addEventListener('click', () => {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.classList.remove('show');
+    })
+})
