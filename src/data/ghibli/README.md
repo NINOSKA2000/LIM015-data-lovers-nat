@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # PROYECTO DATA DEL STUDIO GHIBLI
 
@@ -142,3 +143,5 @@ Agregar las secciones
 * [x] UI: Permite filtrar data en base a una condición.
 * [x] UI: Es _responsive_.
 
+=======
+>>>>>>> upstream/nuevaRama4

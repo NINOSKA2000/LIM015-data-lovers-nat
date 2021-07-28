@@ -568,7 +568,42 @@ footer {
 }
 
 #grafics{
-    
     display:block;
 
+}
+
+#grafics{
+    display:block;
+    background-image: url(./img/animacionBlanco4.gif);
+    background-attachment:fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+
+#graficsSpan{
+
+    font-size:30px;
+    font-weight:900;
+    text-align: center;
+    word-wrap: break-word;
+    align-items: center;
+    margin: 4rem;
+
+
+    
+
+}
+
+
+.graficsDiv{
+
+    font-size:15px;
+    color:black;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 400;
+    padding: 1px;
+    margin:5rem;
+    word-wrap: break-word;
 }
