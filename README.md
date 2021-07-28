@@ -22,30 +22,31 @@ Toda esta información puede ser manejada por los usuarios, de tal manera que pu
 
 ## 1. detalles  de la página web
 
-[![studio-ghibli-web.png](https://i.postimg.cc/sxVNkv46/studio-ghibli-web.png)](https://postimg.cc/47SPt4MV)
+![paginaWeb1.JPG](./src/img/paginaWeb1.JPG)
+
+visita nuestra página en este enlace  [data Gibli pages ](https://ninoska2000.github.io/LIM015-data-lovers-nat/src/) del proyecto.
 
 
-visita nuestra página en este enlace  [data Gibli pages ](https://www.figma.com/file/PN8jlkOYqR1WgQxhK68JBv/EstudioGibli) del proyecto.
+la página Web elaborada consta de secciones de header, donde se muestra las opciones de tres páginas ,de tal manera que el usuario puede visualizar las colecciones del estudio GHibli mediante la opción de Collection , con la opción de characteres puede visualizar todo los personajes del estudio Ghibli y la última opción de Rankings, Puedes visualizar los Rankings de peliculas mas taquilleras del estudio Ghibli .
 
+las páginas Collection y charecters cuenta dentro de ella con opciones de filtrado, ordenado y/o búsqueda de tal manera que pueda facilitar al usuario su facil navegación .
 
-
-El proyecto estuvo pensado para lucir como una página web de Studio Ghibli. Esta cuenta con una seccion de header, donde vemos el logo y un paisaje que refleja las animaciones del estudio. También se proporcionó una sección para el creador Hayao Miyazaki, con una frase inspiradora. Y finalmente la sección de películas, en donde se puede ordenar, filtrar, buscar y acceder a la información de las animaciones. Así mismo, se pueden ver los personajes, locaciones y vehículos de cada película.
-
-
-👉 Aqui te presentamos el prototipo de Figma del proyecto  [Figma](https://www.figma.com/file/PN8jlkOYqR1WgQxhK68JBv/EstudioGibli) del proyecto.
 
 
 ## 2. Historias de usuario
-Las historias de usuario son descripciones cortas y simples de una característica contada desde la perspectiva de un usuario.
 
-[![historiausuario.png](https://i.postimg.cc/K8y9sKzB/historiausuario.png)](https://postimg.cc/qzjXNv2v)
+Una historia de usuario es una explicación general e informal de una función de software escrita desde la perspectiva del usuario final. Su propósito es articular cómo proporcionará una función de software valor al cliente.
 
+En este proyecto abordamos 4 Historias de usuarios:
 
+[![historiaS.JPG](./src/img/historiaS.JPG) ](https://lucid.app/lucidspark/52e68895-0b35-4aff-8231-835cb66cf848/edit?referringApp=slack&shared=true#)
 
 
 ## 3. Prototipo de alta fidelidad
 
-[![dibujo.png](https://i.postimg.cc/654SPJhJ/dibujo.png)](https://postimg.cc/6ywY7PSY)
+
+
+👉 Aqui te presentamos el prototipo de Figma del proyecto  [Figma](https://www.figma.com/file/PN8jlkOYqR1WgQxhK68JBv/EstudioGibli) del proyecto.
 
 ## 4. Plan de acción
 1. Conocer al usuario
@@ -78,8 +79,7 @@ Agregar las secciones
 * Sección de Vehiculos: Mostrar los personajes en divs.
 
 
-
-## 5. Enlaces 
+ 
 
 
 
