@@ -423,10 +423,14 @@ footer {
     position: relative;
 }
 
+
+
 .pictureMovie {
     box-shadow: 2px  2px 2px 2px rgb(109, 14, 104);
     border-radius: 10px;
+    
 }
+
 
 .sectionModal .titleFilms {
     font-size: 1.5rem;
