@@ -1,5 +1,5 @@
 
-# PROYECTO DATA DEL STUDIO GHIBLI 
+# PROYECTO DATA DEL STUDIO GHIBLI
 
 Este PROYECTO es una página web  interactiva que va dirigido a cinefilos y faánitcos del ánime que desean visualizar detalles  de sus peliculas favoritas del estudio Ghibli , que es el estudio japonés de animación, considerado por la crítica especializada y muchos cinéfilos como uno de los mejores estudios de animación del mundo en la actualidad.
 

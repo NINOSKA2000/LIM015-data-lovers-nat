@@ -215,19 +215,19 @@ option {
     transition: all 0.5s ease;
 }
 .container-card:hover,
-.card-characters:hover{
+.card-characters:hover,
+.card-location:hover,
+.card-vehicles:hover {
     box-shadow: 0 0 0.5rem gray;
     transform: translateY(-3%);
 }
 .characters-home {
     display: none;
-    
     background-image: url(./img/animacionTotoro2.gif);
     background-attachment: fixed;
     background-position-x: center;
     background-size: cover;
 
-    
 }
 .image-poster {
     width: 100%;
@@ -297,7 +297,9 @@ option {
 
 
 
-.card-characters {
+.card-characters,
+.card-location,
+.card-vehicles {
     width: 11.875em;
     border-radius: 10px;
     box-shadow: 0 0 0.313rem white;
@@ -310,7 +312,7 @@ option {
     border-top-right-radius: 10px;
     object-fit: cover;
 }
-.description {
+.description, .detailsLocation {
     background-color: #232323;
     color: white;
     font-size: 1rem;
