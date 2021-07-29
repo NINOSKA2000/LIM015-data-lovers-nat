@@ -1,8 +1,6 @@
 
 /*import { Chart } from 'chart.js';*/
 
-
-
 import {  filterByDirector ,filterByCharteres,filterById, orderByYears,orderAlphabetPerson, SearchByTitle , joinCharacter} from './data.js';
 
 import data from "./data/ghibli/ghibli.js";
@@ -260,7 +258,6 @@ function peopleShow (contenedor, datatotal) {
 
 
 
-
 function locationShow (contenedor, datatotal) {
 
     datatotal.forEach((ele)=> {
@@ -391,7 +388,7 @@ const containerAnimes = document.getElementById("container-animes");
 });
 
 
-
+/*
 
 const dataFilmsOrder= orderByYears("rtScore",data.films);
 let dataTitle = dataFilmsOrder.map(e=>e.title);
@@ -441,6 +438,7 @@ const mychart = new Chart (ctx, {
 }
 
 
+*/
 
 
 
