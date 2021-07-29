@@ -388,7 +388,6 @@ const containerAnimes = document.getElementById("container-animes");
 });
 
 
-/*
 
 const dataFilmsOrder= orderByYears("rtScore",data.films);
 let dataTitle = dataFilmsOrder.map(e=>e.title);
@@ -436,16 +435,6 @@ const mychart = new Chart (ctx, {
     
 
 }
-
-
-*/
-
-
-
-
-
-
-
 
 
 
