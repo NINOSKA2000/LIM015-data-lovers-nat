@@ -38,8 +38,6 @@ export const orderByYears = (opcion,data) => {
         }
 
 
-
-
    else if (opcion=="upward") {
                 
    const yearsPeli = data.sort((unNumero, otroNumero) => unNumero.release_date - otroNumero.release_date);
@@ -52,11 +50,6 @@ export const orderByYears = (opcion,data) => {
 
         
 }
-
-
-
-
-
 
 
 
